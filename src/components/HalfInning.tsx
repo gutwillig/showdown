@@ -21,7 +21,6 @@ export function HalfInning() {
     currentResult,
     eventLog,
     rollPitch,
-    rollSwing,
     advanceHalfInning,
     startHalfInning,
     fastForwardInning
@@ -41,8 +40,8 @@ export function HalfInning() {
   if (!cards) return <div className="loading">Loading cards...</div>;
 
   const canPlay = selectedPitcher && lineup.length >= 1;
-  const showPitchButton = phase === 'select' && canPlay && inningState.outs < 3;
-  const showSwingButton = phase === 'swing';
+  const showRollButton = phase === 'select' && canPlay && inningState.outs < 3;
+  const isRolling = phase === 'pitch' || phase === 'swing';
   const showNextButton = phase === 'result' && inningState.outs < 3;
   const isInningComplete = phase === 'inningComplete' || inningState.outs >= 3;
 
@@ -154,15 +153,13 @@ export function HalfInning() {
 
             {/* Controls */}
             <div className="controls" style={{ marginTop: '1rem' }}>
-              {showPitchButton && (
+              {showRollButton && (
                 <button className="btn btn-primary" onClick={rollPitch}>
-                  PITCH
+                  ROLL
                 </button>
               )}
-              {showSwingButton && (
-                <button className="btn btn-primary" onClick={rollSwing}>
-                  SWING
-                </button>
+              {isRolling && (
+                <div className="rolling-indicator">Rolling...</div>
               )}
               {showNextButton && (
                 <button className="btn btn-primary" onClick={advanceHalfInning}>

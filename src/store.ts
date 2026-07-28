@@ -151,23 +151,41 @@ export const useGameStore = create<GameState>((set, get) => {
         phase: 'pitch'
       });
 
-      // Auto-advance to swing phase after animation
+      // Auto-advance through phases with animation timing
       setTimeout(() => {
         set({ phase: 'swing' });
+
+        // Auto-advance to result after swing animation
+        setTimeout(() => {
+          set({ phase: 'result' });
+
+          // Update stats and log
+          get().updateMatchupStats(result);
+          get().addToEventLog(result);
+
+          // Update inning state if in half-inning mode
+          if (mode === 'halfInning') {
+            const newState = applyAtBatResult(get().inningState, result, lineup.length);
+            set({ inningState: newState });
+
+            if (newState.outs >= 3) {
+              set({ phase: 'inningComplete' });
+            }
+          }
+        }, 600);
       }, 800);
     },
 
     rollSwing: () => {
+      // Legacy - now handled automatically by rollPitch
       const { currentResult, mode, inningState, lineup } = get();
       if (!currentResult) return;
 
       set({ phase: 'result' });
 
-      // Update stats and log
       get().updateMatchupStats(currentResult);
       get().addToEventLog(currentResult);
 
-      // Update inning state if in half-inning mode
       if (mode === 'halfInning') {
         const newState = applyAtBatResult(inningState, currentResult, lineup.length);
         set({ inningState: newState });

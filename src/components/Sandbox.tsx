@@ -22,7 +22,6 @@ export function Sandbox() {
     eventLog,
     matchupStats,
     rollPitch,
-    rollSwing,
     startNewAtBat,
     runQuickBatch
   } = useGameStore();
@@ -42,8 +41,8 @@ export function Sandbox() {
   if (!cards) return <div className="loading">Loading cards...</div>;
 
   const canPlay = selectedPitcher && selectedHitter;
-  const showPitchButton = phase === 'select' && canPlay;
-  const showSwingButton = phase === 'swing';
+  const showRollButton = phase === 'select' && canPlay;
+  const isRolling = phase === 'pitch' || phase === 'swing';
   const showNewAtBatButton = phase === 'result';
 
   return (
@@ -127,15 +126,13 @@ export function Sandbox() {
 
           {/* Controls */}
           <div className="controls">
-            {showPitchButton && (
+            {showRollButton && (
               <button className="btn btn-primary" onClick={rollPitch}>
-                PITCH
+                ROLL
               </button>
             )}
-            {showSwingButton && (
-              <button className="btn btn-primary" onClick={rollSwing}>
-                SWING
-              </button>
+            {isRolling && (
+              <div className="rolling-indicator">Rolling...</div>
             )}
             {showNewAtBatButton && (
               <div style={{ display: 'flex', gap: '1rem' }}>

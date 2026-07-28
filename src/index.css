@@ -1530,6 +1530,15 @@ body {
   font-style: italic;
 }
 
+.rolling-indicator {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
 /* Lineup preview */
 .lineup-preview {
   background: var(--bg-surface);
