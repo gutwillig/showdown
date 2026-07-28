@@ -6,6 +6,7 @@
 import { useMultiplayerStore } from '../multiplayer/gameState';
 import { getTotalScore } from '../multiplayer/protocol';
 import { Card } from './Card';
+import { Scoreboard } from './Scoreboard';
 
 export function MultiplayerGame() {
   const {
@@ -66,7 +67,6 @@ export function MultiplayerGame() {
 
   // Scores
   const scores = getTotalScore(lineScore);
-  const currentInningRuns = inningState.runs;
 
   // Game over
   if (gamePhase === 'gameOver' || winner) {
@@ -153,45 +153,18 @@ export function MultiplayerGame() {
       )}
 
       {/* Scoreboard */}
-      <div className="scoreboard">
-        <div className="scoreboard-teams">
-          <div className={`scoreboard-team ${!isTopHalf ? 'batting' : ''}`}>
-            <span className="team-name">{awayName}</span>
-            <span className="team-score">{scores.away}</span>
-          </div>
-          <div className="scoreboard-inning">
-            <span className="inning-half">{isTopHalf ? '▲' : '▼'}</span>
-            <span className="inning-num">{inning}</span>
-          </div>
-          <div className={`scoreboard-team ${isTopHalf ? '' : 'batting'}`}>
-            <span className="team-name">{homeName}</span>
-            <span className="team-score">{scores.home}</span>
-          </div>
-        </div>
-
-        <div className="scoreboard-situation">
-          <div className="outs-display">
-            {[0, 1, 2].map(i => (
-              <div key={i} className={`out-dot ${i < inningState.outs ? 'active' : ''}`} />
-            ))}
-            <span className="outs-label">Outs</span>
-          </div>
-
-          <div className="mini-diamond">
-            <div className={`mini-base second ${inningState.bases.second ? 'occupied' : ''}`} />
-            <div className="mini-diamond-row">
-              <div className={`mini-base third ${inningState.bases.third ? 'occupied' : ''}`} />
-              <div className={`mini-base first ${inningState.bases.first ? 'occupied' : ''}`} />
-            </div>
-            <div className="mini-base home" />
-          </div>
-
-          <div className="inning-runs">
-            <span className="runs-value">{currentInningRuns}</span>
-            <span className="runs-label">This inning</span>
-          </div>
-        </div>
-      </div>
+      <Scoreboard
+        awayName={awayName}
+        homeName={homeName}
+        awayScore={scores.away}
+        homeScore={scores.home}
+        inning={inning}
+        isTopHalf={isTopHalf}
+        outs={inningState.outs}
+        bases={inningState.bases}
+        awayLineScore={lineScore.away}
+        homeLineScore={lineScore.home}
+      />
 
       {/* Matchup */}
       <div className="matchup-area">
