@@ -6,6 +6,7 @@
 import { useEffect, useState } from 'react';
 import { useGameStore } from './store';
 import { useMultiplayerStore } from './multiplayer/gameState';
+import { useExhibitionStore, ExhibitionSetup, ExhibitionGame } from './exhibition';
 import { parseHash, Route } from './multiplayer/router';
 import { loadCards } from './data/cards';
 import { Home } from './components/Home';
@@ -18,6 +19,7 @@ import './index.css';
 function App() {
   const { cards, setCards, mode, setMode } = useGameStore();
   const { gamePhase, connectionStatus, errorMessage, roomCode } = useMultiplayerStore();
+  const exhibitionPhase = useExhibitionStore(state => state.gamePhase);
   const [route, setRoute] = useState<Route>(() => parseHash(window.location.hash));
 
   // Load cards on mount
@@ -50,8 +52,14 @@ function App() {
     window.location.hash = '#/solo';
   };
 
+  // Handle exhibition mode
+  const handleSelectExhibition = () => {
+    window.location.hash = '#/exhibition';
+  };
+
   // Handle back to home
   const handleBackToHome = () => {
+    useExhibitionStore.getState().goToSetup();
     window.location.hash = '#/';
   };
 
@@ -100,6 +108,27 @@ function App() {
       return <Lobby cards={cards} />;
     }
 
+    // Exhibition mode
+    if (window.location.hash.includes('exhibition')) {
+      if (exhibitionPhase === 'setup') {
+        return <ExhibitionSetup cards={cards} onBack={handleBackToHome} />;
+      }
+      return (
+        <div className="exhibition-container">
+          <header className="header">
+            <button className="back-btn" onClick={handleBackToHome}>
+              ← Back
+            </button>
+            <div className="logo">SHOWDOWN DIGITAL</div>
+            <div className="mode-label">Exhibition</div>
+          </header>
+          <main className="main">
+            <ExhibitionGame />
+          </main>
+        </div>
+      );
+    }
+
     // Solo mode
     if (route.page === 'home' && window.location.hash.includes('solo')) {
       return (
@@ -132,7 +161,7 @@ function App() {
     }
 
     // Home screen (default)
-    return <Home onSelectSoloMode={handleSelectSoloMode} />;
+    return <Home onSelectSoloMode={handleSelectSoloMode} onSelectExhibition={handleSelectExhibition} />;
   };
 
   return (

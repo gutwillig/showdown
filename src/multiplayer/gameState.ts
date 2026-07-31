@@ -20,7 +20,8 @@ import {
 } from './protocol';
 import { broadcast, joinRoom, leaveRoom, PresenceState } from './connection';
 import { createRNG, rollD20 } from '../engine/rng';
-import { resolveAtBat, applyAtBatResult } from '../engine/engine';
+import { applyAtBatResult, determineAdvantage, lookupChart, getOutcomeDescription } from '../engine/engine';
+import { advanceRunners } from '../engine/baserunning';
 import { navigate } from './router';
 
 // Storage keys for reconnection
@@ -508,7 +509,9 @@ export const useMultiplayerStore = create<MultiplayerState>((set, get) => ({
       awayBatterIndex: 0,
       phase: 'pitching',
       waitingForPlayerId: homePlayerId, // Home team pitches first (fielding)
+      partialAtBat: null,
       lastAtBat: null,
+      animatingDice: null,
       winner: null
     };
 
@@ -568,86 +571,155 @@ export const useMultiplayerStore = create<MultiplayerState>((set, get) => ({
     const pitcher = pitchingRoster.pitcher;
 
     const battingPlayerId = battingTeamIsHome ? gameState.homePlayerId : gameState.awayPlayerId;
+    const pitchingPlayerId = battingTeamIsHome ? gameState.awayPlayerId : gameState.homePlayerId;
 
     let newState = { ...gameState };
 
+    // Animation duration for dice roll (matches exhibition mode)
+    const ANIMATION_DURATION = 1500;
+
     if (action === 'pitch' && gameState.phase === 'pitching') {
-      // Pitch roll - now waiting for batter to swing
-      newState = {
-        ...newState,
+      // Roll the pitch dice
+      const pitchRoll = rollD20(rng);
+      const pitchTotal = pitchRoll + pitcher.control;
+      const advantageHolder = determineAdvantage(pitchRoll, pitcher.control, batter.onBase);
+
+      // Determine who clicks SWING based on advantage
+      const swingPlayerId = advantageHolder === 'pitcher' ? pitchingPlayerId : battingPlayerId;
+
+      // First, broadcast rolling phase
+      const rollingState = {
+        ...gameState,
         seq: gameState.seq + 1,
-        phase: 'swinging',
-        waitingForPlayerId: battingPlayerId
+        phase: 'pitchRolling' as const,
+        animatingDice: pitchRoll
       };
 
-    } else if (action === 'swing' && gameState.phase === 'swinging') {
-      // Resolve the full at-bat
-      const result = resolveAtBat(pitcher, batter, rng, gameState.inningState.bases, gameState.inningState.outs);
+      set({ gameState: rollingState });
+      broadcast({ type: 'stateSnapshot', state: rollingState, lastEvent: null });
 
-      // Apply result to inning state
-      const newInningState = applyAtBatResult(
-        gameState.inningState as unknown as import('../data/types').HalfInningState,
-        result,
-        9
-      );
-
-      // Update batter index for batting team
-      const newBatterIndex = (batterIndex + 1) % 9;
-
-      newState = {
-        ...newState,
-        seq: gameState.seq + 1,
-        phase: 'result',
-        inningState: {
-          outs: newInningState.outs,
-          bases: newInningState.bases,
-          runs: newInningState.runs,
-          hits: newInningState.hits,
-          batterIndex: newBatterIndex
-        },
-        lastAtBat: result,
-        homeBatterIndex: battingTeamIsHome ? newBatterIndex : gameState.homeBatterIndex,
-        awayBatterIndex: !battingTeamIsHome ? newBatterIndex : gameState.awayBatterIndex
-      };
-
-      // Check for walk-off
-      if (isWalkOff(newState)) {
-        newState = {
-          ...newState,
-          phase: 'gameOver',
-          winner: gameState.homePlayerId
+      // After animation, broadcast final pitched state
+      setTimeout(() => {
+        const finalState: FullGameState = {
+          ...rollingState,
+          seq: rollingState.seq + 1,
+          phase: 'pitched',
+          waitingForPlayerId: swingPlayerId,
+          partialAtBat: {
+            pitchRoll,
+            pitchTotal,
+            advantageHolder
+          },
+          animatingDice: null
         };
 
-        // Add final inning runs to line score
-        if (battingTeamIsHome) {
-          newState.lineScore.home = [...newState.lineScore.home, newState.inningState.runs];
-        } else {
-          newState.lineScore.away = [...newState.lineScore.away, newState.inningState.runs];
+        set({ gameState: finalState });
+        localStorage.setItem(STORAGE_KEY_GAME_STATE, JSON.stringify(finalState));
+        broadcast({ type: 'stateSnapshot', state: finalState, lastEvent: null });
+      }, ANIMATION_DURATION);
+
+      return; // Early return - don't continue to broadcast below
+
+    } else if (action === 'swing' && gameState.phase === 'pitched' && gameState.partialAtBat) {
+      // Roll the swing dice
+      const swingRoll = rollD20(rng);
+
+      // First, broadcast rolling phase
+      const rollingState = {
+        ...gameState,
+        seq: gameState.seq + 1,
+        phase: 'swingRolling' as const,
+        animatingDice: swingRoll
+      };
+
+      set({ gameState: rollingState });
+      broadcast({ type: 'stateSnapshot', state: rollingState, lastEvent: null });
+
+      // After animation, resolve outcome and broadcast result
+      setTimeout(() => {
+        const currentState = get().gameState;
+        if (!currentState || currentState.phase !== 'swingRolling') return;
+
+        // Resolve outcome using the advantaged player's chart
+        const chart = gameState.partialAtBat!.advantageHolder === 'pitcher' ? pitcher.chart : batter.chart;
+        const outcome = lookupChart(chart, swingRoll);
+        const { runsScored } = advanceRunners(gameState.inningState.bases, gameState.inningState.outs, outcome);
+
+        const result = {
+          pitchRoll: gameState.partialAtBat!.pitchRoll,
+          pitchTotal: gameState.partialAtBat!.pitchTotal,
+          advantageHolder: gameState.partialAtBat!.advantageHolder,
+          swingRoll,
+          outcome,
+          runsScored,
+          description: getOutcomeDescription(outcome, runsScored)
+        };
+
+        // Apply result to inning state
+        const newInningState = applyAtBatResult(
+          gameState.inningState as unknown as import('../data/types').HalfInningState,
+          result,
+          9
+        );
+
+        // Update batter index for batting team
+        const newBatterIndex = (batterIndex + 1) % 9;
+
+        let finalState: FullGameState = {
+          ...rollingState,
+          seq: rollingState.seq + 1,
+          phase: 'result',
+          inningState: {
+            outs: newInningState.outs,
+            bases: newInningState.bases,
+            runs: newInningState.runs,
+            hits: newInningState.hits,
+            batterIndex: newBatterIndex
+          },
+          partialAtBat: null,
+          lastAtBat: result,
+          animatingDice: null,
+          homeBatterIndex: battingTeamIsHome ? newBatterIndex : gameState.homeBatterIndex,
+          awayBatterIndex: !battingTeamIsHome ? newBatterIndex : gameState.awayBatterIndex
+        };
+
+        // Check for walk-off
+        if (isWalkOff(finalState)) {
+          finalState = {
+            ...finalState,
+            phase: 'gameOver',
+            winner: gameState.homePlayerId
+          };
+
+          // Add final inning runs to line score
+          if (battingTeamIsHome) {
+            finalState.lineScore.home = [...finalState.lineScore.home, finalState.inningState.runs];
+          } else {
+            finalState.lineScore.away = [...finalState.lineScore.away, finalState.inningState.runs];
+          }
         }
-      }
+
+        set({ gameState: finalState });
+        localStorage.setItem(STORAGE_KEY_GAME_STATE, JSON.stringify(finalState));
+        broadcast({ type: 'stateSnapshot', state: finalState, lastEvent: result });
+
+        // Auto-advance after result display
+        if (finalState.phase === 'result' && !finalState.winner) {
+          setTimeout(() => get().advanceGame(), 2500);
+        }
+
+        if (finalState.winner) {
+          broadcast({ type: 'gameOver', state: finalState, winner: finalState.winner });
+        }
+      }, ANIMATION_DURATION);
+
+      return; // Early return - don't continue to broadcast below
     }
 
+    // Fallback for unexpected states (shouldn't normally reach here)
     set({ gameState: newState });
     localStorage.setItem(STORAGE_KEY_GAME_STATE, JSON.stringify(newState));
-
-    broadcast({
-      type: 'stateSnapshot',
-      state: newState,
-      lastEvent: newState.lastAtBat
-    });
-
-    // Auto-advance after result display
-    if (newState.phase === 'result' && !newState.winner) {
-      setTimeout(() => get().advanceGame(), 1500);
-    }
-
-    if (newState.winner) {
-      broadcast({
-        type: 'gameOver',
-        state: newState,
-        winner: newState.winner
-      });
-    }
+    broadcast({ type: 'stateSnapshot', state: newState, lastEvent: newState.lastAtBat });
   },
 
   advanceGame: () => {
@@ -715,13 +787,13 @@ export const useMultiplayerStore = create<MultiplayerState>((set, get) => ({
         inning: nextInning,
         isTopHalf: nextIsTop,
         inningState: createInningHalfState(nextBatterIndex),
-        phase: 'pitching',
+        phase: 'halfInningEnd',
         // Fielding team (opposite of batting) pitches
         waitingForPlayerId: nextIsTop ? gameState.homePlayerId : gameState.awayPlayerId,
-        lastAtBat: null
+        partialAtBat: null,
+        lastAtBat: null,
+        animatingDice: null
       };
-
-      newState.phase = 'halfInningEnd';
 
       set({ gameState: newState });
       localStorage.setItem(STORAGE_KEY_GAME_STATE, JSON.stringify(newState));
@@ -743,7 +815,7 @@ export const useMultiplayerStore = create<MultiplayerState>((set, get) => ({
       }, 2000);
 
     } else {
-      // Continue at-bat, back to pitching phase
+      // Continue to next batter, back to pitching phase
       // Fielding team pitches
       const pitchingPlayerId = gameState.isTopHalf ? gameState.homePlayerId : gameState.awayPlayerId;
 
@@ -751,12 +823,15 @@ export const useMultiplayerStore = create<MultiplayerState>((set, get) => ({
         ...newState,
         seq: gameState.seq + 1,
         phase: 'pitching',
-        waitingForPlayerId: pitchingPlayerId
+        waitingForPlayerId: pitchingPlayerId,
+        partialAtBat: null,
+        lastAtBat: null,
+        animatingDice: null
       };
 
       set({ gameState: newState });
       localStorage.setItem(STORAGE_KEY_GAME_STATE, JSON.stringify(newState));
-      broadcast({ type: 'stateSnapshot', state: newState, lastEvent: gameState.lastAtBat });
+      broadcast({ type: 'stateSnapshot', state: newState, lastEvent: null });
     }
   }
 }));

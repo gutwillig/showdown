@@ -10,9 +10,10 @@ import { setPlayerName } from '../multiplayer/protocol';
 
 interface HomeProps {
   onSelectSoloMode: (mode: 'sandbox' | 'halfInning') => void;
+  onSelectExhibition?: () => void;
 }
 
-export function Home({ onSelectSoloMode }: HomeProps) {
+export function Home({ onSelectSoloMode, onSelectExhibition }: HomeProps) {
   const [showJoinForm, setShowJoinForm] = useState(false);
   const [joinCode, setJoinCode] = useState('');
   const [name, setName] = useState(useMultiplayerStore.getState().playerName);
@@ -58,6 +59,11 @@ export function Home({ onSelectSoloMode }: HomeProps) {
               <div className="mode-icon">3</div>
               <div className="mode-name">Half-Inning</div>
               <div className="mode-desc">Play through a full half-inning</div>
+            </button>
+            <button className="mode-card" onClick={onSelectExhibition}>
+              <div className="mode-icon">9</div>
+              <div className="mode-name">Exhibition</div>
+              <div className="mode-desc">Play a full 3-inning game</div>
             </button>
           </div>
         </div>

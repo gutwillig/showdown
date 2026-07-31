@@ -18,6 +18,7 @@ export function getSupabase(): SupabaseClient {
   }
 
   if (!supabaseClient) {
+    console.log('Creating Supabase client with URL:', SUPABASE_URL);
     supabaseClient = createClient(SUPABASE_URL!, SUPABASE_ANON_KEY!, {
       realtime: {
         params: {

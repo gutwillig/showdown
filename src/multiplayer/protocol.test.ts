@@ -73,7 +73,9 @@ describe('Walk-Off Detection', () => {
     awayBatterIndex: 0,
     phase: 'pitching',
     waitingForPlayerId: 'host',
+    partialAtBat: null,
     lastAtBat: null,
+    animatingDice: null,
     winner: null,
     ...overrides
   });
@@ -150,7 +152,9 @@ describe('Skip Bottom Half', () => {
     awayBatterIndex: 0,
     phase: 'pitching',
     waitingForPlayerId: 'host',
+    partialAtBat: null,
     lastAtBat: null,
+    animatingDice: null,
     winner: null,
     ...overrides
   });

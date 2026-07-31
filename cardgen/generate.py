@@ -3,6 +3,9 @@
 Card Generation Pipeline for Showdown Digital
 
 Fetches MLB stats from MLB Stats API and generates Showdown-style cards.
+Primary path: Showdown Bot library (section 3.2)
+Fallback path: Closed-form formula (section 3.3)
+
 Outputs cards.json for the web app to consume.
 
 Usage:
@@ -13,9 +16,10 @@ import json
 import os
 import argparse
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
 import requests
 
+# Import fallback formula module
 from formula import (
     generate_hitter_card,
     generate_pitcher_card,
@@ -23,10 +27,23 @@ from formula import (
     compute_league_constants_pass2
 )
 
+# Import Showdown Bot integration (primary path)
+from showdown_bot import (
+    build_hitter_stats_dict,
+    build_pitcher_stats_dict,
+    generate_hitter_card_via_bot,
+    generate_pitcher_card_via_bot,
+    is_available as showdown_bot_available,
+    get_commit_sha as get_showdown_bot_commit
+)
+
 # Configuration
-DEFAULT_SEASON = 2024  # Use 2024 as the most recent complete season
+DEFAULT_SEASON = 2025  # Use 2025 as the most recent complete season
 MIN_PA = 400  # Minimum plate appearances for hitters
 MIN_IP = 100  # Minimum innings pitched for starters
+
+# Generation path tracking
+GENERATION_ERRORS: List[Dict] = []  # Track per-player errors
 
 # Cache directory
 CACHE_DIR = os.path.join(os.path.dirname(__file__), '.cache')
@@ -292,86 +309,207 @@ def compute_pitcher_percentile_ranks(pitchers: List[dict]) -> List[dict]:
     return sorted_pitchers
 
 
-def build_hitter_card(hitter: dict, league_constants: dict) -> dict:
-    """Convert a hitter dict to a card dict."""
+def build_hitter_card(hitter: dict, league_constants: dict, season: int) -> dict:
+    """
+    Convert a hitter dict to a card dict.
+    Primary path: Showdown Bot library
+    Fallback: Closed-form formula
+    """
+    global GENERATION_ERRORS
+
     pa = hitter['pa']
     singles = hitter['h'] - hitter['doubles'] - hitter['triples'] - hitter['hr']
+    source = 'fallback'
+    speed = None
+    points = None
+    positions = []
+    on_base = hitter['on_base']  # Default from percentile ranking
+    chart = None
 
-    player_stats = {
-        'on_base': hitter['on_base'],
-        'obp': hitter['obp'],
-        'bb_rate': hitter['bb'] / pa if pa > 0 else 0.08,
-        'single_rate': singles / pa if pa > 0 else 0.15,
-        'double_rate': hitter['doubles'] / pa if pa > 0 else 0.04,
-        'triple_rate': hitter['triples'] / pa if pa > 0 else 0.005,
-        'hr_rate': hitter['hr'] / pa if pa > 0 else 0.03,
-        'k_rate': hitter['so'] / pa if pa > 0 else 0.2,
-        'sb': hitter['sb']
-    }
+    # Try Showdown Bot first (primary path)
+    if showdown_bot_available():
+        try:
+            stats_dict = build_hitter_stats_dict(
+                name=hitter['name'],
+                team=hitter['team'],
+                year=str(season),
+                pa=pa,
+                ab=hitter['ab'],
+                h=hitter['h'],
+                doubles=hitter['doubles'],
+                triples=hitter['triples'],
+                hr=hitter['hr'],
+                bb=hitter['bb'],
+                so=hitter['so'],
+                hbp=hitter.get('hbp', 0),
+                sb=hitter.get('sb', 0),
+                bats=hitter.get('bats', 'R'),
+                games=hitter.get('games', 100)
+            )
 
-    card_result = generate_hitter_card(player_stats, league_constants)
+            bot_result, error = generate_hitter_card_via_bot(stats_dict, year=str(season))
+
+            if error:
+                GENERATION_ERRORS.append({
+                    'player': hitter['name'],
+                    'type': 'hitter',
+                    'error': error
+                })
+                # Fall through to fallback
+            else:
+                chart = bot_result['chart']
+                on_base = bot_result['onBase'] if bot_result['onBase'] else on_base
+                speed = bot_result.get('speed')
+                points = bot_result.get('points')
+                positions = bot_result.get('positions', [])
+                source = 'showdownbot'
+        except Exception as e:
+            GENERATION_ERRORS.append({
+                'player': hitter['name'],
+                'type': 'hitter',
+                'error': str(e)
+            })
+
+    # Fallback to closed-form formula (section 3.3)
+    if chart is None:
+        player_stats = {
+            'on_base': hitter['on_base'],
+            'obp': hitter['obp'],
+            'bb_rate': hitter['bb'] / pa if pa > 0 else 0.08,
+            'single_rate': singles / pa if pa > 0 else 0.15,
+            'double_rate': hitter['doubles'] / pa if pa > 0 else 0.04,
+            'triple_rate': hitter['triples'] / pa if pa > 0 else 0.005,
+            'hr_rate': hitter['hr'] / pa if pa > 0 else 0.03,
+            'k_rate': hitter['so'] / pa if pa > 0 else 0.2,
+            'sb': hitter['sb']
+        }
+
+        card_result = generate_hitter_card(player_stats, league_constants)
+        chart = card_result['chart']
+        source = 'fallback'
 
     return {
         'id': f"h-{hitter['id']}",
         'name': hitter['name'],
         'team': hitter['team'],
-        'bats': 'R',
-        'onBase': hitter['on_base'],
-        'speed': None,
-        'positions': [],
-        'chart': card_result['chart'],
+        'bats': hitter.get('bats', 'R'),
+        'onBase': on_base,
+        'speed': speed,
+        'points': points,
+        'positions': positions if positions else [],
+        'chart': chart,
         'realStats': {
             'obp': round(hitter['obp'], 3),
             'slg': round(hitter['slg'], 3),
             'hr': hitter['hr'],
             'avg': round(hitter['avg'], 3)
         },
-        'ob_slots': card_result['ob_slots'],
-        'clamped': card_result['clamped']
+        '_source': source  # Track which path generated this card
     }
 
 
-def build_pitcher_card(pitcher: dict, league_constants: dict) -> dict:
-    """Convert a pitcher dict to a card dict."""
+def build_pitcher_card(pitcher: dict, league_constants: dict, season: int) -> dict:
+    """
+    Convert a pitcher dict to a card dict.
+    Primary path: Showdown Bot library
+    Fallback: Closed-form formula
+    """
+    global GENERATION_ERRORS
+
     tbf = pitcher['tbf']
     h = pitcher['h']
     hr = pitcher['hr']
+    source = 'fallback'
+    points = None
+    control = pitcher['control']  # Default from percentile ranking
+    chart = None
+    ip = pitcher['ip']
 
-    # Estimate components
+    # Estimate components for fallback
     doubles_approx = (h - hr) * 0.25
     singles_approx = (h - hr) * 0.70
     triples_approx = (h - hr) * 0.05
 
-    player_stats = {
-        'control': pitcher['control'],
-        'obp_against': pitcher['obp_against'],
-        'bb_rate': pitcher['bb'] / tbf if tbf > 0 else 0.08,
-        'single_rate': singles_approx / tbf if tbf > 0 else 0.15,
-        'double_rate': doubles_approx / tbf if tbf > 0 else 0.04,
-        'triple_rate': triples_approx / tbf if tbf > 0 else 0.005,
-        'hr_rate': hr / tbf if tbf > 0 else 0.02,
-        'k_rate': pitcher['k_rate'],
-        'gb_rate': 0.45
-    }
+    # Try Showdown Bot first (primary path)
+    if showdown_bot_available():
+        try:
+            # Estimate earned runs from ERA if not provided
+            er = pitcher.get('er', int((pitcher['era'] * pitcher['ip']) / 9))
 
-    card_result = generate_pitcher_card(player_stats, league_constants)
+            stats_dict = build_pitcher_stats_dict(
+                name=pitcher['name'],
+                team=pitcher['team'],
+                year=str(season),
+                ip=float(pitcher['ip']),
+                tbf=tbf,
+                h=h,
+                hr=hr,
+                bb=pitcher['bb'],
+                so=pitcher['so'],
+                er=er,
+                throws=pitcher.get('throws', 'R'),
+                games=pitcher.get('games', 30),
+                games_started=pitcher.get('games_started', 25),
+                gb_rate=pitcher.get('gb_rate', 0.45)
+            )
+
+            bot_result, error = generate_pitcher_card_via_bot(stats_dict, year=str(season))
+
+            if error:
+                GENERATION_ERRORS.append({
+                    'player': pitcher['name'],
+                    'type': 'pitcher',
+                    'error': error
+                })
+                # Fall through to fallback
+            else:
+                chart = bot_result['chart']
+                control = bot_result['control'] if bot_result['control'] else control
+                points = bot_result.get('points')
+                if bot_result.get('ip'):
+                    ip = bot_result['ip']
+                source = 'showdownbot'
+        except Exception as e:
+            GENERATION_ERRORS.append({
+                'player': pitcher['name'],
+                'type': 'pitcher',
+                'error': str(e)
+            })
+
+    # Fallback to closed-form formula (section 3.3)
+    if chart is None:
+        player_stats = {
+            'control': pitcher['control'],
+            'obp_against': pitcher['obp_against'],
+            'bb_rate': pitcher['bb'] / tbf if tbf > 0 else 0.08,
+            'single_rate': singles_approx / tbf if tbf > 0 else 0.15,
+            'double_rate': doubles_approx / tbf if tbf > 0 else 0.04,
+            'triple_rate': triples_approx / tbf if tbf > 0 else 0.005,
+            'hr_rate': hr / tbf if tbf > 0 else 0.02,
+            'k_rate': pitcher['k_rate'],
+            'gb_rate': 0.45
+        }
+
+        card_result = generate_pitcher_card(player_stats, league_constants)
+        chart = card_result['chart']
+        source = 'fallback'
 
     return {
         'id': f"p-{pitcher['id']}",
         'name': pitcher['name'],
         'team': pitcher['team'],
-        'throws': 'R',
-        'control': pitcher['control'],
-        'ip': pitcher['ip'],
-        'chart': card_result['chart'],
+        'throws': pitcher.get('throws', 'R'),
+        'control': control,
+        'ip': ip,
+        'points': points,
+        'chart': chart,
         'realStats': {
             'era': round(pitcher['era'], 2),
             'obpAgainst': round(pitcher['obp_against'], 3),
             'kPct': round(pitcher['k_rate'], 3),
             'bbPct': round(pitcher['bb_rate'], 3)
         },
-        'ob_slots': card_result['ob_slots'],
-        'clamped': card_result['clamped']
+        '_source': source  # Track which path generated this card
     }
 
 
@@ -470,13 +608,6 @@ def run_sanity_checks(hitters: list, pitchers: list):
             print(f"    {name} ({ptype}): {msg}")
     else:
         print(f"  PASS: All {len(hitters)} hitter and {len(pitchers)} pitcher charts valid")
-
-    # Report clamped players
-    clamped_hitters = [h for h in hitters if h.get('clamped', False)]
-    clamped_pitchers = [p for p in pitchers if p.get('clamped', False)]
-    print(f"\nPlayers with clamped values:")
-    print(f"  Hitters: {len(clamped_hitters)}")
-    print(f"  Pitchers: {len(clamped_pitchers)}")
 
     return all_pass
 
@@ -592,48 +723,81 @@ def main():
     hitters_ranked = compute_hitter_percentile_ranks(hitters_raw)
     pitchers_ranked = compute_pitcher_percentile_ranks(pitchers_raw)
 
-    # Pass 1: Generate cards with initial constants
-    print("\nPass 1: Generating cards with initial constants...")
-    league_constants = compute_league_constants_pass1()
+    # Check Showdown Bot availability
+    if showdown_bot_available():
+        print(f"\nShowdown Bot library available (commit: {get_showdown_bot_commit()[:8]})")
+        print("Using primary path: Showdown Bot with manual stats injection")
+    else:
+        print("\nShowdown Bot library NOT available - using fallback formula only")
 
-    hitter_cards_p1 = [build_hitter_card(h, league_constants) for h in hitters_ranked]
-    pitcher_cards_p1 = [build_pitcher_card(p, league_constants) for p in pitchers_ranked]
+    # Clear error tracking
+    global GENERATION_ERRORS
+    GENERATION_ERRORS = []
 
-    # Pass 2: Recompute constants and regenerate
-    print("Pass 2: Recomputing constants and regenerating...")
+    # Generate cards using Showdown Bot (primary) or fallback
+    # Note: For Showdown Bot path, we don't need two-pass since the library handles calibration
+    print("\nGenerating cards...")
+    league_constants = compute_league_constants_pass1()  # For fallback path only
 
-    hitter_data_p1 = [{'on_base': c['onBase'], 'ob_slots': c['ob_slots']} for c in hitter_cards_p1]
-    pitcher_data_p1 = [{'control': c['control'], 'ob_slots': c['ob_slots']} for c in pitcher_cards_p1]
+    hitter_cards = [build_hitter_card(h, league_constants, args.season) for h in hitters_ranked]
+    pitcher_cards = [build_pitcher_card(p, league_constants, args.season) for p in pitchers_ranked]
 
-    league_constants = compute_league_constants_pass2(hitter_data_p1, pitcher_data_p1)
-    print(f"  Updated constants: C_avg={league_constants['C_avg']:.2f}, OB_avg={league_constants['OB_avg']:.2f}")
-    print(f"  H_ob={league_constants['H_ob']:.3f}, P_ob={league_constants['P_ob']:.3f}")
+    # Count sources
+    bot_hitters = sum(1 for c in hitter_cards if c.get('_source') == 'showdownbot')
+    bot_pitchers = sum(1 for c in pitcher_cards if c.get('_source') == 'showdownbot')
+    fallback_hitters = len(hitter_cards) - bot_hitters
+    fallback_pitchers = len(pitcher_cards) - bot_pitchers
 
-    # Final card generation
-    hitter_cards = [build_hitter_card(h, league_constants) for h in hitters_ranked]
-    pitcher_cards = [build_pitcher_card(p, league_constants) for p in pitchers_ranked]
+    print(f"\nGeneration sources:")
+    print(f"  Hitters: {bot_hitters} via Showdown Bot, {fallback_hitters} via fallback")
+    print(f"  Pitchers: {bot_pitchers} via Showdown Bot, {fallback_pitchers} via fallback")
+
+    # Report errors
+    if GENERATION_ERRORS:
+        print(f"\nGeneration errors ({len(GENERATION_ERRORS)} total):")
+        for err in GENERATION_ERRORS[:10]:  # Show first 10
+            print(f"  {err['player']} ({err['type']}): {err['error'][:80]}")
+        if len(GENERATION_ERRORS) > 10:
+            print(f"  ... and {len(GENERATION_ERRORS) - 10} more")
+
+        error_rate = len(GENERATION_ERRORS) / (len(hitters_ranked) + len(pitchers_ranked)) * 100
+        print(f"\nError rate: {error_rate:.1f}%")
+        if error_rate >= 5:
+            print("  WARNING: Error rate >= 5% threshold!")
+    else:
+        print("\nNo generation errors!")
 
     # Run sanity checks
     run_sanity_checks(hitter_cards, pitcher_cards)
 
     # Clean up internal fields for output
     for h in hitter_cards:
-        h.pop('ob_slots', None)
-        h.pop('clamped', None)
+        h.pop('_source', None)
     for p in pitcher_cards:
-        p.pop('ob_slots', None)
-        p.pop('clamped', None)
+        p.pop('_source', None)
+
+    # Determine formula version
+    if showdown_bot_available() and (bot_hitters + bot_pitchers) > 0:
+        formula_version = 'showdownbot-manual-2004set'
+        commit_sha = get_showdown_bot_commit()
+    else:
+        formula_version = 'fallback-v1'
+        commit_sha = None
 
     # Build output
     output = {
         'meta': {
             'season': args.season,
             'generatedAt': datetime.utcnow().isoformat() + 'Z',
-            'formulaVersion': 'placeholder-v1'
+            'formulaVersion': formula_version,
         },
         'pitchers': pitcher_cards,
         'hitters': hitter_cards
     }
+
+    # Add commit SHA if using Showdown Bot
+    if commit_sha:
+        output['meta']['showdownBotCommit'] = commit_sha
 
     # Write output
     output_path = os.path.join(os.path.dirname(__file__), args.output)

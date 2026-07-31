@@ -146,6 +146,75 @@ export function Scoreboard({
   );
 }
 
+// Score-only scoreboard (no diamond/bases - for use when diamond is shown elsewhere)
+export function ScoreboardScoreOnly({
+  awayName,
+  homeName,
+  awayScore,
+  homeScore,
+  inning,
+  isTopHalf,
+  awayLineScore,
+  homeLineScore
+}: Omit<ScoreboardProps, 'outs' | 'bases'>) {
+  return (
+    <div className="scoreboard-score-only">
+      <div className="score-only-main">
+        {/* Teams and Scores */}
+        <div className="score-only-teams">
+          <div className={`score-only-team ${isTopHalf ? 'at-bat' : ''}`}>
+            <span className="team-indicator">{isTopHalf ? '▶' : ''}</span>
+            <span className="team-name">{awayName}</span>
+            <span className="team-score">{awayScore}</span>
+          </div>
+          <div className={`score-only-team ${!isTopHalf ? 'at-bat' : ''}`}>
+            <span className="team-indicator">{!isTopHalf ? '▶' : ''}</span>
+            <span className="team-name">{homeName}</span>
+            <span className="team-score">{homeScore}</span>
+          </div>
+        </div>
+
+        {/* Inning */}
+        <div className="score-only-inning">
+          <div className="inning-arrow">{isTopHalf ? '▲' : '▼'}</div>
+          <div className="inning-number">{inning}</div>
+        </div>
+      </div>
+
+      {/* Line Score */}
+      {awayLineScore && homeLineScore && (awayLineScore.length > 0 || homeLineScore.length > 0) && (
+        <div className="scoreboard-linescore">
+          <div className="linescore-row linescore-header">
+            <span className="linescore-team"></span>
+            {Array.from({ length: Math.max(awayLineScore.length, homeLineScore.length, 3) }, (_, i) => (
+              <span key={i} className="linescore-inning">{i + 1}</span>
+            ))}
+            <span className="linescore-total">R</span>
+          </div>
+          <div className="linescore-row">
+            <span className="linescore-team">{awayName}</span>
+            {Array.from({ length: Math.max(awayLineScore.length, homeLineScore.length, 3) }, (_, i) => (
+              <span key={i} className="linescore-inning">
+                {awayLineScore[i] !== undefined ? awayLineScore[i] : '-'}
+              </span>
+            ))}
+            <span className="linescore-total">{awayScore}</span>
+          </div>
+          <div className="linescore-row">
+            <span className="linescore-team">{homeName}</span>
+            {Array.from({ length: Math.max(awayLineScore.length, homeLineScore.length, 3) }, (_, i) => (
+              <span key={i} className="linescore-inning">
+                {homeLineScore[i] !== undefined ? homeLineScore[i] : '-'}
+              </span>
+            ))}
+            <span className="linescore-total">{homeScore}</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // Compact scoreboard for tighter layouts
 export function ScoreboardCompact({
   awayName,

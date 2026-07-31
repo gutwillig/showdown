@@ -1,4 +1,17 @@
+# Card Generation Pipeline Dependencies
+# Use Python 3.10+ (required by mlb-showdown-bot)
+
+# Showdown Bot library from GitHub (DO NOT use PyPI version, it's stale)
+# Pinned to specific commit for reproducibility
+mlb-showdown-bot @ git+https://github.com/mgula57/mlb_showdown_card_bot.git@8d6bf763d9d8ceedd0e6037a354353cb32606ea3
+
+# Data fetching
 pybaseball>=2.2.0
+requests>=2.31.0
+
+# Data processing
 pandas>=2.0.0
 numpy>=1.24.0
-requests>=2.31.0
+
+# Testing
+pytest>=7.0.0

@@ -22,6 +22,8 @@ export interface ConnectionCallbacks {
 
 let currentChannel: RealtimeChannel | null = null;
 let currentRoomCode: string | null = null;
+let connectionAttemptId = 0;
+let activeTimeout: ReturnType<typeof setTimeout> | null = null;
 
 export function getChannelName(roomCode: string): string {
   return `game:${roomCode}`;
@@ -33,13 +35,41 @@ export async function joinRoom(
   playerName: string,
   callbacks: ConnectionCallbacks
 ): Promise<RealtimeChannel> {
-  // Leave existing channel if any
-  if (currentChannel) {
+  // Cancel any pending timeout from previous attempts
+  if (activeTimeout) {
+    clearTimeout(activeTimeout);
+    activeTimeout = null;
+  }
+
+  // If already connected to this room, return existing channel
+  if (currentChannel && currentRoomCode === roomCode) {
+    console.log('Already connected to room:', roomCode);
+    return currentChannel;
+  }
+
+  // Leave existing channel if connecting to a different room
+  if (currentChannel && currentRoomCode !== roomCode) {
     await leaveRoom();
   }
 
+  // Increment attempt ID to invalidate previous attempts
+  const thisAttemptId = ++connectionAttemptId;
+  currentRoomCode = roomCode;
+
   const supabase = getSupabase();
   const channelName = getChannelName(roomCode);
+
+  // Remove any existing channel with this name (in case of stale state)
+  const existingChannels = supabase.getChannels();
+  for (const ch of existingChannels) {
+    if (ch.topic === `realtime:${channelName}`) {
+      await supabase.removeChannel(ch);
+    }
+  }
+
+  console.log('Creating channel with name:', channelName);
+  console.log('Supabase client:', supabase);
+  console.log('Realtime endpoint:', (supabase as any).realtimeUrl || 'unknown');
 
   const channel = supabase.channel(channelName, {
     config: {
@@ -47,6 +77,8 @@ export async function joinRoom(
       presence: { key: playerId }
     }
   });
+
+  console.log('Channel created:', channel);
 
   // Set up message handler
   channel.on('broadcast', { event: 'message' }, (payload) => {
@@ -73,27 +105,73 @@ export async function joinRoom(
     }
   });
 
-  // Subscribe and track presence
-  await channel.subscribe(async (status) => {
-    if (status === 'SUBSCRIBED') {
-      await channel.track({
-        playerId,
-        name: playerName,
-        online_at: new Date().toISOString()
-      });
-    }
+  // Subscribe and wait for SUBSCRIBED status
+  await new Promise<void>((resolve, reject) => {
+    activeTimeout = setTimeout(() => {
+      // Only error if this is still the current attempt
+      if (connectionAttemptId === thisAttemptId) {
+        console.error('Channel subscription timed out after 15 seconds');
+        console.error('Channel state at timeout:', channel);
+        activeTimeout = null;
+        reject(new Error('Channel subscription timed out. Check if your Supabase project is active and Realtime is enabled.'));
+      }
+    }, 15000);
+
+    console.log('Subscribing to channel:', channelName, 'attempt:', thisAttemptId);
+
+    channel.subscribe(async (status, err) => {
+      // Ignore callbacks from stale attempts
+      if (connectionAttemptId !== thisAttemptId) {
+        console.log('Ignoring stale callback from attempt:', thisAttemptId, 'current:', connectionAttemptId);
+        return;
+      }
+
+      console.log('Channel status:', status, 'Error:', err);
+      if (status === 'SUBSCRIBED') {
+        if (activeTimeout) {
+          clearTimeout(activeTimeout);
+          activeTimeout = null;
+        }
+        console.log('Channel subscribed, tracking presence...');
+        await channel.track({
+          playerId,
+          name: playerName,
+          online_at: new Date().toISOString()
+        });
+        console.log('Presence tracked successfully');
+        resolve();
+      } else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+        if (activeTimeout) {
+          clearTimeout(activeTimeout);
+          activeTimeout = null;
+        }
+        console.error('Channel subscription failed:', status, err);
+        reject(new Error(`Channel subscription failed: ${status}. ${err ? err.message : ''}`));
+      }
+      // Ignore CLOSED status - it can happen during StrictMode remounting
+    });
   });
 
   currentChannel = channel;
-  currentRoomCode = roomCode;
 
   return channel;
 }
 
 export async function leaveRoom(): Promise<void> {
+  // Cancel any pending timeout
+  if (activeTimeout) {
+    clearTimeout(activeTimeout);
+    activeTimeout = null;
+  }
+
   if (currentChannel) {
-    await currentChannel.untrack();
-    await currentChannel.unsubscribe();
+    const supabase = getSupabase();
+    try {
+      await currentChannel.untrack();
+      await supabase.removeChannel(currentChannel);
+    } catch (e) {
+      console.warn('Error leaving room:', e);
+    }
     currentChannel = null;
     currentRoomCode = null;
   }

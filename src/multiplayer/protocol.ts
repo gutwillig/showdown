@@ -61,6 +61,13 @@ export interface LineScore {
   home: number[];
 }
 
+// Partial at-bat state (after pitch, before swing)
+export interface PartialAtBat {
+  pitchRoll: number;
+  pitchTotal: number;
+  advantageHolder: 'pitcher' | 'hitter';
+}
+
 // Full game state (owned by host)
 export interface FullGameState {
   // Game metadata
@@ -95,11 +102,22 @@ export interface FullGameState {
   awayBatterIndex: number;
 
   // Turn state
-  phase: 'pitching' | 'swinging' | 'result' | 'halfInningEnd' | 'gameOver';
+  // pitching: waiting for pitcher to click PITCH
+  // pitchRolling: dice animation in progress
+  // pitched: pitch resolved, waiting for player with advantage to click SWING
+  // swingRolling: swing dice animation in progress
+  // result: showing outcome, auto-advance
+  phase: 'pitching' | 'pitchRolling' | 'pitched' | 'swingRolling' | 'result' | 'halfInningEnd' | 'gameOver';
   waitingForPlayerId: string; // whose click is next
+
+  // Partial at-bat (after pitch, before swing)
+  partialAtBat: PartialAtBat | null;
 
   // Last at-bat result (for display)
   lastAtBat: AtBatResult | null;
+
+  // Animating dice value (for synchronized animation)
+  animatingDice: number | null;
 
   // Game outcome
   winner: string | null; // playerId of winner, or null if ongoing

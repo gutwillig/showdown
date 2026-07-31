@@ -1,12 +1,74 @@
 /**
  * Multiplayer Game screen
  * Real-time head-to-head gameplay with turn-based pitch/swing
+ * Two-step flow: Pitcher clicks PITCH -> shows advantage -> player with advantage clicks SWING
  */
 
+import { useState, useEffect, useRef } from 'react';
 import { useMultiplayerStore } from '../multiplayer/gameState';
 import { getTotalScore } from '../multiplayer/protocol';
 import { Card } from './Card';
 import { Scoreboard } from './Scoreboard';
+import type { OutcomeType } from '../data/types';
+
+// Local dice animation - cycles through random numbers before showing final value
+function useLocalDiceAnimation(phase: string, finalValue: number | null) {
+  const [displayValue, setDisplayValue] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const animationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const frameRef = useRef(0);
+
+  useEffect(() => {
+    // Start animation when entering a rolling phase
+    if ((phase === 'pitchRolling' || phase === 'swingRolling') && finalValue !== null) {
+      setIsAnimating(true);
+      frameRef.current = 0;
+
+      const animate = () => {
+        const totalFrames = 15;
+        if (frameRef.current < totalFrames) {
+          // Show random numbers during animation
+          const randomValue = Math.floor(Math.random() * 20) + 1;
+          setDisplayValue(randomValue);
+          frameRef.current++;
+          // Slow down towards the end
+          const delay = frameRef.current < 10 ? 50 : (frameRef.current < 13 ? 100 : 150);
+          animationRef.current = setTimeout(animate, delay);
+        } else {
+          // Show final value
+          setDisplayValue(finalValue);
+          setTimeout(() => setIsAnimating(false), 400);
+        }
+      };
+
+      animate();
+    }
+
+    return () => {
+      if (animationRef.current) {
+        clearTimeout(animationRef.current);
+      }
+    };
+  }, [phase, finalValue]);
+
+  return { displayValue, isAnimating };
+}
+
+function getOutcomeColor(outcome: OutcomeType): string {
+  const colors: Record<OutcomeType, string> = {
+    'PU': '#6b7280',
+    'SO': '#6b7280',
+    'GB': '#6b7280',
+    'FB': '#6b7280',
+    'BB': '#60a5fa',
+    '1B': '#34d399',
+    '1B+': '#34d399',
+    '2B': '#fbbf24',
+    '3B': '#f97316',
+    'HR': '#ef4444'
+  };
+  return colors[outcome];
+}
 
 export function MultiplayerGame() {
   const {
@@ -18,6 +80,11 @@ export function MultiplayerGame() {
     requestRematch,
     leaveGame
   } = useMultiplayerStore();
+
+  // Local dice animation state
+  const phase = gameState?.phase ?? 'pitching';
+  const animatingDice = gameState?.animatingDice ?? null;
+  const { displayValue: localDiceValue, isAnimating } = useLocalDiceAnimation(phase, animatingDice);
 
   if (!gameState) {
     return <div className="loading">Loading game state...</div>;
@@ -35,8 +102,8 @@ export function MultiplayerGame() {
     hostName,
     guestName,
     hostId,
-    phase,
     waitingForPlayerId,
+    partialAtBat,
     lastAtBat,
     winner
   } = gameState;
@@ -54,6 +121,7 @@ export function MultiplayerGame() {
   const battingRoster = isTopHalf ? awayRoster : homeRoster;
   const pitchingRoster = isTopHalf ? homeRoster : awayRoster;
   const batterIndex = isTopHalf ? gameState.awayBatterIndex : gameState.homeBatterIndex;
+
   // During an at-bat, show the batter before advancement
   const displayBatterIndex = phase === 'result' && lastAtBat
     ? (batterIndex === 0 ? 8 : batterIndex - 1)
@@ -169,7 +237,7 @@ export function MultiplayerGame() {
       {/* Matchup */}
       <div className="matchup-area">
         <div className="matchup-card">
-          <div className="matchup-role">{amPitching ? 'You' : waitingForName}</div>
+          <div className="matchup-role">{amPitching ? 'You (Pitching)' : `${waitingForName} (Pitching)`}</div>
           <Card
             card={currentPitcher}
             type="pitcher"
@@ -182,35 +250,63 @@ export function MultiplayerGame() {
         <div className="matchup-vs">
           <div className="vs-text">VS</div>
 
-          {lastAtBat && phase === 'result' && (
-            <div className="result-display">
-              <div className={`advantage-banner ${lastAtBat.advantageHolder}`}>
-                {lastAtBat.advantageHolder === 'pitcher' ? 'Pitcher' : 'Hitter'} Advantage
-              </div>
-              <div className="dice-results">
+          {/* Dice and result display area */}
+          <div className="dice-area">
+            {/* Show dice during rolling or after rolled */}
+            {(phase === 'pitchRolling' || phase === 'swingRolling' || partialAtBat || lastAtBat) && (
+              <div className="dice-row">
+                {/* Pitch dice */}
                 <div className="dice-result">
                   <span className="dice-label">Pitch</span>
-                  <span className="dice">{lastAtBat.pitchRoll}</span>
-                  <span className="dice-total">+{currentPitcher.control} = {lastAtBat.pitchTotal}</span>
+                  <div className={`dice ${phase === 'pitchRolling' && isAnimating ? 'rolling' : ''}`}>
+                    {phase === 'pitchRolling'
+                      ? localDiceValue
+                      : (partialAtBat?.pitchRoll || lastAtBat?.pitchRoll)}
+                  </div>
+                  {(partialAtBat || lastAtBat) && (
+                    <span className="dice-total">
+                      +{currentPitcher.control} = {partialAtBat?.pitchTotal || lastAtBat?.pitchTotal}
+                    </span>
+                  )}
                 </div>
-                <div className="dice-result">
-                  <span className="dice-label">Swing</span>
-                  <span className="dice">{lastAtBat.swingRoll}</span>
-                </div>
+
+                {/* Show swing dice during swing rolling or after swing */}
+                {(phase === 'swingRolling' || lastAtBat) && (
+                  <div className="dice-result">
+                    <span className="dice-label">Swing</span>
+                    <div className={`dice ${phase === 'swingRolling' && isAnimating ? 'rolling' : ''}`}>
+                      {phase === 'swingRolling' ? localDiceValue : lastAtBat?.swingRoll}
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className={`outcome-banner ${lastAtBat.outcome}`}>
+            )}
+
+            {/* Advantage banner - show after pitch (not during rolling) */}
+            {(partialAtBat || lastAtBat) && phase !== 'pitchRolling' && (
+              <div className={`advantage-banner ${partialAtBat?.advantageHolder || lastAtBat?.advantageHolder}`}>
+                {(partialAtBat?.advantageHolder || lastAtBat?.advantageHolder) === 'pitcher' ? 'PITCHER' : 'HITTER'} ADVANTAGE
+              </div>
+            )}
+
+            {/* Outcome banner - only show on result */}
+            {phase === 'result' && lastAtBat && (
+              <div
+                className="outcome-banner"
+                style={{ background: getOutcomeColor(lastAtBat.outcome) }}
+              >
                 {lastAtBat.description}
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <div className="matchup-card">
-          <div className="matchup-role">{amBatting ? 'You' : waitingForName}</div>
+          <div className="matchup-role">{amBatting ? 'You (Batting)' : `${waitingForName} (Batting)`}</div>
           <Card
             card={currentBatter}
             type="hitter"
-            highlighted={phase === 'swinging'}
+            highlighted={phase === 'pitched' && partialAtBat?.advantageHolder === 'hitter'}
             highlightedRoll={lastAtBat?.swingRoll}
             showHighlightedBand={phase === 'result' && lastAtBat?.advantageHolder === 'hitter'}
           />
@@ -229,7 +325,11 @@ export function MultiplayerGame() {
           </button>
         )}
 
-        {phase === 'swinging' && (
+        {phase === 'pitchRolling' && (
+          <div className="rolling-indicator">Rolling...</div>
+        )}
+
+        {phase === 'pitched' && (
           <button
             className={`btn btn-primary btn-large ${isMyTurn ? '' : 'disabled'}`}
             onClick={() => performAction('swing')}
@@ -237,6 +337,10 @@ export function MultiplayerGame() {
           >
             {isMyTurn ? 'SWING' : `Waiting for ${waitingForName} to swing...`}
           </button>
+        )}
+
+        {phase === 'swingRolling' && (
+          <div className="rolling-indicator">Rolling...</div>
         )}
 
         {phase === 'result' && (
