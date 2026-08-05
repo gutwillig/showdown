@@ -876,17 +876,22 @@ body {
    =============================== */
 
 .lobby-screen {
-  padding: 1.5rem;
-  max-width: 1200px;
+  padding: 1rem 1.5rem;
+  max-width: 1400px;
   margin: 0 auto;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .lobby-header {
+  flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -904,10 +909,10 @@ body {
 
 .room-code {
   font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-gold);
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 }
 
 .btn-small {
@@ -916,30 +921,31 @@ body {
 }
 
 .lobby-status {
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 1rem;
   background: var(--bg-surface);
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .player-slot {
   text-align: center;
-  min-width: 150px;
+  min-width: 120px;
 }
 
 .player-name {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .player-progress {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
 }
 
@@ -973,7 +979,7 @@ body {
 
 .vs-divider-small {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
@@ -2601,9 +2607,10 @@ body {
 .draft-roster {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 180px);
-  min-height: 600px;
+  flex: 1 1 auto;
+  min-height: 0;
   background: #0B111B;
+  overflow: hidden;
 }
 
 .draft-main {
@@ -2899,11 +2906,12 @@ body {
 
 /* Right Panel - Roster */
 .draft-roster-panel {
-  flex: 0 0 400px;
-  width: 400px;
+  flex: 0 0 50%;
+  max-width: 500px;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
-  padding: 16px 20px;
+  padding: 12px 16px;
   background: linear-gradient(200deg, #0E1520 0%, #0B111B 60%);
   overflow: hidden;
 }
@@ -2939,37 +2947,42 @@ body {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 6px 0;
+  gap: 8px;
+  padding: 8px 0;
 }
 
 .draft-position-row {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  gap: 8px;
+  min-height: 0;
 }
 
 .draft-pitcher-row {
+  flex: 1;
   display: flex;
   justify-content: center;
+  min-height: 0;
 }
 
 .draft-pitcher-row .roster-slot {
   width: 33.33%;
-  max-width: 140px;
+  max-width: 160px;
 }
 
 /* Roster Slot */
 .roster-slot {
   border: 1px solid #232F3F;
-  border-radius: 6px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  padding: 8px;
-  height: 72px;
+  gap: 4px;
+  padding: 10px;
+  flex: 1;
+  min-height: 0;
   transition: all 0.15s ease;
   background: rgba(255, 255, 255, 0.02);
 }
@@ -2997,7 +3010,7 @@ body {
 .roster-slot.empty .roster-slot-pos {
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: 0.05em;
   color: #4E5D72;
@@ -3005,7 +3018,7 @@ body {
 
 .roster-slot-label {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 7px;
+  font-size: 8px;
   letter-spacing: 0.1em;
   color: #3A4555;
   text-transform: uppercase;
@@ -3023,17 +3036,17 @@ body {
 .roster-slot.filled .roster-slot-pos {
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   color: #0B111B;
   background: #F5D130;
-  padding: 1px 4px;
-  border-radius: 2px;
+  padding: 2px 6px;
+  border-radius: 3px;
 }
 
 .roster-slot-team {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   color: #6B7A8E;
 }
@@ -3041,34 +3054,32 @@ body {
 .roster-slot-name {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   color: #EDF2F8;
   text-align: center;
-  line-height: 1.1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.15;
+  word-break: break-word;
   max-width: 100%;
 }
 
 .roster-slot-stat {
   display: flex;
   align-items: baseline;
-  gap: 3px;
+  gap: 4px;
 }
 
 .roster-slot-stat-value {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1;
   color: #F5D130;
 }
 
 .roster-slot-stat-label {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 7px;
+  font-size: 8px;
   letter-spacing: 0.08em;
   color: #6B7A8E;
   text-transform: uppercase;
@@ -3076,7 +3087,7 @@ body {
 
 .roster-slot-remove {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 7px;
+  font-size: 8px;
   letter-spacing: 0.08em;
   color: #5C6B80;
   opacity: 0;
