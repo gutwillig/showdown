@@ -1,9 +1,8 @@
 {
   "meta": {
     "season": 2025,
-    "generatedAt": "2026-07-29T18:50:20.029943Z",
-    "formulaVersion": "showdownbot-manual-2004set",
-    "showdownBotCommit": "8d6bf763d9d8ceedd0e6037a354353cb32606ea3"
+    "generatedAt": "2026-08-05T03:44:28.001001Z",
+    "formulaVersion": "fallback-v1"
   },
   "pitchers": [
     {
@@ -12,8 +11,8 @@
       "team": "DET",
       "throws": "R",
       "control": 6,
-      "ip": 8,
-      "points": 610,
+      "ip": 195,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -21,22 +20,25 @@
         ],
         "SO": [
           2,
-          8
+          12
         ],
         "GB": [
-          9,
-          13
+          13,
+          15
         ],
         "FB": [
-          14,
-          17
+          16,
+          18
         ],
         "BB": null,
         "1B": [
-          18,
+          19,
+          19
+        ],
+        "2B": [
+          20,
           20
         ],
-        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -52,37 +54,34 @@
       "team": "SEA",
       "throws": "R",
       "control": 6,
-      "ip": 7,
-      "points": 590,
+      "ip": 186,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          8
+          2,
+          11
         ],
         "GB": [
-          9,
-          13
+          12,
+          15
         ],
         "FB": [
-          14,
-          17
-        ],
-        "BB": [
-          18,
+          16,
           18
         ],
-        "1B": [
+        "BB": [
           19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -97,32 +96,35 @@
       "name": "Jacob deGrom",
       "team": "TEX",
       "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 490,
+      "control": 6,
+      "ip": 172,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          11
         ],
         "GB": [
-          10,
+          12,
           15
         ],
         "FB": [
           16,
+          18
+        ],
+        "BB": [
+          19,
           19
         ],
-        "BB": null,
-        "1B": null,
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -137,29 +139,32 @@
       "name": "Paul Skenes",
       "team": "PIT",
       "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 540,
+      "control": 6,
+      "ip": 187,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          12
         ],
         "GB": [
-          10,
-          14
+          13,
+          15
         ],
         "FB": [
-          15,
+          16,
           18
         ],
-        "BB": null,
-        "1B": [
+        "BB": [
           19,
+          19
+        ],
+        "1B": [
+          20,
           20
         ],
         "2B": null,
@@ -177,20 +182,20 @@
       "name": "Nick Pivetta",
       "team": "SAN",
       "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 540,
+      "control": 6,
+      "ip": 181,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          8
+          2,
+          10
         ],
         "GB": [
-          9,
+          11,
           14
         ],
         "FB": [
@@ -201,11 +206,11 @@
           19,
           19
         ],
-        "1B": null,
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -220,32 +225,32 @@
       "name": "Yoshinobu Yamamoto",
       "team": "LOS",
       "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 570,
+      "control": 6,
+      "ip": 173,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          12
         ],
         "GB": [
-          10,
-          14
+          13,
+          15
         ],
         "FB": [
-          15,
-          17
-        ],
-        "BB": [
-          18,
+          16,
           18
         ],
-        "1B": [
+        "BB": [
           19,
+          19
+        ],
+        "1B": [
+          20,
           20
         ],
         "2B": null,
@@ -264,37 +269,34 @@
       "team": "MIN",
       "throws": "R",
       "control": 5,
-      "ip": 7,
-      "points": 510,
+      "ip": 171,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          11
         ],
         "GB": [
-          10,
-          14
+          12,
+          15
         ],
         "FB": [
-          15,
-          17
-        ],
-        "BB": [
-          18,
+          16,
           18
         ],
-        "1B": [
+        "BB": [
           19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -310,37 +312,34 @@
       "team": "BOS",
       "throws": "R",
       "control": 5,
-      "ip": 8,
-      "points": 540,
+      "ip": 205,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          12
         ],
         "GB": [
-          10,
-          14
+          13,
+          15
         ],
         "FB": [
-          15,
-          17
-        ],
-        "BB": [
-          18,
+          16,
           18
         ],
-        "1B": [
+        "BB": [
           19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -356,31 +355,31 @@
       "team": "NEW",
       "throws": "R",
       "control": 5,
-      "ip": 8,
-      "points": 570,
+      "ip": 195,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          8
+          2,
+          10
         ],
         "GB": [
-          9,
-          13
+          11,
+          14
         ],
         "FB": [
-          14,
-          17
-        ],
-        "BB": [
-          18,
+          15,
           18
         ],
-        "1B": [
+        "BB": [
           19,
+          19
+        ],
+        "1B": [
+          20,
           20
         ],
         "2B": null,
@@ -399,37 +398,34 @@
       "team": "HOU",
       "throws": "R",
       "control": 5,
-      "ip": 7,
-      "points": 530,
+      "ip": 185,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          11
         ],
         "GB": [
-          10,
-          14
+          12,
+          15
         ],
         "FB": [
-          15,
-          17
-        ],
-        "BB": [
-          18,
+          16,
           18
         ],
-        "1B": [
+        "BB": [
           19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -445,37 +441,34 @@
       "team": "MIL",
       "throws": "R",
       "control": 5,
-      "ip": 7,
-      "points": 530,
+      "ip": 176,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          9
+          2,
+          11
         ],
         "GB": [
-          10,
-          14
+          12,
+          15
         ],
         "FB": [
-          15,
-          17
-        ],
-        "BB": [
-          18,
+          16,
           18
         ],
-        "1B": [
+        "BB": [
           19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -490,32 +483,35 @@
       "name": "Kevin Gausman",
       "team": "TOR",
       "throws": "R",
-      "control": 2,
-      "ip": 8,
-      "points": 450,
+      "control": 5,
+      "ip": 193,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          8
+          2,
+          10
         ],
         "GB": [
-          9,
+          11,
           14
         ],
         "FB": [
           15,
+          18
+        ],
+        "BB": [
+          19,
           19
         ],
-        "BB": null,
-        "1B": null,
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -531,28 +527,28 @@
       "team": "PHI",
       "throws": "R",
       "control": 5,
-      "ip": 8,
-      "points": 530,
+      "ip": 202,
+      "points": null,
       "chart": {
         "PU": [
           1,
-          2
+          1
         ],
         "SO": [
-          3,
-          8
+          2,
+          10
         ],
         "GB": [
-          9,
-          13
+          11,
+          14
         ],
         "FB": [
-          14,
-          17
+          15,
+          18
         ],
         "BB": null,
         "1B": [
-          18,
+          19,
           19
         ],
         "2B": [
@@ -573,9 +569,9 @@
       "name": "Max Fried",
       "team": "NEW",
       "throws": "R",
-      "control": 6,
-      "ip": 8,
-      "points": 550,
+      "control": 5,
+      "ip": 195,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -583,28 +579,25 @@
         ],
         "SO": [
           3,
-          7
+          10
         ],
         "GB": [
-          8,
-          12
+          11,
+          14
         ],
         "FB": [
-          13,
-          16
+          15,
+          18
         ],
         "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
+          19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -619,9 +612,9 @@
       "name": "Zack Littell",
       "team": "CIN",
       "throws": "R",
-      "control": 6,
-      "ip": 7,
-      "points": 480,
+      "control": 5,
+      "ip": 186,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -629,19 +622,19 @@
         ],
         "SO": [
           3,
-          6
+          8
         ],
         "GB": [
-          7,
-          12
+          9,
+          13
         ],
         "FB": [
-          13,
-          16
+          14,
+          18
         ],
         "BB": null,
         "1B": [
-          17,
+          19,
           19
         ],
         "2B": [
@@ -662,9 +655,9 @@
       "name": "Matthew Boyd",
       "team": "CHI",
       "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 450,
+      "control": 5,
+      "ip": 179,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -672,25 +665,25 @@
         ],
         "SO": [
           3,
-          7
+          10
         ],
         "GB": [
-          8,
-          13
+          11,
+          14
         ],
         "FB": [
-          14,
+          15,
           18
         ],
-        "BB": null,
-        "1B": [
+        "BB": [
           19,
           19
         ],
-        "2B": [
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -705,1126 +698,9 @@
       "name": "Merrill Kelly",
       "team": "TEX",
       "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 440,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          13
-        ],
-        "FB": [
-          14,
-          18
-        ],
-        "BB": null,
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.52,
-        "obpAgainst": 0.274,
-        "kPct": 0.223,
-        "bbPct": 0.064
-      }
-    },
-    {
-      "id": "p-671096",
-      "name": "Andrew Abbott",
-      "team": "CIN",
-      "throws": "R",
-      "control": 6,
-      "ip": 7,
-      "points": 520,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 2.87,
-        "obpAgainst": 0.279,
-        "kPct": 0.218,
-        "bbPct": 0.063
-      }
-    },
-    {
-      "id": "p-686752",
-      "name": "Ryan Pepiot",
-      "team": "TAM",
-      "throws": "R",
       "control": 4,
-      "ip": 7,
-      "points": 440,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          8
-        ],
-        "GB": [
-          9,
-          13
-        ],
-        "FB": [
-          14,
-          17
-        ],
-        "BB": [
-          18,
-          18
-        ],
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.86,
-        "obpAgainst": 0.287,
-        "kPct": 0.246,
-        "bbPct": 0.09
-      }
-    },
-    {
-      "id": "p-622491",
-      "name": "Luis Castillo",
-      "team": "SEA",
-      "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 440,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          13
-        ],
-        "FB": [
-          14,
-          17
-        ],
-        "BB": null,
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.54,
-        "obpAgainst": 0.287,
-        "kPct": 0.217,
-        "bbPct": 0.062
-      }
-    },
-    {
-      "id": "p-605488",
-      "name": "Jeffrey Springs",
-      "team": "ATH",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 450,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.11,
-        "obpAgainst": 0.29,
-        "kPct": 0.194,
-        "bbPct": 0.076
-      }
-    },
-    {
-      "id": "p-592662",
-      "name": "Robbie Ray",
-      "team": "SAN",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 480,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          8
-        ],
-        "GB": [
-          9,
-          13
-        ],
-        "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          18
-        ],
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.65,
-        "obpAgainst": 0.293,
-        "kPct": 0.246,
-        "bbPct": 0.097
-      }
-    },
-    {
-      "id": "p-607259",
-      "name": "Nick Martinez",
-      "team": "CIN",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 450,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.45,
-        "obpAgainst": 0.293,
-        "kPct": 0.17,
-        "bbPct": 0.061
-      }
-    },
-    {
-      "id": "p-663903",
-      "name": "Brady Singer",
-      "team": "CIN",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 460,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.03,
-        "obpAgainst": 0.293,
-        "kPct": 0.228,
-        "bbPct": 0.084
-      }
-    },
-    {
-      "id": "p-665152",
-      "name": "Dean Kremer",
-      "team": "BAL",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 460,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.19,
-        "obpAgainst": 0.294,
-        "kPct": 0.201,
-        "bbPct": 0.064
-      }
-    },
-    {
-      "id": "p-676440",
-      "name": "Tanner Bibee",
-      "team": "CLE",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 440,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.24,
-        "obpAgainst": 0.294,
-        "kPct": 0.213,
-        "bbPct": 0.071
-      }
-    },
-    {
-      "id": "p-678394",
-      "name": "Brayan Bello",
-      "team": "BOS",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 470,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.35,
-        "obpAgainst": 0.294,
-        "kPct": 0.177,
-        "bbPct": 0.084
-      }
-    },
-    {
-      "id": "p-608379",
-      "name": "Michael Wacha",
-      "team": "KAN",
-      "throws": "R",
-      "control": 1,
-      "ip": 7,
-      "points": 320,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          13
-        ],
-        "FB": [
-          14,
-          19
-        ],
-        "BB": null,
-        "1B": null,
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.86,
-        "obpAgainst": 0.295,
-        "kPct": 0.176,
-        "bbPct": 0.063
-      }
-    },
-    {
-      "id": "p-666200",
-      "name": "Jes\u00fas Luzardo",
-      "team": "PHI",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 460,
-      "chart": {
-        "PU": [
-          1,
-          1
-        ],
-        "SO": [
-          2,
-          8
-        ],
-        "GB": [
-          9,
-          13
-        ],
-        "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.92,
-        "obpAgainst": 0.296,
-        "kPct": 0.285,
-        "bbPct": 0.075
-      }
-    },
-    {
-      "id": "p-543243",
-      "name": "Sonny Gray",
-      "team": "ST.",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 410,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          8
-        ],
-        "GB": [
-          9,
-          13
-        ],
-        "FB": [
-          14,
-          16
-        ],
-        "BB": null,
-        "1B": [
-          17,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.28,
-        "obpAgainst": 0.296,
-        "kPct": 0.267,
-        "bbPct": 0.05
-      }
-    },
-    {
-      "id": "p-656605",
-      "name": "Mitch Keller",
-      "team": "PIT",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 460,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.19,
-        "obpAgainst": 0.296,
-        "kPct": 0.2,
-        "bbPct": 0.068
-      }
-    },
-    {
-      "id": "p-668678",
-      "name": "Zac Gallen",
-      "team": "ARI",
-      "throws": "R",
-      "control": 2,
-      "ip": 8,
-      "points": 340,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          13
-        ],
-        "FB": [
-          14,
-          18
-        ],
-        "BB": null,
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.83,
-        "obpAgainst": 0.298,
-        "kPct": 0.215,
-        "bbPct": 0.081
-      }
-    },
-    {
-      "id": "p-645261",
-      "name": "Sandy Alcantara",
-      "team": "MIA",
-      "throws": "R",
-      "control": 2,
-      "ip": 7,
-      "points": 350,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          14
-        ],
-        "FB": [
-          15,
-          18
-        ],
-        "BB": null,
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 5.36,
-        "obpAgainst": 0.298,
-        "kPct": 0.191,
-        "bbPct": 0.077
-      }
-    },
-    {
-      "id": "p-664285",
-      "name": "Framber Valdez",
-      "team": "HOU",
-      "throws": "R",
-      "control": 2,
-      "ip": 8,
-      "points": 410,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          8
-        ],
-        "GB": [
-          9,
-          14
-        ],
-        "FB": [
-          15,
-          18
-        ],
-        "BB": [
-          19,
-          19
-        ],
-        "1B": null,
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.66,
-        "obpAgainst": 0.298,
-        "kPct": 0.233,
-        "bbPct": 0.085
-      }
-    },
-    {
-      "id": "p-657277",
-      "name": "Logan Webb",
-      "team": "SAN",
-      "throws": "R",
-      "control": 2,
-      "ip": 8,
-      "points": 370,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          9
-        ],
-        "GB": [
-          10,
-          15
-        ],
-        "FB": [
-          16,
-          18
-        ],
-        "BB": null,
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.22,
-        "obpAgainst": 0.299,
-        "kPct": 0.262,
-        "bbPct": 0.054
-      }
-    },
-    {
-      "id": "p-622663",
-      "name": "Luis Severino",
-      "team": "ATH",
-      "throws": "R",
-      "control": 2,
-      "ip": 6,
-      "points": 330,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          13
-        ],
-        "FB": [
-          14,
-          18
-        ],
-        "BB": null,
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.54,
-        "obpAgainst": 0.301,
-        "kPct": 0.176,
-        "bbPct": 0.071
-      }
-    },
-    {
-      "id": "p-543294",
-      "name": "Kyle Hendricks",
-      "team": "LOS",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 450,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 4.76,
-        "obpAgainst": 0.302,
-        "kPct": 0.164,
-        "bbPct": 0.062
-      }
-    },
-    {
-      "id": "p-668909",
-      "name": "Gavin Williams",
-      "team": "CLE",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 480,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          8
-        ],
-        "GB": [
-          9,
-          13
-        ],
-        "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          18
-        ],
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.06,
-        "obpAgainst": 0.303,
-        "kPct": 0.246,
-        "bbPct": 0.118
-      }
-    },
-    {
-      "id": "p-605280",
-      "name": "Clay Holmes",
-      "team": "NEW",
-      "throws": "R",
-      "control": 5,
-      "ip": 7,
-      "points": 480,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.53,
-        "obpAgainst": 0.305,
-        "kPct": 0.182,
-        "bbPct": 0.093
-      }
-    },
-    {
-      "id": "p-694297",
-      "name": "Brandon Pfaadt",
-      "team": "ARI",
-      "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 310,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          6
-        ],
-        "GB": [
-          7,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": null,
-        "1B": [
-          17,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 5.25,
-        "obpAgainst": 0.306,
-        "kPct": 0.192,
-        "bbPct": 0.048
-      }
-    },
-    {
-      "id": "p-605135",
-      "name": "Chris Bassitt",
-      "team": "TOR",
-      "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 370,
-      "chart": {
-        "PU": [
-          1,
-          2
-        ],
-        "SO": [
-          3,
-          7
-        ],
-        "GB": [
-          8,
-          12
-        ],
-        "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
-          20
-        ],
-        "HR": null
-      },
-      "realStats": {
-        "era": 3.96,
-        "obpAgainst": 0.307,
-        "kPct": 0.226,
-        "bbPct": 0.071
-      }
-    },
-    {
-      "id": "p-656302",
-      "name": "Dylan Cease",
-      "team": "SAN",
-      "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 390,
+      "ip": 184,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -1840,20 +716,1032 @@
         ],
         "FB": [
           16,
-          17
-        ],
-        "BB": [
-          18,
-          18
-        ],
-        "1B": [
-          19,
           19
         ],
-        "2B": [
+        "BB": null,
+        "1B": [
           20,
           20
         ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.52,
+        "obpAgainst": 0.274,
+        "kPct": 0.223,
+        "bbPct": 0.064
+      }
+    },
+    {
+      "id": "p-671096",
+      "name": "Andrew Abbott",
+      "team": "CIN",
+      "throws": "R",
+      "control": 4,
+      "ip": 166,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          10
+        ],
+        "GB": [
+          11,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 2.87,
+        "obpAgainst": 0.279,
+        "kPct": 0.218,
+        "bbPct": 0.063
+      }
+    },
+    {
+      "id": "p-686752",
+      "name": "Ryan Pepiot",
+      "team": "TAM",
+      "throws": "R",
+      "control": 4,
+      "ip": 167,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          1
+        ],
+        "SO": [
+          2,
+          10
+        ],
+        "GB": [
+          11,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.86,
+        "obpAgainst": 0.287,
+        "kPct": 0.246,
+        "bbPct": 0.09
+      }
+    },
+    {
+      "id": "p-622491",
+      "name": "Luis Castillo",
+      "team": "SEA",
+      "throws": "R",
+      "control": 4,
+      "ip": 180,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          10
+        ],
+        "GB": [
+          11,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.54,
+        "obpAgainst": 0.287,
+        "kPct": 0.217,
+        "bbPct": 0.062
+      }
+    },
+    {
+      "id": "p-605488",
+      "name": "Jeffrey Springs",
+      "team": "ATH",
+      "throws": "R",
+      "control": 4,
+      "ip": 171,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.11,
+        "obpAgainst": 0.29,
+        "kPct": 0.194,
+        "bbPct": 0.076
+      }
+    },
+    {
+      "id": "p-592662",
+      "name": "Robbie Ray",
+      "team": "SAN",
+      "throws": "R",
+      "control": 4,
+      "ip": 182,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          1
+        ],
+        "SO": [
+          2,
+          10
+        ],
+        "GB": [
+          11,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.65,
+        "obpAgainst": 0.293,
+        "kPct": 0.246,
+        "bbPct": 0.097
+      }
+    },
+    {
+      "id": "p-607259",
+      "name": "Nick Martinez",
+      "team": "CIN",
+      "throws": "R",
+      "control": 4,
+      "ip": 165,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          8
+        ],
+        "GB": [
+          9,
+          13
+        ],
+        "FB": [
+          14,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.45,
+        "obpAgainst": 0.293,
+        "kPct": 0.17,
+        "bbPct": 0.061
+      }
+    },
+    {
+      "id": "p-663903",
+      "name": "Brady Singer",
+      "team": "CIN",
+      "throws": "R",
+      "control": 4,
+      "ip": 169,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          10
+        ],
+        "GB": [
+          11,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.03,
+        "obpAgainst": 0.293,
+        "kPct": 0.228,
+        "bbPct": 0.084
+      }
+    },
+    {
+      "id": "p-665152",
+      "name": "Dean Kremer",
+      "team": "BAL",
+      "throws": "R",
+      "control": 4,
+      "ip": 171,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.19,
+        "obpAgainst": 0.294,
+        "kPct": 0.201,
+        "bbPct": 0.064
+      }
+    },
+    {
+      "id": "p-676440",
+      "name": "Tanner Bibee",
+      "team": "CLE",
+      "throws": "R",
+      "control": 4,
+      "ip": 182,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          10
+        ],
+        "GB": [
+          11,
+          14
+        ],
+        "FB": [
+          15,
+          18
+        ],
+        "BB": [
+          19,
+          19
+        ],
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.24,
+        "obpAgainst": 0.294,
+        "kPct": 0.213,
+        "bbPct": 0.071
+      }
+    },
+    {
+      "id": "p-678394",
+      "name": "Brayan Bello",
+      "team": "BOS",
+      "throws": "R",
+      "control": 3,
+      "ip": 166,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.35,
+        "obpAgainst": 0.294,
+        "kPct": 0.177,
+        "bbPct": 0.084
+      }
+    },
+    {
+      "id": "p-608379",
+      "name": "Michael Wacha",
+      "team": "KAN",
+      "throws": "R",
+      "control": 3,
+      "ip": 172,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.86,
+        "obpAgainst": 0.295,
+        "kPct": 0.176,
+        "bbPct": 0.063
+      }
+    },
+    {
+      "id": "p-666200",
+      "name": "Jes\u00fas Luzardo",
+      "team": "PHI",
+      "throws": "R",
+      "control": 3,
+      "ip": 183,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          1
+        ],
+        "SO": [
+          2,
+          12
+        ],
+        "GB": [
+          13,
+          16
+        ],
+        "FB": [
+          17,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.92,
+        "obpAgainst": 0.296,
+        "kPct": 0.285,
+        "bbPct": 0.075
+      }
+    },
+    {
+      "id": "p-543243",
+      "name": "Sonny Gray",
+      "team": "ST.",
+      "throws": "R",
+      "control": 3,
+      "ip": 180,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          1
+        ],
+        "SO": [
+          2,
+          11
+        ],
+        "GB": [
+          12,
+          15
+        ],
+        "FB": [
+          16,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.28,
+        "obpAgainst": 0.296,
+        "kPct": 0.267,
+        "bbPct": 0.05
+      }
+    },
+    {
+      "id": "p-656605",
+      "name": "Mitch Keller",
+      "team": "PIT",
+      "throws": "R",
+      "control": 3,
+      "ip": 176,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          10
+        ],
+        "GB": [
+          11,
+          15
+        ],
+        "FB": [
+          16,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.19,
+        "obpAgainst": 0.296,
+        "kPct": 0.2,
+        "bbPct": 0.068
+      }
+    },
+    {
+      "id": "p-668678",
+      "name": "Zac Gallen",
+      "team": "ARI",
+      "throws": "R",
+      "control": 3,
+      "ip": 192,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          10
+        ],
+        "GB": [
+          11,
+          15
+        ],
+        "FB": [
+          16,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.83,
+        "obpAgainst": 0.298,
+        "kPct": 0.215,
+        "bbPct": 0.081
+      }
+    },
+    {
+      "id": "p-645261",
+      "name": "Sandy Alcantara",
+      "team": "MIA",
+      "throws": "R",
+      "control": 3,
+      "ip": 174,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 5.36,
+        "obpAgainst": 0.298,
+        "kPct": 0.191,
+        "bbPct": 0.077
+      }
+    },
+    {
+      "id": "p-664285",
+      "name": "Framber Valdez",
+      "team": "HOU",
+      "throws": "R",
+      "control": 3,
+      "ip": 192,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          11
+        ],
+        "GB": [
+          12,
+          15
+        ],
+        "FB": [
+          16,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.66,
+        "obpAgainst": 0.298,
+        "kPct": 0.233,
+        "bbPct": 0.085
+      }
+    },
+    {
+      "id": "p-657277",
+      "name": "Logan Webb",
+      "team": "SAN",
+      "throws": "R",
+      "control": 3,
+      "ip": 207,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          1
+        ],
+        "SO": [
+          2,
+          11
+        ],
+        "GB": [
+          12,
+          15
+        ],
+        "FB": [
+          16,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.22,
+        "obpAgainst": 0.299,
+        "kPct": 0.262,
+        "bbPct": 0.054
+      }
+    },
+    {
+      "id": "p-622663",
+      "name": "Luis Severino",
+      "team": "ATH",
+      "throws": "R",
+      "control": 3,
+      "ip": 162,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.54,
+        "obpAgainst": 0.301,
+        "kPct": 0.176,
+        "bbPct": 0.071
+      }
+    },
+    {
+      "id": "p-543294",
+      "name": "Kyle Hendricks",
+      "team": "LOS",
+      "throws": "R",
+      "control": 2,
+      "ip": 164,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          15
+        ],
+        "FB": [
+          16,
+          20
+        ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 4.76,
+        "obpAgainst": 0.302,
+        "kPct": 0.164,
+        "bbPct": 0.062
+      }
+    },
+    {
+      "id": "p-668909",
+      "name": "Gavin Williams",
+      "team": "CLE",
+      "throws": "R",
+      "control": 2,
+      "ip": 167,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          12
+        ],
+        "GB": [
+          13,
+          16
+        ],
+        "FB": [
+          17,
+          20
+        ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.06,
+        "obpAgainst": 0.303,
+        "kPct": 0.246,
+        "bbPct": 0.118
+      }
+    },
+    {
+      "id": "p-605280",
+      "name": "Clay Holmes",
+      "team": "NEW",
+      "throws": "R",
+      "control": 2,
+      "ip": 165,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          15
+        ],
+        "FB": [
+          16,
+          20
+        ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.53,
+        "obpAgainst": 0.305,
+        "kPct": 0.182,
+        "bbPct": 0.093
+      }
+    },
+    {
+      "id": "p-694297",
+      "name": "Brandon Pfaadt",
+      "team": "ARI",
+      "throws": "R",
+      "control": 2,
+      "ip": 176,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          9
+        ],
+        "GB": [
+          10,
+          14
+        ],
+        "FB": [
+          15,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 5.25,
+        "obpAgainst": 0.306,
+        "kPct": 0.192,
+        "bbPct": 0.048
+      }
+    },
+    {
+      "id": "p-605135",
+      "name": "Chris Bassitt",
+      "team": "TOR",
+      "throws": "R",
+      "control": 2,
+      "ip": 170,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          2
+        ],
+        "SO": [
+          3,
+          11
+        ],
+        "GB": [
+          12,
+          15
+        ],
+        "FB": [
+          16,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
+        "HR": null
+      },
+      "realStats": {
+        "era": 3.96,
+        "obpAgainst": 0.307,
+        "kPct": 0.226,
+        "bbPct": 0.071
+      }
+    },
+    {
+      "id": "p-656302",
+      "name": "Dylan Cease",
+      "team": "SAN",
+      "throws": "R",
+      "control": 2,
+      "ip": 168,
+      "points": null,
+      "chart": {
+        "PU": [
+          1,
+          1
+        ],
+        "SO": [
+          2,
+          12
+        ],
+        "GB": [
+          13,
+          16
+        ],
+        "FB": [
+          17,
+          19
+        ],
+        "BB": null,
+        "1B": [
+          20,
+          20
+        ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -1868,9 +1756,9 @@
       "name": "Jos\u00e9 Berr\u00edos",
       "team": "TOR",
       "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 360,
+      "control": 2,
+      "ip": 166,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -1878,28 +1766,22 @@
         ],
         "SO": [
           3,
-          7
+          10
         ],
         "GB": [
-          8,
-          13
+          11,
+          15
         ],
         "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
+          16,
           19
         ],
-        "2B": [
+        "BB": null,
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -1914,9 +1796,9 @@
       "name": "Shane Baz",
       "team": "TAM",
       "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 350,
+      "control": 2,
+      "ip": 166,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -1924,28 +1806,22 @@
         ],
         "SO": [
           3,
-          8
+          11
         ],
         "GB": [
-          9,
-          13
+          12,
+          15
         ],
         "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
+          16,
           19
         ],
-        "2B": [
+        "BB": null,
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -1960,9 +1836,9 @@
       "name": "Will Warren",
       "team": "NEW",
       "throws": "R",
-      "control": 4,
-      "ip": 6,
-      "points": 340,
+      "control": 2,
+      "ip": 162,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -1970,28 +1846,22 @@
         ],
         "SO": [
           3,
-          8
+          11
         ],
         "GB": [
-          9,
-          13
+          12,
+          15
         ],
         "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
+          16,
           19
         ],
-        "2B": [
+        "BB": null,
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2006,9 +1876,9 @@
       "name": "David Peterson",
       "team": "NEW",
       "throws": "R",
-      "control": 4,
-      "ip": 7,
-      "points": 410,
+      "control": 2,
+      "ip": 168,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2016,28 +1886,22 @@
         ],
         "SO": [
           3,
-          7
+          10
         ],
         "GB": [
-          8,
-          13
+          11,
+          15
         ],
         "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
+          16,
           19
         ],
-        "2B": [
+        "BB": null,
+        "1B": [
           20,
           20
         ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2052,9 +1916,9 @@
       "name": "Mitchell Parker",
       "team": "WAS",
       "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 260,
+      "control": 1,
+      "ip": 164,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2062,28 +1926,19 @@
         ],
         "SO": [
           3,
-          5
+          8
         ],
         "GB": [
-          6,
-          12
+          9,
+          14
         ],
         "FB": [
-          13,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
+          15,
           20
         ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2098,9 +1953,9 @@
       "name": "Kyle Freeland",
       "team": "COL",
       "throws": "R",
-      "control": 3,
-      "ip": 6,
-      "points": 190,
+      "control": 1,
+      "ip": 162,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2108,25 +1963,19 @@
         ],
         "SO": [
           3,
-          6
+          9
         ],
         "GB": [
-          7,
-          12
+          10,
+          15
         ],
         "FB": [
-          13,
-          16
-        ],
-        "BB": null,
-        "1B": [
-          17,
-          19
-        ],
-        "2B": [
-          20,
+          16,
           20
         ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2141,9 +1990,9 @@
       "name": "Jos\u00e9 Soriano",
       "team": "LOS",
       "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 330,
+      "control": 1,
+      "ip": 169,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2151,28 +2000,19 @@
         ],
         "SO": [
           3,
-          7
+          10
         ],
         "GB": [
-          8,
-          13
+          11,
+          15
         ],
         "FB": [
-          14,
-          16
-        ],
-        "BB": [
-          17,
-          18
-        ],
-        "1B": [
-          19,
-          19
-        ],
-        "2B": [
-          20,
+          16,
           20
         ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2188,8 +2028,8 @@
       "team": "WAS",
       "throws": "R",
       "control": 1,
-      "ip": 7,
-      "points": 120,
+      "ip": 180,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2197,22 +2037,19 @@
         ],
         "SO": [
           3,
-          6
+          8
         ],
         "GB": [
-          7,
-          13
+          9,
+          14
         ],
         "FB": [
-          14,
-          18
+          15,
+          20
         ],
         "BB": null,
         "1B": null,
-        "2B": [
-          19,
-          20
-        ],
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2227,9 +2064,9 @@
       "name": "Andre Pallante",
       "team": "ST.",
       "throws": "R",
-      "control": 3,
-      "ip": 6,
-      "points": 240,
+      "control": 1,
+      "ip": 162,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2237,28 +2074,19 @@
         ],
         "SO": [
           3,
-          5
+          8
         ],
         "GB": [
-          6,
-          11
+          9,
+          14
         ],
         "FB": [
-          12,
-          16
-        ],
-        "BB": [
-          17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
+          15,
           20
         ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2273,9 +2101,9 @@
       "name": "Yusei Kikuchi",
       "team": "LOS",
       "throws": "R",
-      "control": 3,
-      "ip": 7,
-      "points": 250,
+      "control": 1,
+      "ip": 178,
+      "points": null,
       "chart": {
         "PU": [
           1,
@@ -2283,28 +2111,19 @@
         ],
         "SO": [
           3,
-          7
+          11
         ],
         "GB": [
-          8,
-          12
-        ],
-        "FB": [
-          13,
+          12,
           16
         ],
-        "BB": [
+        "FB": [
           17,
-          17
-        ],
-        "1B": [
-          18,
-          19
-        ],
-        "2B": [
-          20,
           20
         ],
+        "BB": null,
+        "1B": null,
+        "2B": null,
         "HR": null
       },
       "realStats": {
@@ -2321,42 +2140,44 @@
       "name": "Michael Harris II",
       "team": "ATL",
       "bats": "R",
-      "onBase": 8,
-      "speed": 17,
-      "points": 130,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          8
         ],
         "FB": [
-          4,
-          6
+          9,
+          13
         ],
-        "BB": null,
-        "1B": [
-          7,
-          12
-        ],
-        "1B+": [
-          13,
+        "BB": [
+          14,
           14
         ],
-        "2B": [
+        "1B": [
           15,
-          16
-        ],
-        "3B": [
-          17,
           17
         ],
-        "HR": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
+          19
+        ],
+        "3B": null,
+        "HR": [
+          20,
           20
         ]
       },
@@ -2374,41 +2195,43 @@
       "team": "NEW",
       "bats": "R",
       "onBase": 7,
-      "speed": 17,
-      "points": 80,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          2
+          5,
+          8
         ],
-        "FB": null,
+        "FB": [
+          9,
+          13
+        ],
         "BB": [
-          3,
-          6
+          14,
+          15
         ],
         "1B": [
-          7,
-          9
-        ],
-        "1B+": [
-          10,
-          11
-        ],
-        "2B": [
-          12,
-          16
-        ],
-        "3B": [
-          17,
+          16,
           17
         ],
-        "HR": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
+          19
+        ],
+        "3B": null,
+        "HR": [
+          20,
           20
         ]
       },
@@ -2425,42 +2248,41 @@
       "name": "Adolis Garc\u00eda",
       "team": "TEX",
       "bats": "R",
-      "onBase": 9,
-      "speed": 15,
-      "points": 90,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          4
         ],
         "GB": [
-          3,
-          5
-        ],
-        "FB": [
-          6,
+          5,
           8
         ],
-        "BB": [
+        "FB": [
           9,
-          9
+          13
         ],
-        "1B": [
-          10,
-          14
-        ],
-        "1B+": [
-          15,
+        "BB": [
+          14,
           15
         ],
-        "2B": [
+        "1B": [
           16,
           18
         ],
+        "1B+": null,
+        "2B": [
+          19,
+          19
+        ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -2477,44 +2299,40 @@
       "name": "Joey Ortiz",
       "team": "MIL",
       "bats": "R",
-      "onBase": 8,
-      "speed": 16,
-      "points": 10,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          4
+          4,
+          8
         ],
         "FB": [
-          5,
-          6
+          9,
+          13
         ],
         "BB": [
-          7,
-          7
-        ],
-        "1B": [
-          8,
+          14,
           15
         ],
-        "1B+": [
+        "1B": [
           16,
-          17
-        ],
-        "2B": [
-          18,
           19
         ],
-        "3B": null,
-        "HR": [
+        "1B+": null,
+        "2B": [
           20,
           20
-        ]
+        ],
+        "3B": null,
+        "HR": null
       },
       "realStats": {
         "obp": 0.273,
@@ -2529,42 +2347,44 @@
       "name": "Brenton Doyle",
       "team": "COL",
       "bats": "R",
-      "onBase": 8,
-      "speed": 18,
-      "points": 100,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
           5
         ],
-        "BB": [
+        "GB": [
           6,
-          6
+          9
         ],
-        "1B": [
-          7,
+        "FB": [
+          10,
           13
         ],
-        "1B+": [
+        "BB": [
           14,
-          15
+          14
+        ],
+        "1B": [
+          15,
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          16,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -2581,39 +2401,41 @@
       "name": "Salvador Perez",
       "team": "KAN",
       "bats": "R",
-      "onBase": 8,
-      "speed": 8,
-      "points": 130,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
-        ],
-        "BB": [
-          6,
           7
         ],
-        "1B": [
+        "FB": [
           8,
           12
         ],
+        "BB": [
+          13,
+          13
+        ],
+        "1B": [
+          14,
+          17
+        ],
         "1B+": null,
         "2B": [
-          13,
-          16
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          17,
+          20,
           20
         ]
       },
@@ -2630,39 +2452,41 @@
       "name": "Teoscar Hern\u00e1ndez",
       "team": "LOS",
       "bats": "R",
-      "onBase": 8,
-      "speed": 11,
-      "points": 190,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
-          5
+          8
+        ],
+        "FB": [
+          9,
+          12
+        ],
+        "BB": [
+          13,
+          13
         ],
         "1B": [
-          6,
-          13
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          14,
-          16
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          17,
+          20,
           20
         ]
       },
@@ -2679,36 +2503,41 @@
       "name": "Yainer Diaz",
       "team": "HOU",
       "bats": "R",
-      "onBase": 8,
-      "speed": 9,
-      "points": 130,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          4
+          7
         ],
-        "BB": null,
+        "FB": [
+          8,
+          12
+        ],
+        "BB": [
+          13,
+          13
+        ],
         "1B": [
-          5,
-          15
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -2725,42 +2554,44 @@
       "name": "Pete Crow-Armstrong",
       "team": "CHI",
       "bats": "R",
-      "onBase": 8,
-      "speed": 22,
-      "points": 270,
-      "positions": [],
+      "onBase": 7,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
-          5
+          8
         ],
-        "1B": [
-          6,
-          9
-        ],
-        "1B+": [
-          10,
+        "FB": [
+          9,
           12
         ],
-        "2B": [
+        "BB": [
           13,
+          13
+        ],
+        "1B": [
+          14,
           16
+        ],
+        "1B+": [
+          17,
+          17
+        ],
+        "2B": [
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          17,
+          20,
           20
         ]
       },
@@ -2777,39 +2608,41 @@
       "name": "Brooks Lee",
       "team": "MIN",
       "bats": "R",
-      "onBase": 9,
-      "speed": 10,
-      "points": 50,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          4
-        ],
-        "FB": [
-          5,
+          4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          9
+          12
+        ],
+        "BB": [
+          13,
+          14
         ],
         "1B": [
-          10,
-          17
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -2827,43 +2660,39 @@
       "team": "LOS",
       "bats": "R",
       "onBase": 8,
-      "speed": 13,
-      "points": 30,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          4
+          7
+        ],
+        "FB": [
+          8,
+          12
         ],
         "BB": [
-          5,
-          6
+          13,
+          14
         ],
         "1B": [
-          7,
-          16
-        ],
-        "1B+": [
-          17,
-          17
-        ],
-        "2B": [
-          18,
+          15,
           19
         ],
-        "3B": null,
-        "HR": [
+        "1B+": null,
+        "2B": [
           20,
           20
-        ]
+        ],
+        "3B": null,
+        "HR": null
       },
       "realStats": {
         "obp": 0.287,
@@ -2879,41 +2708,43 @@
       "team": "MIA",
       "bats": "R",
       "onBase": 8,
-      "speed": 16,
-      "points": 160,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
-          4
-        ],
-        "BB": [
-          5,
+          4,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          11
+          12
+        ],
+        "BB": [
+          13,
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": [
-          12,
-          13
+          18,
+          18
         ],
         "2B": [
-          14,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -2930,42 +2761,41 @@
       "name": "Luis Garc\u00eda Jr.",
       "team": "WAS",
       "bats": "R",
-      "onBase": 9,
-      "speed": 16,
-      "points": 140,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          4
-        ],
-        "FB": [
-          5,
+          4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          8
+          12
+        ],
+        "BB": [
+          13,
+          13
         ],
         "1B": [
-          9,
-          14
+          14,
+          17
         ],
-        "1B+": [
-          15,
-          15
-        ],
+        "1B+": null,
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -2982,35 +2812,34 @@
       "name": "Ke'Bryan Hayes",
       "team": "CIN",
       "bats": "R",
-      "onBase": 9,
-      "speed": 14,
-      "points": 10,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          4
+          4,
+          7
         ],
         "FB": [
-          5,
-          6
+          8,
+          12
         ],
         "BB": [
-          7,
-          8
+          13,
+          14
         ],
         "1B": [
-          9,
-          18
-        ],
-        "1B+": [
-          19,
+          15,
           19
         ],
+        "1B+": null,
         "2B": [
           20,
           20
@@ -3031,39 +2860,41 @@
       "name": "Jo Adell",
       "team": "LOS",
       "bats": "R",
-      "onBase": 9,
-      "speed": 11,
-      "points": 290,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
-        ],
-        "BB": [
-          7,
           8
         ],
-        "1B": [
+        "FB": [
           9,
+          12
+        ],
+        "BB": [
+          13,
           14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          15
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          16,
+          19,
           20
         ]
       },
@@ -3080,36 +2911,41 @@
       "name": "Lenyn Sosa",
       "team": "CHI",
       "bats": "R",
-      "onBase": 9,
-      "speed": 9,
-      "points": 200,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          8
         ],
-        "BB": null,
+        "FB": [
+          9,
+          12
+        ],
+        "BB": [
+          13,
+          13
+        ],
         "1B": [
-          7,
-          15
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -3126,42 +2962,44 @@
       "name": "Ceddanne Rafaela",
       "team": "BOS",
       "bats": "R",
-      "onBase": 9,
-      "speed": 18,
-      "points": 190,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
-        ],
-        "BB": [
-          7,
           7
         ],
-        "1B": [
+        "FB": [
           8,
+          12
+        ],
+        "BB": [
+          13,
           13
         ],
-        "1B+": [
+        "1B": [
           14,
-          15
+          16
+        ],
+        "1B+": [
+          17,
+          17
         ],
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3178,39 +3016,41 @@
       "name": "Josh Jung",
       "team": "TEX",
       "bats": "R",
-      "onBase": 9,
-      "speed": 10,
-      "points": 130,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          8
+        ],
+        "FB": [
+          9,
+          12
         ],
         "BB": [
-          7,
-          7
+          13,
+          13
         ],
         "1B": [
-          8,
-          16
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3228,38 +3068,40 @@
       "team": "PHI",
       "bats": "R",
       "onBase": 8,
-      "speed": 10,
-      "points": 120,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
-          3
-        ],
-        "BB": [
-          4,
           4
         ],
-        "1B": [
+        "GB": [
           5,
-          15
+          8
+        ],
+        "FB": [
+          9,
+          12
+        ],
+        "BB": [
+          13,
+          14
+        ],
+        "1B": [
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          16,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3277,38 +3119,40 @@
       "team": "ARI",
       "bats": "R",
       "onBase": 8,
-      "speed": 13,
-      "points": 160,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
-        "SO": null,
-        "GB": [
+        "SO": [
           1,
-          1
+          2
+        ],
+        "GB": [
+          3,
+          6
         ],
         "FB": [
-          2,
-          3
+          7,
+          11
         ],
         "BB": [
-          4,
-          5
+          12,
+          13
         ],
         "1B": [
-          6,
-          14
+          14,
+          18
         ],
-        "1B+": [
-          15,
-          15
-        ],
+        "1B+": null,
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -3325,41 +3169,40 @@
       "name": "Eric Wagaman",
       "team": "MIA",
       "bats": "R",
-      "onBase": 9,
-      "speed": 10,
-      "points": 70,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          16
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          19
+          19,
+          20
         ],
         "3B": null,
-        "HR": [
-          20,
-          20
-        ]
+        "HR": null
       },
       "realStats": {
         "obp": 0.296,
@@ -3374,39 +3217,41 @@
       "name": "Christian Walker",
       "team": "HOU",
       "bats": "R",
-      "onBase": 9,
-      "speed": 9,
-      "points": 150,
-      "positions": [],
+      "onBase": 8,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          15
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -3424,38 +3269,43 @@
       "team": "PIT",
       "bats": "R",
       "onBase": 8,
-      "speed": 23,
-      "points": 140,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          5
         ],
         "GB": [
-          2,
-          2
+          6,
+          8
         ],
         "FB": [
-          3,
-          3
-        ],
-        "BB": [
-          4,
+          9,
           11
         ],
-        "1B": null,
-        "1B+": [
+        "BB": [
           12,
-          15
+          14
+        ],
+        "1B": [
+          15,
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -3473,41 +3323,43 @@
       "team": "CIN",
       "bats": "R",
       "onBase": 8,
-      "speed": 17,
-      "points": 70,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          5
         ],
         "GB": [
-          2,
-          2
+          6,
+          8
         ],
         "FB": [
-          3,
-          3
+          9,
+          11
         ],
         "BB": [
-          4,
-          9
+          12,
+          14
         ],
         "1B": [
-          10,
-          15
-        ],
-        "1B+": [
-          16,
+          15,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
           18
         ],
+        "2B": [
+          19,
+          19
+        ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3524,39 +3376,41 @@
       "name": "Eugenio Su\u00e1rez",
       "team": "SEA",
       "bats": "R",
-      "onBase": 8,
-      "speed": 10,
-      "points": 300,
-      "positions": [],
+      "onBase": 9,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          5
         ],
         "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
-          3
-        ],
-        "BB": [
-          4,
+          6,
           8
         ],
-        "1B": [
+        "FB": [
           9,
-          11
+          12
+        ],
+        "BB": [
+          13,
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          12,
-          13
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          14,
+          19,
           20
         ]
       },
@@ -3574,41 +3428,43 @@
       "team": "CHI",
       "bats": "R",
       "onBase": 9,
-      "speed": 17,
-      "points": 200,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          8
+        ],
+        "FB": [
+          9,
+          12
         ],
         "BB": [
-          7,
-          9
+          13,
+          14
         ],
         "1B": [
-          10,
-          13
+          15,
+          17
         ],
         "1B+": [
-          14,
-          15
+          18,
+          18
         ],
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -3626,38 +3482,40 @@
       "team": "TOR",
       "bats": "R",
       "onBase": 9,
-      "speed": 11,
-      "points": 190,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          8
+        ],
+        "FB": [
+          9,
+          12
         ],
         "BB": [
-          7,
-          9
+          13,
+          14
         ],
         "1B": [
-          10,
-          13
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          14,
-          17
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -3675,36 +3533,38 @@
       "team": "MIA",
       "bats": "R",
       "onBase": 9,
-      "speed": 15,
-      "points": 110,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          16
-        ],
-        "1B+": [
-          17,
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -3727,41 +3587,43 @@
       "team": "ATH",
       "bats": "R",
       "onBase": 9,
-      "speed": 18,
-      "points": 170,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          9
-        ],
-        "1B": [
-          10,
+          12,
           14
         ],
-        "1B+": [
+        "1B": [
           15,
-          16
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3779,41 +3641,40 @@
       "team": "TEX",
       "bats": "R",
       "onBase": 9,
-      "speed": 14,
-      "points": 110,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
-          16
-        ],
-        "1B+": [
-          17,
-          17
-        ],
-        "2B": [
-          18,
+          15,
           18
+        ],
+        "1B+": null,
+        "2B": [
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3831,36 +3692,35 @@
       "team": "ATL",
       "bats": "R",
       "onBase": 9,
-      "speed": 14,
-      "points": 90,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          16
+          14,
+          18
         ],
-        "1B+": [
-          17,
-          17
-        ],
+        "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -3883,38 +3743,40 @@
       "team": "BOS",
       "bats": "R",
       "onBase": 9,
-      "speed": 9,
-      "points": 100,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          5
+          8,
+          11
         ],
         "BB": [
-          6,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
-          16
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3932,41 +3794,43 @@
       "team": "MIL",
       "bats": "R",
       "onBase": 9,
-      "speed": 18,
-      "points": 250,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          6
-        ],
-        "1B": [
-          7,
+          12,
           12
         ],
-        "1B+": [
+        "1B": [
           13,
-          14
+          16
+        ],
+        "1B+": [
+          17,
+          17
         ],
         "2B": [
-          15,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -3984,41 +3848,43 @@
       "team": "BOS",
       "bats": "R",
       "onBase": 9,
-      "speed": 21,
-      "points": 290,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
-          5
+          7
         ],
-        "1B": [
-          6,
+        "FB": [
+          8,
+          11
+        ],
+        "BB": [
+          12,
           13
         ],
-        "1B+": [
+        "1B": [
           14,
-          16
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4036,38 +3902,40 @@
       "team": "TAM",
       "bats": "R",
       "onBase": 9,
-      "speed": 10,
-      "points": 260,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          5
-        ],
-        "BB": [
-          6,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          15
+          11
+        ],
+        "BB": [
+          12,
+          13
+        ],
+        "1B": [
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          16
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          17,
+          19,
           20
         ]
       },
@@ -4085,43 +3953,39 @@
       "team": "ST.",
       "bats": "R",
       "onBase": 9,
-      "speed": 13,
-      "points": 110,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          15
+          14,
+          18
         ],
-        "1B+": [
-          16,
-          16
-        ],
+        "1B+": null,
         "2B": [
-          17,
-          19
+          19,
+          20
         ],
         "3B": null,
-        "HR": [
-          20,
-          20
-        ]
+        "HR": null
       },
       "realStats": {
         "obp": 0.309,
@@ -4137,33 +4001,35 @@
       "team": "TOR",
       "bats": "R",
       "onBase": 9,
-      "speed": 11,
-      "points": 140,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
-          5
-        ],
-        "BB": [
-          6,
+          3,
           6
         ],
-        "1B": [
+        "FB": [
           7,
-          16
+          11
+        ],
+        "BB": [
+          12,
+          12
+        ],
+        "1B": [
+          13,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
+          18,
           19
         ],
         "3B": null,
@@ -4185,39 +4051,41 @@
       "name": "Junior Caminero",
       "team": "TAM",
       "bats": "R",
-      "onBase": 10,
-      "speed": 11,
-      "points": 340,
-      "positions": [],
+      "onBase": 9,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          3
         ],
         "GB": [
-          3,
-          5
-        ],
-        "FB": [
-          6,
+          4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
-          14
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          16
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          17,
+          19,
           20
         ]
       },
@@ -4234,39 +4102,41 @@
       "name": "Spencer Steer",
       "team": "CIN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 12,
-      "points": 160,
-      "positions": [],
+      "onBase": 9,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          14
+        ],
+        "1B": [
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4284,38 +4154,40 @@
       "team": "NEW",
       "bats": "R",
       "onBase": 9,
-      "speed": 10,
-      "points": 70,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
-          3
-        ],
-        "FB": [
-          4,
           5
         ],
-        "BB": [
+        "GB": [
           6,
-          12
+          8
+        ],
+        "FB": [
+          9,
+          11
+        ],
+        "BB": [
+          12,
+          15
         ],
         "1B": [
-          13,
-          16
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4332,42 +4204,41 @@
       "name": "Andy Pages",
       "team": "LOS",
       "bats": "R",
-      "onBase": 10,
-      "speed": 15,
-      "points": 290,
-      "positions": [],
+      "onBase": 9,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
-        ],
-        "BB": [
-          7,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          15
+          11
         ],
-        "1B+": [
-          16,
-          16
+        "BB": [
+          12,
+          13
         ],
-        "2B": [
-          17,
+        "1B": [
+          14,
           18
+        ],
+        "1B+": null,
+        "2B": [
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4385,38 +4256,40 @@
       "team": "CLE",
       "bats": "R",
       "onBase": 10,
-      "speed": 9,
-      "points": 190,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
-          17
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          18,
+          19,
           20
         ]
       },
@@ -4434,38 +4307,40 @@
       "team": "DET",
       "bats": "R",
       "onBase": 10,
-      "speed": 9,
-      "points": 270,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          5
         ],
         "GB": [
-          3,
-          4
+          6,
+          8
         ],
         "FB": [
-          5,
-          7
+          9,
+          11
         ],
         "BB": [
-          8,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          14
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          17
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          18,
+          19,
           20
         ]
       },
@@ -4483,28 +4358,30 @@
       "team": "BAL",
       "bats": "R",
       "onBase": 10,
-      "speed": 16,
-      "points": 140,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
+          14,
           17
         ],
         "1B+": [
@@ -4534,34 +4411,36 @@
       "name": "J.T. Realmuto",
       "team": "PHI",
       "bats": "R",
-      "onBase": 9,
-      "speed": 12,
-      "points": 140,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          17
+          11
+        ],
+        "BB": [
+          12,
+          13
+        ],
+        "1B": [
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -4584,41 +4463,43 @@
       "team": "WAS",
       "bats": "R",
       "onBase": 10,
-      "speed": 21,
-      "points": 250,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          3
         ],
         "GB": [
-          3,
-          5
-        ],
-        "FB": [
-          6,
+          4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          10
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          11,
-          12
+          14,
+          17
         ],
         "1B+": [
-          13,
-          15
+          18,
+          18
         ],
         "2B": [
-          16,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4636,41 +4517,43 @@
       "team": "COL",
       "bats": "R",
       "onBase": 10,
-      "speed": 17,
-      "points": 210,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          5
         ],
         "GB": [
-          3,
-          4
+          6,
+          8
         ],
         "FB": [
-          5,
-          7
+          9,
+          11
         ],
         "BB": [
-          8,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          15
+          14,
+          17
         ],
         "1B+": [
-          16,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4688,38 +4571,40 @@
       "team": "CHI",
       "bats": "R",
       "onBase": 10,
-      "speed": 11,
-      "points": 150,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          4
-        ],
-        "FB": [
-          5,
+          4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          12
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          13,
-          15
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4736,39 +4621,41 @@
       "name": "Taylor Ward",
       "team": "LOS",
       "bats": "R",
-      "onBase": 9,
-      "speed": 10,
-      "points": 260,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
-          10
+          7
+        ],
+        "FB": [
+          8,
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          11,
-          14
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          16
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          17,
+          19,
           20
         ]
       },
@@ -4785,39 +4672,41 @@
       "name": "Gavin Sheets",
       "team": "SAN",
       "bats": "R",
-      "onBase": 9,
-      "speed": 9,
-      "points": 180,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          2
+          4,
+          7
         ],
         "FB": [
-          3,
-          4
+          8,
+          11
         ],
         "BB": [
-          5,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          15
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -4834,42 +4723,44 @@
       "name": "Zach Neto",
       "team": "LOS",
       "bats": "R",
-      "onBase": 9,
-      "speed": 21,
-      "points": 330,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
           7
         ],
-        "1B": [
+        "FB": [
           8,
           11
         ],
-        "1B+": [
+        "BB": [
           12,
-          14
+          13
+        ],
+        "1B": [
+          14,
+          16
+        ],
+        "1B+": [
+          17,
+          17
         ],
         "2B": [
-          15,
-          17
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -4886,42 +4777,41 @@
       "name": "Willy Adames",
       "team": "SAN",
       "bats": "R",
-      "onBase": 9,
-      "speed": 13,
-      "points": 200,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          2
-        ],
-        "FB": [
-          3,
           4
         ],
-        "BB": [
+        "GB": [
           5,
-          10
+          7
         ],
-        "1B": [
-          11,
+        "FB": [
+          8,
+          11
+        ],
+        "BB": [
+          12,
           15
         ],
-        "1B+": [
+        "1B": [
           16,
-          16
+          18
         ],
+        "1B+": null,
         "2B": [
-          17,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -4938,29 +4828,31 @@
       "name": "Bryan Reynolds",
       "team": "PIT",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 130,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          4
         ],
         "GB": [
-          3,
-          5
+          5,
+          7
         ],
         "FB": [
-          6,
-          8
-        ],
-        "BB": [
-          9,
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
+          13
+        ],
+        "1B": [
+          14,
           17
         ],
         "1B+": null,
@@ -4988,33 +4880,35 @@
       "team": "SAN",
       "bats": "R",
       "onBase": 10,
-      "speed": 13,
-      "points": 130,
-      "positions": [],
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
-        "SO": null,
-        "GB": [
+        "SO": [
           1,
-          3
+          1
         ],
-        "FB": [
-          4,
+        "GB": [
+          2,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          7
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          8,
-          17
+          14,
+          19
         ],
-        "1B+": [
-          18,
-          18
-        ],
+        "1B+": null,
         "2B": [
-          19,
+          20,
           20
         ],
         "3B": null,
@@ -5033,39 +4927,41 @@
       "name": "Vinnie Pasquantino",
       "team": "KAN",
       "bats": "R",
-      "onBase": 9,
-      "speed": 9,
-      "points": 260,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          4
-        ],
-        "BB": [
-          5,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          14
+          11
+        ],
+        "BB": [
+          12,
+          13
+        ],
+        "1B": [
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          17
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -5082,39 +4978,41 @@
       "name": "Trevor Larnach",
       "team": "MIN",
       "bats": "R",
-      "onBase": 9,
-      "speed": 10,
-      "points": 150,
-      "positions": [],
+      "onBase": 10,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          2
+          4,
+          7
         ],
         "FB": [
-          3,
-          4
+          8,
+          11
         ],
         "BB": [
-          5,
-          9
+          12,
+          14
         ],
         "1B": [
-          10,
-          16
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -5131,29 +5029,31 @@
       "name": "Jonathan India",
       "team": "KAN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 8,
-      "points": 70,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
+          15,
           18
         ],
         "1B+": null,
@@ -5177,42 +5077,41 @@
       "name": "Hunter Goodman",
       "team": "COL",
       "bats": "R",
-      "onBase": 10,
-      "speed": 9,
-      "points": 340,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          14
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          16
-        ],
-        "3B": [
-          17,
-          17
-        ],
-        "HR": [
           18,
+          18
+        ],
+        "3B": null,
+        "HR": [
+          19,
           20
         ]
       },
@@ -5229,42 +5128,41 @@
       "name": "Brandon Nimmo",
       "team": "NEW",
       "bats": "R",
-      "onBase": 10,
-      "speed": 14,
-      "points": 240,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          6
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          15
-        ],
-        "1B+": [
-          16,
-          16
-        ],
-        "2B": [
-          17,
+          14,
           18
+        ],
+        "1B+": null,
+        "2B": [
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -5281,42 +5179,44 @@
       "name": "Julio Rodr\u00edguez",
       "team": "SEA",
       "bats": "R",
-      "onBase": 10,
-      "speed": 20,
-      "points": 350,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
-        ],
-        "1B": [
-          10,
+          12,
           13
         ],
-        "1B+": [
+        "1B": [
           14,
-          15
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -5333,34 +5233,36 @@
       "name": "Lars Nootbaar",
       "team": "ST.",
       "bats": "R",
-      "onBase": 10,
-      "speed": 10,
-      "points": 100,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          17
+          14
+        ],
+        "1B": [
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -5382,39 +5284,41 @@
       "name": "Jorge Polanco",
       "team": "SEA",
       "bats": "R",
-      "onBase": 10,
-      "speed": 11,
-      "points": 320,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          14
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          17
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -5431,39 +5335,41 @@
       "name": "Josh Bell",
       "team": "WAS",
       "bats": "R",
-      "onBase": 10,
-      "speed": 8,
-      "points": 150,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          17
+          14
+        ],
+        "1B": [
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -5480,39 +5386,41 @@
       "name": "Shea Langeliers",
       "team": "ATH",
       "bats": "R",
-      "onBase": 10,
-      "speed": 12,
-      "points": 400,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
-        ],
-        "BB": [
-          6,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          14
+          11
+        ],
+        "BB": [
+          12,
+          13
+        ],
+        "1B": [
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          15,
-          17
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -5529,39 +5437,41 @@
       "name": "Seiya Suzuki",
       "team": "CHI",
       "bats": "R",
-      "onBase": 10,
-      "speed": 10,
-      "points": 250,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          15
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          17
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          18,
+          19,
           20
         ]
       },
@@ -5578,39 +5488,41 @@
       "name": "Mookie Betts",
       "team": "LOS",
       "bats": "R",
-      "onBase": 10,
-      "speed": 12,
-      "points": 190,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          4
-        ],
-        "FB": [
-          5,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          10
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          11,
-          17
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -5627,41 +5539,40 @@
       "name": "Paul Goldschmidt",
       "team": "NEW",
       "bats": "R",
-      "onBase": 10,
-      "speed": 11,
-      "points": 190,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          16
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          19
+          19,
+          20
         ],
         "3B": null,
-        "HR": [
-          20,
-          20
-        ]
+        "HR": null
       },
       "realStats": {
         "obp": 0.326,
@@ -5676,45 +5587,44 @@
       "name": "Byron Buxton",
       "team": "MIN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 21,
-      "points": 450,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          12
-        ],
-        "1B+": [
-          13,
-          14
-        ],
-        "2B": [
-          15,
-          15
-        ],
-        "3B": [
-          16,
+          14,
           16
         ],
-        "HR": [
+        "1B+": [
           17,
+          17
+        ],
+        "2B": [
+          18,
+          18
+        ],
+        "3B": null,
+        "HR": [
+          19,
           20
         ]
       },
@@ -5731,35 +5641,34 @@
       "name": "Chase Meidroth",
       "team": "CHI",
       "bats": "R",
-      "onBase": 10,
-      "speed": 16,
-      "points": 70,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          4
-        ],
-        "FB": [
-          5,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          10
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          11,
-          18
-        ],
-        "1B+": [
-          19,
+          15,
           19
         ],
+        "1B+": null,
         "2B": [
           20,
           20
@@ -5780,37 +5689,39 @@
       "name": "Bryson Stott",
       "team": "PHI",
       "bats": "R",
-      "onBase": 10,
-      "speed": 20,
-      "points": 190,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          15
-        ],
-        "1B+": [
-          16,
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -5832,38 +5743,40 @@
       "name": "Jung Hoo Lee",
       "team": "SAN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 13,
-      "points": 170,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
-          16
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": [
-          19,
+          20,
           20
         ],
         "HR": null
@@ -5881,37 +5794,39 @@
       "name": "Xander Bogaerts",
       "team": "SAN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 18,
-      "points": 190,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          14
+          14,
+          17
         ],
         "1B+": [
-          15,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
+          19,
           19
         ],
         "3B": null,
@@ -5933,39 +5848,41 @@
       "name": "Heliot Ramos",
       "team": "SAN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 11,
-      "points": 190,
-      "positions": [],
+      "onBase": 11,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          17
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -5982,39 +5899,41 @@
       "name": "Jose Altuve",
       "team": "HOU",
       "bats": "R",
-      "onBase": 10,
-      "speed": 13,
-      "points": 240,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          12
         ],
         "BB": [
-          7,
-          9
+          13,
+          14
         ],
         "1B": [
-          10,
-          16
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6031,10 +5950,12 @@
       "name": "Steven Kwan",
       "team": "CLE",
       "bats": "R",
-      "onBase": 10,
-      "speed": 17,
-      "points": 190,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
@@ -6042,26 +5963,26 @@
         ],
         "GB": [
           2,
-          4
-        ],
-        "FB": [
-          5,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
-          16
-        ],
-        "1B+": [
-          17,
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -6083,41 +6004,40 @@
       "name": "Alec Bohm",
       "team": "PHI",
       "bats": "R",
-      "onBase": 10,
-      "speed": 9,
-      "points": 200,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
-        ],
-        "BB": [
-          6,
           7
         ],
-        "1B": [
+        "FB": [
           8,
-          18
+          11
+        ],
+        "BB": [
+          12,
+          13
+        ],
+        "1B": [
+          14,
+          19
         ],
         "1B+": null,
         "2B": [
-          19,
-          19
-        ],
-        "3B": null,
-        "HR": [
           20,
           20
-        ]
+        ],
+        "3B": null,
+        "HR": null
       },
       "realStats": {
         "obp": 0.331,
@@ -6132,42 +6052,44 @@
       "name": "Jazz Chisholm Jr.",
       "team": "NEW",
       "bats": "R",
-      "onBase": 10,
-      "speed": 22,
-      "points": 360,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
-          3
-        ],
-        "FB": [
-          4,
           5
         ],
-        "BB": [
+        "GB": [
           6,
-          10
+          8
+        ],
+        "FB": [
+          9,
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          11,
-          13
+          15,
+          17
         ],
         "1B+": [
-          14,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -6184,39 +6106,41 @@
       "name": "Mike Yastrzemski",
       "team": "KAN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 12,
-      "points": 220,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
         ],
-        "BB": [
-          6,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          15
+        ],
+        "1B": [
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6233,43 +6157,42 @@
       "name": "Jarren Duran",
       "team": "BOS",
       "bats": "R",
-      "onBase": 10,
-      "speed": 18,
-      "points": 290,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          5
+          8,
+          11
         ],
         "BB": [
-          6,
-          9
-        ],
-        "1B": [
-          10,
+          12,
           13
         ],
-        "1B+": [
+        "1B": [
           14,
-          15
+          16
+        ],
+        "1B+": [
+          17,
+          17
         ],
         "2B": [
-          16,
-          18
-        ],
-        "3B": [
-          19,
+          18,
           19
         ],
+        "3B": null,
         "HR": [
           20,
           20
@@ -6288,37 +6211,39 @@
       "name": "Caleb Durbin",
       "team": "MIL",
       "bats": "R",
-      "onBase": 10,
-      "speed": 18,
-      "points": 170,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          10
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          11,
-          15
-        ],
-        "1B+": [
-          16,
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -6340,34 +6265,36 @@
       "name": "Andrew McCutchen",
       "team": "PIT",
       "bats": "R",
-      "onBase": 10,
-      "speed": 9,
-      "points": 70,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          6
+          8,
+          11
         ],
         "BB": [
-          7,
-          12
+          12,
+          14
         ],
         "1B": [
-          13,
-          17
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -6389,37 +6316,36 @@
       "name": "Josh Smith",
       "team": "TEX",
       "bats": "R",
-      "onBase": 10,
-      "speed": 14,
-      "points": 180,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
-          16
+          15,
+          18
         ],
-        "1B+": [
-          17,
-          17
-        ],
+        "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -6441,34 +6367,36 @@
       "name": "Carlos Correa",
       "team": "HOU",
       "bats": "R",
-      "onBase": 10,
-      "speed": 8,
-      "points": 190,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          17
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -6490,37 +6418,39 @@
       "name": "Zach McKinstry",
       "team": "DET",
       "bats": "R",
-      "onBase": 10,
-      "speed": 19,
-      "points": 270,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          5
+          8,
+          11
         ],
         "BB": [
-          6,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          14
-        ],
-        "1B+": [
-          15,
+          14,
           16
         ],
-        "2B": [
+        "1B+": [
           17,
+          17
+        ],
+        "2B": [
+          18,
           18
         ],
         "3B": [
@@ -6545,34 +6475,36 @@
       "name": "Spencer Torkelson",
       "team": "DET",
       "bats": "R",
-      "onBase": 11,
-      "speed": 9,
-      "points": 230,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          12
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          13,
-          16
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
+          18,
           18
         ],
         "3B": null,
@@ -6594,42 +6526,41 @@
       "name": "Cody Bellinger",
       "team": "NEW",
       "bats": "R",
-      "onBase": 10,
-      "speed": 14,
-      "points": 300,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          14
         ],
         "1B": [
-          9,
-          15
-        ],
-        "1B+": [
-          16,
-          16
-        ],
-        "2B": [
-          17,
+          15,
           18
+        ],
+        "1B+": null,
+        "2B": [
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6646,42 +6577,44 @@
       "name": "Randy Arozarena",
       "team": "SEA",
       "bats": "R",
-      "onBase": 10,
-      "speed": 21,
-      "points": 280,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          4
         ],
         "GB": [
-          3,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          5
-        ],
-        "BB": [
-          6,
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
           14
         ],
-        "1B+": [
+        "1B": [
           15,
-          16
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6698,39 +6631,41 @@
       "name": "Brent Rooker",
       "team": "ATH",
       "bats": "R",
-      "onBase": 11,
-      "speed": 11,
-      "points": 280,
-      "positions": [],
+      "onBase": 12,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          15
+          13
+        ],
+        "1B": [
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6747,42 +6682,41 @@
       "name": "Manny Machado",
       "team": "SAN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 14,
-      "points": 300,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          12
         ],
         "BB": [
-          6,
-          8
+          13,
+          14
         ],
         "1B": [
-          9,
-          15
-        ],
-        "1B+": [
-          16,
-          16
-        ],
-        "2B": [
-          17,
+          15,
           18
+        ],
+        "1B+": null,
+        "2B": [
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6799,39 +6733,41 @@
       "name": "Ben Rice",
       "team": "NEW",
       "bats": "R",
-      "onBase": 10,
-      "speed": 10,
-      "points": 310,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          12
         ],
         "BB": [
-          6,
-          10
+          13,
+          15
         ],
         "1B": [
-          11,
-          15
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          16,
-          17
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          18,
+          20,
           20
         ]
       },
@@ -6848,43 +6784,42 @@
       "name": "Elly De La Cruz",
       "team": "CIN",
       "bats": "R",
-      "onBase": 10,
-      "speed": 22,
-      "points": 290,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
           5
         ],
-        "BB": [
+        "GB": [
           6,
-          9
+          8
+        ],
+        "FB": [
+          9,
+          12
+        ],
+        "BB": [
+          13,
+          14
         ],
         "1B": [
-          10,
-          13
+          15,
+          17
         ],
         "1B+": [
-          14,
-          16
-        ],
-        "2B": [
-          17,
+          18,
           18
         ],
-        "3B": [
+        "2B": [
           19,
           19
         ],
+        "3B": null,
         "HR": [
           20,
           20
@@ -6903,39 +6838,41 @@
       "name": "Matt Chapman",
       "team": "SAN",
       "bats": "R",
-      "onBase": 11,
-      "speed": 13,
-      "points": 230,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          13
+          11
+        ],
+        "BB": [
+          12,
+          15
         ],
         "1B": [
-          14,
-          16
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -6952,39 +6889,41 @@
       "name": "Alec Burleson",
       "team": "ST.",
       "bats": "R",
-      "onBase": 11,
-      "speed": 11,
-      "points": 310,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          4
+          3,
+          6
         ],
         "FB": [
-          5,
-          7
+          7,
+          11
         ],
         "BB": [
-          8,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          16
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7001,33 +6940,35 @@
       "name": "Xavier Edwards",
       "team": "MIA",
       "bats": "R",
-      "onBase": 11,
-      "speed": 21,
-      "points": 200,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          4
-        ],
-        "FB": [
-          5,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
-          17
+          14,
+          18
         ],
         "1B+": [
-          18,
+          19,
           19
         ],
         "2B": [
@@ -7050,39 +6991,41 @@
       "name": "Ian Happ",
       "team": "CHI",
       "bats": "R",
-      "onBase": 11,
-      "speed": 11,
-      "points": 210,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          13
+          11
+        ],
+        "BB": [
+          12,
+          15
         ],
         "1B": [
-          14,
-          16
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7099,45 +7042,47 @@
       "name": "Corbin Carroll",
       "team": "ARI",
       "bats": "R",
-      "onBase": 11,
-      "speed": 21,
-      "points": 480,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
-        ],
-        "1B": [
-          11,
-          12
-        ],
-        "1B+": [
-          13,
+          12,
           14
         ],
-        "2B": [
+        "1B": [
           15,
           16
         ],
-        "3B": [
+        "1B+": [
           17,
+          17
+        ],
+        "2B": [
+          18,
           18
         ],
-        "HR": [
+        "3B": [
           19,
+          19
+        ],
+        "HR": [
+          20,
           20
         ]
       },
@@ -7154,39 +7099,41 @@
       "name": "Willson Contreras",
       "team": "ST.",
       "bats": "R",
-      "onBase": 11,
-      "speed": 11,
-      "points": 300,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          13
+        ],
+        "1B": [
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7203,39 +7150,41 @@
       "name": "Michael Busch",
       "team": "CHI",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 340,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          15
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          17
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          18,
+          19,
           20
         ]
       },
@@ -7252,42 +7201,44 @@
       "name": "Christian Yelich",
       "team": "MIL",
       "bats": "R",
-      "onBase": 11,
-      "speed": 15,
-      "points": 270,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          13
         ],
-        "1B+": [
-          17,
+        "1B": [
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
           18
         ],
+        "2B": [
+          19,
+          19
+        ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7304,42 +7255,44 @@
       "name": "Wyatt Langford",
       "team": "TEX",
       "bats": "R",
-      "onBase": 11,
-      "speed": 19,
-      "points": 260,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          13
+          11
         ],
-        "1B": [
-          14,
+        "BB": [
+          12,
           14
         ],
-        "1B+": [
+        "1B": [
           15,
-          16
+          17
+        ],
+        "1B+": [
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7356,10 +7309,12 @@
       "name": "Nico Hoerner",
       "team": "CHI",
       "bats": "R",
-      "onBase": 11,
-      "speed": 21,
-      "points": 260,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
@@ -7367,26 +7322,26 @@
         ],
         "GB": [
           2,
-          4
-        ],
-        "FB": [
-          5,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          8
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          9,
-          16
-        ],
-        "1B+": [
-          17,
+          14,
           18
         ],
-        "2B": [
+        "1B+": [
           19,
+          19
+        ],
+        "2B": [
+          20,
           20
         ],
         "3B": null,
@@ -7405,42 +7360,44 @@
       "name": "Francisco Lindor",
       "team": "NEW",
       "bats": "R",
-      "onBase": 11,
-      "speed": 20,
-      "points": 380,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          14
+          14,
+          17
         ],
         "1B+": [
-          15,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7457,39 +7414,41 @@
       "name": "Tyler Soderstrom",
       "team": "ATH",
       "bats": "R",
-      "onBase": 11,
-      "speed": 12,
-      "points": 360,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          16
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7506,29 +7465,31 @@
       "name": "Sal Frelick",
       "team": "MIL",
       "bats": "R",
-      "onBase": 11,
-      "speed": 17,
-      "points": 280,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
+          14,
           17
         ],
         "1B+": [
@@ -7558,39 +7519,41 @@
       "name": "Pete Alonso",
       "team": "NEW",
       "bats": "R",
-      "onBase": 11,
-      "speed": 9,
-      "points": 340,
-      "positions": [],
+      "onBase": 13,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          15
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7607,36 +7570,38 @@
       "name": "Trent Grisham",
       "team": "NEW",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 320,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          12
+          12,
+          15
         ],
         "1B": [
-          13,
-          17
+          16,
+          18
         ],
         "1B+": null,
         "2B": null,
         "3B": null,
         "HR": [
-          18,
+          19,
           20
         ]
       },
@@ -7653,29 +7618,31 @@
       "name": "Alejandro Kirk",
       "team": "TOR",
       "bats": "R",
-      "onBase": 11,
-      "speed": 9,
-      "points": 230,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
+          14,
           18
         ],
         "1B+": null,
@@ -7702,41 +7669,40 @@
       "name": "J.P. Crawford",
       "team": "SEA",
       "bats": "R",
-      "onBase": 11,
-      "speed": 12,
-      "points": 200,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          18
+          14
+        ],
+        "1B": [
+          15,
+          19
         ],
         "1B+": null,
         "2B": [
-          19,
-          19
-        ],
-        "3B": null,
-        "HR": [
           20,
           20
-        ]
+        ],
+        "3B": null,
+        "HR": null
       },
       "realStats": {
         "obp": 0.349,
@@ -7751,37 +7717,39 @@
       "name": "Gunnar Henderson",
       "team": "BAL",
       "bats": "R",
-      "onBase": 11,
-      "speed": 21,
-      "points": 320,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          6
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          14
+          14,
+          17
         ],
         "1B+": [
-          15,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
+          19,
           19
         ],
         "3B": null,
@@ -7803,42 +7771,44 @@
       "name": "James Wood",
       "team": "WAS",
       "bats": "R",
-      "onBase": 11,
-      "speed": 14,
-      "points": 320,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          5
         ],
         "GB": [
-          3,
-          4
+          6,
+          8
         ],
         "FB": [
-          5,
-          6
-        ],
-        "BB": [
-          7,
+          9,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          15
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": [
-          16,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -7855,37 +7825,39 @@
       "name": "Maikel Garcia",
       "team": "KAN",
       "bats": "R",
-      "onBase": 11,
-      "speed": 18,
-      "points": 330,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
-          15
+          14,
+          17
         ],
         "1B+": [
-          16,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
+          19,
           19
         ],
         "3B": null,
@@ -7907,29 +7879,31 @@
       "name": "Gavin Lux",
       "team": "CIN",
       "bats": "R",
-      "onBase": 11,
-      "speed": 9,
-      "points": 140,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
+          15,
           18
         ],
         "1B+": null,
@@ -7953,42 +7927,44 @@
       "name": "Bobby Witt Jr.",
       "team": "KAN",
       "bats": "R",
-      "onBase": 11,
-      "speed": 22,
-      "points": 440,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          9
+          12,
+          13
         ],
         "1B": [
-          10,
-          12
+          14,
+          16
         ],
         "1B+": [
-          13,
-          15
+          17,
+          17
         ],
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -8005,37 +7981,39 @@
       "name": "Josh Naylor",
       "team": "SEA",
       "bats": "R",
-      "onBase": 11,
-      "speed": 21,
-      "points": 390,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          15
-        ],
-        "1B+": [
-          16,
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -8057,29 +8035,31 @@
       "name": "Nolan Schanuel",
       "team": "LOS",
       "bats": "R",
-      "onBase": 11,
-      "speed": 11,
-      "points": 190,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
           11
         ],
-        "1B": [
+        "BB": [
           12,
+          14
+        ],
+        "1B": [
+          15,
           18
         ],
         "1B+": null,
@@ -8106,34 +8086,36 @@
       "name": "Brendan Donovan",
       "team": "ST.",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 260,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          17
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           20
         ],
         "3B": null,
@@ -8152,10 +8134,12 @@
       "name": "Jacob Wilson",
       "team": "ATH",
       "bats": "R",
-      "onBase": 11,
-      "speed": 11,
-      "points": 290,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
@@ -8163,23 +8147,23 @@
         ],
         "GB": [
           2,
-          4
-        ],
-        "FB": [
-          5,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          8
+          11
+        ],
+        "BB": [
+          12,
+          12
         ],
         "1B": [
-          9,
-          17
+          13,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -8201,29 +8185,31 @@
       "name": "Marcell Ozuna",
       "team": "ATL",
       "bats": "R",
-      "onBase": 11,
-      "speed": 8,
-      "points": 190,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          2
+          5,
+          7
         ],
         "FB": [
-          3,
-          5
+          8,
+          11
         ],
         "BB": [
-          6,
-          12
+          12,
+          15
         ],
         "1B": [
-          13,
+          16,
           18
         ],
         "1B+": null,
@@ -8250,34 +8236,36 @@
       "name": "William Contreras",
       "team": "MIL",
       "bats": "R",
-      "onBase": 10,
-      "speed": 11,
-      "points": 200,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          3
         ],
         "GB": [
-          2,
-          2
+          4,
+          7
         ],
         "FB": [
-          3,
-          4
+          8,
+          11
         ],
         "BB": [
-          5,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
-          17
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -8299,43 +8287,42 @@
       "name": "Trea Turner",
       "team": "PHI",
       "bats": "R",
-      "onBase": 11,
-      "speed": 22,
-      "points": 400,
-      "positions": [],
+      "onBase": 14,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          8
-        ],
-        "1B": [
-          9,
+          12,
           13
         ],
-        "1B+": [
+        "1B": [
           14,
-          16
+          17
         ],
-        "2B": [
-          17,
+        "1B+": [
+          18,
           18
         ],
-        "3B": [
+        "2B": [
           19,
           19
         ],
+        "3B": null,
         "HR": [
           20,
           20
@@ -8354,34 +8341,36 @@
       "name": "Bo Bichette",
       "team": "TOR",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 320,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          8
+          11
+        ],
+        "BB": [
+          12,
+          12
         ],
         "1B": [
-          9,
-          15
+          13,
+          17
         ],
         "1B+": null,
         "2B": [
-          16,
+          18,
           19
         ],
         "3B": null,
@@ -8403,42 +8392,41 @@
       "name": "Bryce Harper",
       "team": "PHI",
       "bats": "R",
-      "onBase": 11,
-      "speed": 14,
-      "points": 340,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          6
-        ],
-        "BB": [
-          7,
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
           14
         ],
-        "1B+": [
+        "1B": [
           15,
-          15
+          17
         ],
+        "1B+": null,
         "2B": [
-          16,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -8455,39 +8443,41 @@
       "name": "Mike Trout",
       "team": "LOS",
       "bats": "R",
-      "onBase": 11,
-      "speed": 9,
-      "points": 220,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          5
         ],
         "GB": [
-          3,
-          3
+          6,
+          8
         ],
         "FB": [
-          4,
-          6
+          9,
+          11
         ],
         "BB": [
-          7,
-          13
+          12,
+          15
         ],
         "1B": [
-          14,
-          17
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -8504,37 +8494,39 @@
       "name": "Brice Turang",
       "team": "MIL",
       "bats": "R",
-      "onBase": 11,
-      "speed": 19,
-      "points": 290,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          10
+          12,
+          13
         ],
         "1B": [
-          11,
-          15
-        ],
-        "1B+": [
-          16,
+          14,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -8556,29 +8548,31 @@
       "name": "Gleyber Torres",
       "team": "DET",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 160,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          12
+          12,
+          14
         ],
         "1B": [
-          13,
+          15,
           18
         ],
         "1B+": null,
@@ -8605,42 +8599,41 @@
       "name": "Cal Raleigh",
       "team": "SEA",
       "bats": "R",
-      "onBase": 11,
-      "speed": 14,
-      "points": 510,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "C"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
-          3
-        ],
-        "FB": [
-          4,
           5
         ],
-        "BB": [
+        "GB": [
           6,
+          8
+        ],
+        "FB": [
+          9,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          14
-        ],
-        "1B+": [
-          15,
           15
         ],
-        "2B": [
+        "1B": [
           16,
-          16
+          17
+        ],
+        "1B+": null,
+        "2B": [
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          17,
+          19,
           20
         ]
       },
@@ -8656,42 +8649,44 @@
       "name": "Jos\u00e9 Ram\u00edrez",
       "team": "CLE",
       "bats": "R",
-      "onBase": 11,
-      "speed": 22,
-      "points": 460,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "3B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          9
+          12,
+          14
         ],
         "1B": [
-          10,
-          13
+          15,
+          17
         ],
         "1B+": [
-          14,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -8708,38 +8703,43 @@
       "name": "TJ Friedl",
       "team": "CIN",
       "bats": "R",
-      "onBase": 12,
-      "speed": 13,
-      "points": 210,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          19
+          14
+        ],
+        "1B": [
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          20,
-          20
+          19,
+          19
         ],
         "3B": null,
-        "HR": null
+        "HR": [
+          20,
+          20
+        ]
       },
       "realStats": {
         "obp": 0.362,
@@ -8754,37 +8754,39 @@
       "name": "Jeremy Pe\u00f1a",
       "team": "HOU",
       "bats": "R",
-      "onBase": 11,
-      "speed": 19,
-      "points": 400,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          5
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          6,
-          8
+          12,
+          13
         ],
         "1B": [
-          9,
-          14
+          14,
+          17
         ],
         "1B+": [
-          15,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
+          19,
           19
         ],
         "3B": null,
@@ -8806,41 +8808,40 @@
       "name": "Jake Cronenworth",
       "team": "SAN",
       "bats": "R",
-      "onBase": 11,
-      "speed": 10,
-      "points": 200,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          4
         ],
         "GB": [
-          2,
-          3
+          5,
+          7
         ],
         "FB": [
-          4,
-          5
+          8,
+          11
         ],
         "BB": [
-          6,
-          12
+          12,
+          15
         ],
         "1B": [
-          13,
-          18
+          16,
+          19
         ],
         "1B+": null,
         "2B": [
-          19,
-          19
-        ],
-        "3B": null,
-        "HR": [
           20,
           20
-        ]
+        ],
+        "3B": null,
+        "HR": null
       },
       "realStats": {
         "obp": 0.363,
@@ -8855,39 +8856,41 @@
       "name": "Kyle Schwarber",
       "team": "PHI",
       "bats": "R",
-      "onBase": 13,
-      "speed": 12,
-      "points": 440,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          3
-        ],
-        "GB": [
-          4,
           5
         ],
-        "FB": [
+        "GB": [
           6,
           8
         ],
-        "BB": [
+        "FB": [
           9,
-          14
+          11
+        ],
+        "BB": [
+          12,
+          15
         ],
         "1B": [
-          15,
-          16
+          16,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
-          17
+          18,
+          18
         ],
         "3B": null,
         "HR": [
-          18,
+          19,
           20
         ]
       },
@@ -8903,34 +8906,36 @@
       "name": "Yandy D\u00edaz",
       "team": "TAM",
       "bats": "R",
-      "onBase": 12,
-      "speed": 10,
-      "points": 370,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
-        ],
-        "FB": [
-          4,
+          3,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          9
+          11
+        ],
+        "BB": [
+          12,
+          13
         ],
         "1B": [
-          10,
-          17
+          14,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -8952,29 +8957,31 @@
       "name": "Ryan O'Hearn",
       "team": "SAN",
       "bats": "R",
-      "onBase": 13,
-      "speed": 10,
-      "points": 260,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          3
         ],
         "GB": [
-          3,
-          5
+          4,
+          7
         ],
         "FB": [
-          6,
-          8
+          8,
+          11
         ],
         "BB": [
-          9,
-          12
+          12,
+          14
         ],
         "1B": [
-          13,
+          15,
           18
         ],
         "1B+": null,
@@ -9001,39 +9008,41 @@
       "name": "Matt Olson",
       "team": "ATL",
       "bats": "R",
-      "onBase": 12,
-      "speed": 9,
-      "points": 340,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          12
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          13,
-          16
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9050,39 +9059,41 @@
       "name": "Freddie Freeman",
       "team": "LOS",
       "bats": "R",
-      "onBase": 12,
-      "speed": 11,
-      "points": 380,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          13
+        ],
+        "1B": [
+          14,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          18,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9099,37 +9110,39 @@
       "name": "Fernando Tatis Jr.",
       "team": "SAN",
       "bats": "R",
-      "onBase": 12,
-      "speed": 21,
-      "points": 310,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
-          12
+          11
+        ],
+        "BB": [
+          12,
+          14
         ],
         "1B": [
-          13,
-          15
-        ],
-        "1B+": [
-          16,
+          15,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -9151,39 +9164,41 @@
       "name": "Rafael Devers",
       "team": "SAN",
       "bats": "R",
-      "onBase": 12,
-      "speed": 9,
-      "points": 310,
-      "positions": [],
+      "onBase": 15,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          5
         ],
         "GB": [
-          3,
-          4
+          6,
+          8
         ],
         "FB": [
-          5,
-          7
+          9,
+          11
         ],
         "BB": [
-          8,
-          13
+          12,
+          15
         ],
         "1B": [
-          14,
-          16
+          16,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9200,42 +9215,44 @@
       "name": "Kyle Tucker",
       "team": "CHI",
       "bats": "R",
-      "onBase": 12,
-      "speed": 20,
-      "points": 430,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          12
+          12,
+          14
         ],
         "1B": [
-          13,
-          15
-        ],
-        "1B+": [
-          16,
+          15,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
           18
         ],
+        "2B": [
+          19,
+          19
+        ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9252,39 +9269,41 @@
       "name": "Ketel Marte",
       "team": "ARI",
       "bats": "R",
-      "onBase": 12,
-      "speed": 10,
-      "points": 420,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "2B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
         ],
-        "BB": [
-          7,
+        "FB": [
+          8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          14
+        ],
+        "1B": [
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9301,34 +9320,36 @@
       "name": "Vladimir Guerrero Jr.",
       "team": "TOR",
       "bats": "R",
-      "onBase": 12,
-      "speed": 11,
-      "points": 400,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "1B"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
+          7,
+          11
         ],
         "BB": [
-          6,
-          10
+          12,
+          14
         ],
         "1B": [
-          11,
-          17
+          15,
+          18
         ],
         "1B+": null,
         "2B": [
-          18,
+          19,
           19
         ],
         "3B": null,
@@ -9350,37 +9371,39 @@
       "name": "Geraldo Perdomo",
       "team": "ARI",
       "bats": "R",
-      "onBase": 12,
-      "speed": 19,
-      "points": 420,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "SS"
+      ],
       "chart": {
         "SO": [
           1,
-          1
+          2
         ],
         "GB": [
-          2,
-          3
+          3,
+          6
         ],
         "FB": [
-          4,
-          5
-        ],
-        "BB": [
-          6,
+          7,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          16
+          14
         ],
-        "1B+": [
-          17,
+        "1B": [
+          15,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
+          18
+        ],
+        "2B": [
+          19,
           19
         ],
         "3B": null,
@@ -9402,45 +9425,44 @@
       "name": "Shohei Ohtani",
       "team": "LOS",
       "bats": "R",
-      "onBase": 12,
-      "speed": 16,
-      "points": 580,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "TWP"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
-          3
-        ],
-        "FB": [
-          4,
           5
         ],
-        "BB": [
+        "GB": [
           6,
+          8
+        ],
+        "FB": [
+          9,
           11
         ],
-        "1B": [
+        "BB": [
           12,
           14
         ],
-        "1B+": [
+        "1B": [
           15,
-          15
-        ],
-        "2B": [
-          16,
           16
         ],
-        "3B": [
+        "1B+": [
           17,
           17
         ],
-        "HR": [
+        "2B": [
           18,
+          18
+        ],
+        "3B": null,
+        "HR": [
+          19,
           20
         ]
       },
@@ -9456,42 +9478,44 @@
       "name": "George Springer",
       "team": "TOR",
       "bats": "R",
-      "onBase": 13,
-      "speed": 17,
-      "points": 520,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "DH"
+      ],
       "chart": {
         "SO": [
           1,
-          2
+          3
         ],
         "GB": [
-          3,
-          4
-        ],
-        "FB": [
-          5,
+          4,
           7
         ],
-        "BB": [
+        "FB": [
           8,
           11
         ],
-        "1B": [
+        "BB": [
           12,
-          15
+          14
+        ],
+        "1B": [
+          15,
+          17
         ],
         "1B+": [
-          16,
-          16
+          18,
+          18
         ],
         "2B": [
-          17,
-          18
+          19,
+          19
         ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9507,42 +9531,44 @@
       "name": "Juan Soto",
       "team": "NEW",
       "bats": "R",
-      "onBase": 13,
-      "speed": 22,
-      "points": 520,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          1
-        ],
-        "GB": [
-          2,
           3
         ],
-        "FB": [
+        "GB": [
           4,
-          6
+          7
+        ],
+        "FB": [
+          8,
+          11
         ],
         "BB": [
-          7,
-          13
-        ],
-        "1B": [
-          14,
+          12,
           15
         ],
-        "1B+": [
+        "1B": [
           16,
           17
         ],
-        "2B": [
+        "1B+": [
           18,
           18
         ],
+        "2B": [
+          19,
+          19
+        ],
         "3B": null,
         "HR": [
-          19,
+          20,
           20
         ]
       },
@@ -9559,34 +9585,36 @@
       "name": "Aaron Judge",
       "team": "NEW",
       "bats": "R",
-      "onBase": 15,
-      "speed": 13,
-      "points": 670,
-      "positions": [],
+      "onBase": 16,
+      "speed": null,
+      "points": null,
+      "positions": [
+        "OF"
+      ],
       "chart": {
         "SO": [
           1,
-          2
-        ],
-        "GB": [
-          3,
           4
         ],
-        "FB": [
+        "GB": [
           5,
           6
         ],
-        "BB": [
+        "FB": [
           7,
-          12
+          9
+        ],
+        "BB": [
+          10,
+          14
         ],
         "1B": [
-          13,
-          16
+          15,
+          17
         ],
         "1B+": null,
         "2B": [
-          17,
+          18,
           18
         ],
         "3B": null,

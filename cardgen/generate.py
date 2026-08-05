@@ -130,7 +130,8 @@ def fetch_player_stats(season: int, stat_group: str):
         'season': season,
         'group': stat_group,
         'playerPool': 'QUALIFIED',
-        'limit': 500
+        'limit': 500,
+        'hydrate': 'person'  # Include full player info with position
     }
 
     response = requests.get(leaders_url, params=params)
@@ -197,10 +198,18 @@ def process_hitter_data(players: list, min_pa: int) -> List[dict]:
         slg = tb / ab if ab > 0 else 0.4
         avg = h / ab if ab > 0 else 0.25
 
+        # Get primary position
+        primary_pos = player.get('primaryPosition', {})
+        position_abbrev = primary_pos.get('abbreviation', 'DH')
+        # Normalize OF positions
+        if position_abbrev in ['LF', 'CF', 'RF']:
+            position_abbrev = 'OF'
+
         hitters.append({
             'id': player.get('id', 0),
             'name': player.get('fullName', 'Unknown'),
             'team': team.get('abbreviation', team.get('name', 'UNK'))[:3].upper(),
+            'position': position_abbrev,
             'pa': pa,
             'ab': ab,
             'h': h,
@@ -388,6 +397,9 @@ def build_hitter_card(hitter: dict, league_constants: dict, season: int) -> dict
         chart = card_result['chart']
         source = 'fallback'
 
+    # Use positions from bot result, or fallback to position from API
+    final_positions = positions if positions else [hitter.get('position', 'DH')]
+
     return {
         'id': f"h-{hitter['id']}",
         'name': hitter['name'],
@@ -396,7 +408,7 @@ def build_hitter_card(hitter: dict, league_constants: dict, season: int) -> dict
         'onBase': on_base,
         'speed': speed,
         'points': points,
-        'positions': positions if positions else [],
+        'positions': final_positions,
         'chart': chart,
         'realStats': {
             'obp': round(hitter['obp'], 3),
