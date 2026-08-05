@@ -2899,9 +2899,8 @@ body {
 
 /* Right Panel - Roster */
 .draft-roster-panel {
-  flex: 0 0 380px;
-  min-width: 340px;
-  max-width: 420px;
+  flex: 0 0 400px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   padding: 16px 20px;
@@ -2969,7 +2968,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2px;
-  padding: 8px 6px;
+  padding: 8px;
+  height: 72px;
   transition: all 0.15s ease;
   background: rgba(255, 255, 255, 0.02);
 }
@@ -2987,8 +2987,6 @@ body {
   border-color: #F5D130;
   background: linear-gradient(135deg, #1A2433 0%, #141C28 100%);
   cursor: pointer;
-  padding: 8px;
-  gap: 2px;
 }
 
 .roster-slot.filled:hover {
@@ -3204,6 +3202,7 @@ body {
   border-left: 3px solid #F5D130;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.012);
+  height: 52px;
 }
 
 .draft-lineup-pitcher-label {
@@ -3254,7 +3253,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  min-height: 52px;
+  height: 52px;
 }
 
 .draft-batting-slot.empty {
