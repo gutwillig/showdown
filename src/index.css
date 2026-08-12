@@ -2792,12 +2792,12 @@ body {
 .draft-card {
   cursor: pointer;
   border: 1px solid #232F3F;
-  border-radius: 6px;
+  border-radius: 8px;
   background: linear-gradient(162deg, #16202E 0%, #111925 100%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 140px;
+  min-height: 150px;
   transition: transform 0.12s ease, border-color 0.12s ease;
 }
 
@@ -2820,7 +2820,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 7px 4px 7px;
+  padding: 8px 10px 6px 10px;
+  gap: 8px;
 }
 
 .draft-card-pos {
@@ -2830,77 +2831,72 @@ body {
   letter-spacing: 0.08em;
   color: #0B111B;
   background: #F5D130;
-  padding: 2px 5px;
+  padding: 2px 6px;
   border-radius: 2px;
+  flex-shrink: 0;
 }
 
 .draft-card-team {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 9px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #7E8CA0;
+  text-align: right;
 }
 
 .draft-card-photo {
   position: relative;
-  height: 40px;
-  margin: 0 7px;
-  border-radius: 3px;
+  height: 44px;
+  margin: 0 10px;
+  border-radius: 4px;
   background-color: #0E1622;
   background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 7px);
   border: 1px solid #1D2836;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 4px 6px;
+  align-items: center;
+  justify-content: center;
 }
 
 .draft-card-stat-large {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 0.78;
+  font-size: 28px;
+  line-height: 1;
   color: #F5D130;
 }
 
 .draft-card-name {
-  padding: 6px 7px 0 7px;
+  padding: 8px 10px 0 10px;
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
+  font-size: 11px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #EDF2F8;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: center;
 }
 
 .draft-card-stat-label {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 7px;
-  letter-spacing: 0.14em;
-  color: #F5D130;
-  opacity: 0.75;
-  padding: 2px 7px 0 7px;
-  text-transform: uppercase;
+  display: none;
 }
 
 .draft-card-footer {
   margin-top: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px 7px 6px 7px;
+  justify-content: center;
+  padding: 8px 10px;
   border-top: 1px solid #1C2634;
-  margin-top: 6px;
 }
 
 .draft-card-sub {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 8px;
-  letter-spacing: 0.08em;
+  font-size: 9px;
+  letter-spacing: 0.06em;
   color: #6B7A8E;
 }
 
