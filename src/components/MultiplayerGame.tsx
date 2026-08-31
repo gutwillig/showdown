@@ -133,8 +133,12 @@ export function MultiplayerGame() {
   const isMyTurn = waitingForPlayerId === playerId;
   const waitingForName = waitingForPlayerId === hostId ? hostName : guestName;
 
-  // Scores
-  const scores = getTotalScore(lineScore);
+  // Scores - include current inning runs (not yet in lineScore until half ends)
+  const baseScores = getTotalScore(lineScore);
+  const scores = {
+    away: baseScores.away + (isTopHalf ? inningState.runs : 0),
+    home: baseScores.home + (!isTopHalf ? inningState.runs : 0)
+  };
 
   // Game over
   if (gamePhase === 'gameOver' || winner) {
