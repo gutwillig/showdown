@@ -14,7 +14,24 @@ interface CardProps {
   highlighted?: boolean;
   highlightedRoll?: number;
   showHighlightedBand?: boolean;
+  /** Value currently flickering on the swing die - lights the matching row faintly */
+  scanRoll?: number | null;
+  /** This card's chart is in play (advantage) */
+  active?: boolean;
 }
+
+export const OUTCOME_NAMES: Record<OutcomeType, string> = {
+  PU: 'Pop Up',
+  SO: 'Strikeout',
+  GB: 'Ground Out',
+  FB: 'Fly Out',
+  BB: 'Walk',
+  '1B': 'Single',
+  '1B+': 'Single+',
+  '2B': 'Double',
+  '3B': 'Triple',
+  HR: 'Home Run'
+};
 
 // Team colors for card accents
 const TEAM_COLORS: Record<string, { primary: string; secondary: string }> = {
@@ -52,7 +69,7 @@ const TEAM_COLORS: Record<string, { primary: string; secondary: string }> = {
 
 const DEFAULT_COLORS = { primary: '#1a365d', secondary: '#c53030' };
 
-function getTeamColors(team: string) {
+export function getTeamColors(team: string) {
   return TEAM_COLORS[team] || DEFAULT_COLORS;
 }
 
@@ -72,22 +89,6 @@ function buildChartBands(chart: Chart): { range: string; outcome: OutcomeType; s
   return bands;
 }
 
-function getOutcomeColor(outcome: OutcomeType): string {
-  const colors: Record<OutcomeType, string> = {
-    'PU': '#4a5568',
-    'SO': '#4a5568',
-    'GB': '#4a5568',
-    'FB': '#4a5568',
-    'BB': '#3182ce',
-    '1B': '#38a169',
-    '1B+': '#38a169',
-    '2B': '#d69e2e',
-    '3B': '#dd6b20',
-    'HR': '#e53e3e'
-  };
-  return colors[outcome];
-}
-
 function isOutcome(outcome: OutcomeType): boolean {
   return ['PU', 'SO', 'GB', 'FB'].includes(outcome);
 }
@@ -100,7 +101,9 @@ export function Card({
   glowing,
   highlighted,
   highlightedRoll,
-  showHighlightedBand
+  showHighlightedBand,
+  scanRoll,
+  active
 }: CardProps) {
   const isPitcher = type === 'pitcher';
   const pitcherCard = card as PitcherCard;
@@ -113,25 +116,25 @@ export function Card({
   const chartBands = buildChartBands(card.chart);
 
   // Calculate which outcome is highlighted
-  let highlightedOutcome: OutcomeType | null = null;
-  if (showHighlightedBand && highlightedRoll) {
+  const findBand = (roll: number): OutcomeType | null => {
     for (const band of chartBands) {
       const [start, end] = band.range.includes('-')
         ? band.range.split('-').map(Number)
         : [Number(band.range), Number(band.range)];
-      if (highlightedRoll >= start && highlightedRoll <= end) {
-        highlightedOutcome = band.outcome;
-        break;
-      }
+      if (roll >= start && roll <= end) return band.outcome;
     }
-  }
+    return null;
+  };
+  const highlightedOutcome = showHighlightedBand && highlightedRoll ? findBand(highlightedRoll) : null;
+  const scanOutcome = scanRoll ? findBand(scanRoll) : null;
 
   const cardClasses = [
     'showdown-card',
     size === 'small' && 'showdown-card-small',
     dimmed && 'dimmed',
     glowing && 'glowing',
-    highlighted && 'highlighted'
+    highlighted && 'highlighted',
+    active && 'is-active'
   ].filter(Boolean).join(' ');
 
   // Get positions for hitters
@@ -193,27 +196,23 @@ export function Card({
         )}
 
         {/* Chart */}
-        <div className="card-chart">
+        <div className="card-chart" role="table" aria-label={`${card.name} chart`}>
+          <div className="chart-head" role="row">
+            <span role="columnheader">Roll</span>
+            <span role="columnheader">Result</span>
+          </div>
           {chartBands.map((band, i) => {
             const isHighlighted = highlightedOutcome === band.outcome;
+            const isScan = !isHighlighted && scanOutcome === band.outcome;
             return (
               <div
                 key={i}
-                className={`chart-band ${isHighlighted ? 'chart-band-highlighted' : ''}`}
-                style={{
-                  backgroundColor: isHighlighted ? getOutcomeColor(band.outcome) : undefined,
-                  borderLeftColor: getOutcomeColor(band.outcome)
-                }}
+                role="row"
+                className={`chart-band ${isOutcome(band.outcome) ? 'is-out' : 'is-onbase'} ${isHighlighted ? 'chart-band-highlighted' : ''} ${isScan ? 'chart-band-scan' : ''}`}
               >
-                <span className="chart-band-range">{band.range}</span>
-                <span
-                  className="chart-band-outcome"
-                  style={{
-                    backgroundColor: isOutcome(band.outcome) ? '#4a5568' : getOutcomeColor(band.outcome),
-                    color: 'white'
-                  }}
-                >
-                  {band.outcome}
+                <span className="chart-band-range" role="cell">{band.range}</span>
+                <span className="chart-band-outcome" role="cell">
+                  {OUTCOME_NAMES[band.outcome]}
                 </span>
               </div>
             );

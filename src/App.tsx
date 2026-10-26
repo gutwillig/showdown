@@ -14,7 +14,9 @@ import { Sandbox } from './components/Sandbox';
 import { HalfInning } from './components/HalfInning';
 import { Lobby } from './components/Lobby';
 import { MultiplayerGame } from './components/MultiplayerGame';
+import { AppHeader } from './components/AppHeader';
 import './index.css';
+import './theme.css';
 
 function App() {
   const { cards, setCards, mode, setMode } = useGameStore();
@@ -115,13 +117,7 @@ function App() {
       }
       return (
         <div className="exhibition-container">
-          <header className="header">
-            <button className="back-btn" onClick={handleBackToHome}>
-              ← Back
-            </button>
-            <div className="logo">SHOWDOWN DIGITAL</div>
-            <div className="mode-label">Exhibition</div>
-          </header>
+          <AppHeader onBack={handleBackToHome} right={<span className="mode-label">Exhibition</span>} />
           <main className="main">
             <ExhibitionGame />
           </main>
@@ -133,12 +129,7 @@ function App() {
     if (route.page === 'home' && window.location.hash.includes('solo')) {
       return (
         <div className="solo-container">
-          <header className="header">
-            <button className="back-btn" onClick={handleBackToHome}>
-              ← Back
-            </button>
-            <div className="logo">SHOWDOWN DIGITAL</div>
-            <nav className="nav">
+          <AppHeader onBack={handleBackToHome} right={<nav className="nav">
               <button
                 className={`nav-btn ${mode === 'sandbox' ? 'active' : ''}`}
                 onClick={() => setMode('sandbox')}
@@ -151,8 +142,7 @@ function App() {
               >
                 Half-Inning
               </button>
-            </nav>
-          </header>
+            </nav>} />
           <main className="main">
             {mode === 'sandbox' ? <Sandbox /> : <HalfInning />}
           </main>

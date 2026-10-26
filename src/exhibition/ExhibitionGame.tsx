@@ -1,30 +1,50 @@
 /**
  * Exhibition Game Screen
- * Main game UI for 3-inning exhibition mode
- * Two-step at-bat flow: PITCH -> advantage -> SWING -> result
+ * Calm card-table layout: slim score strip, pitcher | dice tray + field | batter, game log.
+ * Two-step at-bat: PITCH -> advantage -> SWING -> result.
+ * Big line score only appears at the inning break.
  */
 
-import { useExhibitionStore } from './exhibitionStore';
+import { useExhibitionStore, type PlayLogEntry } from './exhibitionStore';
 import { getTotalScore } from '../multiplayer/protocol';
-import { Card } from '../components/Card';
-import { ScoreboardScoreOnly } from '../components/Scoreboard';
+import { LineScoreBoard } from '../components/TableParts';
+import { AtBatStage } from './AtBatStage';
 import type { OutcomeType } from '../data/types';
 
-function getOutcomeColor(outcome: OutcomeType): string {
-  const colors: Record<OutcomeType, string> = {
-    'PU': '#6b7280',
-    'SO': '#6b7280',
-    'GB': '#6b7280',
-    'FB': '#6b7280',
-    'BB': '#60a5fa',
-    '1B': '#34d399',
-    '1B+': '#34d399',
-    '2B': '#fbbf24',
-    '3B': '#f97316',
-    'HR': '#ef4444'
-  };
-  return colors[outcome];
+const VERBS: Record<OutcomeType, string> = {
+  PU: 'pops up',
+  SO: 'strikes out',
+  GB: 'grounds out',
+  FB: 'flies out',
+  BB: 'draws a walk',
+  '1B': 'singles',
+  '1B+': 'singles, runners take an extra base',
+  '2B': 'doubles',
+  '3B': 'triples',
+  HR: 'homers'
+};
+
+const lastName = (n: string) => n.split(' ').slice(-1)[0];
+
+export function playText(e: Pick<PlayLogEntry, 'batterName' | 'outcome' | 'runsScored'>) {
+  let t = `${lastName(e.batterName)} ${VERBS[e.outcome]}`;
+  if (e.outcome === 'HR') t += e.runsScored > 1 ? ` — ${e.runsScored} runs score` : ' — solo shot';
+  else if (e.runsScored > 0) t += ` — ${e.runsScored} run${e.runsScored > 1 ? 's' : ''} score${e.runsScored === 1 ? 's' : ''}`;
+  return t;
 }
+
+export function resultTone(o: OutcomeType): 'out' | 'onbase' | 'big' {
+  if (['PU', 'SO', 'GB', 'FB'].includes(o)) return 'out';
+  if (o === 'HR' || o === '3B') return 'big';
+  return 'onbase';
+}
+
+const halfLabel = (inning: number, top: boolean) => `${top ? 'Top' : 'Bot'} ${inning}`;
+const ordinal = (n: number) => {
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};
 
 export function ExhibitionGame() {
   const {
@@ -39,14 +59,11 @@ export function ExhibitionGame() {
     homeBatterIndex,
     awayBatterIndex,
     playPhase,
-    partialAtBat,
-    lastAtBat,
-    animatingDice,
     winner,
     gamePhase,
-    performPitch,
-    performSwing,
-    advanceGame,
+    playLog,
+    teamHits,
+    startNextHalf,
     resetGame,
     goToSetup
   } = useExhibitionStore();
@@ -55,263 +72,153 @@ export function ExhibitionGame() {
     return <div className="loading">Loading game state...</div>;
   }
 
-  // Current matchup
-  const battingRoster = isTopHalf ? awayRoster : homeRoster;
-  const pitchingRoster = isTopHalf ? homeRoster : awayRoster;
-  const batterIndex = isTopHalf ? awayBatterIndex : homeBatterIndex;
+  const committed = getTotalScore(lineScore);
 
-  // During result phase, show the batter who just hit (before index advance)
-  const displayBatterIndex = playPhase === 'result' && lastAtBat
-    ? (batterIndex === 0 ? 8 : batterIndex - 1)
-    : batterIndex;
-  const currentBatter = battingRoster.lineup[displayBatterIndex];
-  const currentPitcher = pitchingRoster.pitcher;
-
-  // Scores
-  const scores = getTotalScore(lineScore);
-
-  // Team names
-  const battingTeamName = isTopHalf ? awayTeamName : homeTeamName;
-  const pitchingTeamName = isTopHalf ? homeTeamName : awayTeamName;
-
-  // Game over screen
+  /* ---------- Game over ---------- */
   if (gamePhase === 'gameOver' || winner) {
     const winnerName = winner === 'home' ? homeTeamName : awayTeamName;
-
+    const finalScores = getTotalScore(lineScore);
+    const heroes = [...playLog].reverse().filter(p => p.runsScored > 0).slice(0, 4);
     return (
-      <div className="game-screen game-over-screen">
-        <div className="game-over-banner">
-          <h1>Game Over!</h1>
-          <p>{winnerName} wins!</p>
+      <div className="break-screen">
+        <BreakHero
+          kicker="Final"
+          title={`${winnerName} win`}
+          awayName={awayTeamName}
+          homeName={homeTeamName}
+          away={finalScores.away}
+          home={finalScores.home}
+        />
+        <LineScoreBoard
+          awayName={awayTeamName}
+          homeName={homeTeamName}
+          away={lineScore.away}
+          home={lineScore.home}
+          awayHits={teamHits.away}
+          homeHits={teamHits.home}
+          status="Final"
+        />
+        <div className="break-grid">
+          <section className="paper-panel">
+            <header className="paper-head"><h2>{winnerName} win</h2><span className="paper-status">{Math.max(finalScores.away, finalScores.home)}–{Math.min(finalScores.away, finalScores.home)}</span></header>
+            <RecapList plays={heroes} empty="A pitchers' duel from start to finish." />
+          </section>
+          <section className="paper-panel">
+            <header className="paper-head"><h2>Box</h2></header>
+            <ul className="notes-list">
+              <li>{awayTeamName}: {finalScores.away} R, {teamHits.away} H</li>
+              <li>{homeTeamName}: {finalScores.home} R, {teamHits.home} H</li>
+              <li>{playLog.length} plate appearances</li>
+            </ul>
+          </section>
         </div>
-
-        <div className="final-score">
-          <div className="line-score-table">
-            <div className="line-score-header">
-              <span className="team-col"></span>
-              {lineScore.away.map((_, i) => (
-                <span key={i} className="inning-col">{i + 1}</span>
-              ))}
-              <span className="total-col">R</span>
-            </div>
-            <div className="line-score-row">
-              <span className="team-col">{awayTeamName}</span>
-              {lineScore.away.map((runs, i) => (
-                <span key={i} className="inning-col">{runs}</span>
-              ))}
-              <span className="total-col">{scores.away}</span>
-            </div>
-            <div className="line-score-row">
-              <span className="team-col">{homeTeamName}</span>
-              {lineScore.home.map((runs, i) => (
-                <span key={i} className="inning-col">{runs}</span>
-              ))}
-              <span className="total-col">{scores.home}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="game-over-actions">
-          <button className="btn btn-primary" onClick={resetGame}>
-            Play Again
-          </button>
-          <button className="btn btn-secondary" onClick={goToSetup}>
-            New Game
-          </button>
+        <div className="break-actions">
+          <button className="btn btn-primary btn-large" onClick={resetGame}>Play Again</button>
+          <button className="btn btn-secondary" onClick={goToSetup}>New Matchup</button>
         </div>
       </div>
     );
   }
 
-  // Half-inning transition
+  /* ---------- Inning break: the scoreboard reset ---------- */
   if (playPhase === 'halfInningEnd') {
+    // State has already flipped to the upcoming half; the half that just ended is the previous one
+    const endedTop = !isTopHalf;
+    const endedInning = isTopHalf ? inning - 1 : inning;
+    const halfPlays = playLog.filter(p => p.inning === endedInning && p.isTopHalf === endedTop);
+    const notable = halfPlays.filter(p => p.runsScored > 0 || !['PU', 'SO', 'GB', 'FB'].includes(p.outcome));
+    const ks = halfPlays.filter(p => p.outcome === 'SO').length;
+    const runs = halfPlays.reduce((s, p) => s + p.runsScored, 0);
+    const battingTeam = endedTop ? awayTeamName : homeTeamName;
+    const fieldingRoster = endedTop ? homeRoster : awayRoster;
+    const lead = committed.away === committed.home
+      ? `All square at ${committed.away}`
+      : `${committed.away > committed.home ? awayTeamName : homeTeamName} lead ${Math.max(committed.away, committed.home)}–${Math.min(committed.away, committed.home)}`;
+    const nextLabel = `Start ${isTopHalf ? 'Top' : 'Bottom'} ${inning}`;
+    const dueUp = (isTopHalf ? awayRoster : homeRoster).lineup;
+    const dueIdx = isTopHalf ? awayBatterIndex : homeBatterIndex;
+
     return (
-      <div className="game-screen half-inning-transition">
-        <div className="transition-content">
-          <h2>End of {isTopHalf ? 'Top' : 'Bottom'} {inning}</h2>
-          <div className="transition-score">
-            <div className="score-team">
-              <span className="score-name">{awayTeamName}</span>
-              <span className="score-value">{scores.away}</span>
-            </div>
-            <div className="score-divider">-</div>
-            <div className="score-team">
-              <span className="score-name">{homeTeamName}</span>
-              <span className="score-value">{scores.home}</span>
-            </div>
-          </div>
-          <p className="transition-hint">
-            {!isTopHalf ? `Top of ${inning + 1} coming up...` : `${homeTeamName} coming to bat...`}
-          </p>
+      <div className="break-screen">
+        <BreakHero
+          kicker={`${endedTop ? 'Middle' : 'End'} of the ${ordinal(endedInning)}`}
+          title={lead}
+          awayName={awayTeamName}
+          homeName={homeTeamName}
+          away={committed.away}
+          home={committed.home}
+        />
+        <LineScoreBoard
+          awayName={awayTeamName}
+          homeName={homeTeamName}
+          away={lineScore.away}
+          home={lineScore.home}
+          awayHits={teamHits.away}
+          homeHits={teamHits.home}
+          status={`${endedTop ? 'Mid' : 'End'} ${ordinal(endedInning)}`}
+        />
+        <div className="break-grid">
+          <section className="paper-panel">
+            <header className="paper-head">
+              <h2>Inning Recap</h2>
+              <span className="paper-status">{halfLabel(endedInning, endedTop)}</span>
+            </header>
+            {notable.length === 0 && ks === 3 ? (
+              <p className="recap-empty">{lastName(fieldingRoster.pitcher.name)} strikes out the side.</p>
+            ) : (
+              <RecapList plays={notable} empty={`${lastName(fieldingRoster.pitcher.name)} sets them down in order.`} />
+            )}
+          </section>
+          <section className="paper-panel">
+            <header className="paper-head"><h2>Game Notes</h2></header>
+            <ul className="notes-list">
+              <li>{lead}</li>
+              <li>{battingTeam}: {runs} run{runs === 1 ? '' : 's'} on {halfPlays.filter(p => ['1B', '1B+', '2B', '3B', 'HR'].includes(p.outcome)).length} hits this half</li>
+              {ks > 0 && <li>{lastName(fieldingRoster.pitcher.name)} with {ks} strikeout{ks > 1 ? 's' : ''} in the inning</li>}
+              <li>Due up: {[0, 1, 2].map(k => lastName(dueUp[(dueIdx + k) % 9].name)).join(', ')}</li>
+            </ul>
+          </section>
+        </div>
+        <div className="break-actions">
+          <button className="btn btn-primary btn-large" onClick={startNextHalf} autoFocus>
+            {nextLabel} →
+          </button>
         </div>
       </div>
     );
   }
 
+  /* ---------- In play ---------- */
+  return <AtBatStage />;
+}
+
+function RecapList({ plays, empty }: { plays: PlayLogEntry[]; empty: string }) {
+  if (plays.length === 0) return <p className="recap-empty">{empty}</p>;
   return (
-    <div className="game-screen exhibition-game">
-      {/* Scoreboard (score only - diamond shown in center) */}
-      <ScoreboardScoreOnly
-        awayName={awayTeamName}
-        homeName={homeTeamName}
-        awayScore={scores.away}
-        homeScore={scores.home}
-        inning={inning}
-        isTopHalf={isTopHalf}
-        awayLineScore={lineScore.away}
-        homeLineScore={lineScore.home}
-      />
-
-      {/* Main game area with 3-column layout */}
-      <div className="exhibition-main">
-        {/* Left: Pitcher Card */}
-        <div className="exhibition-pitcher-area">
-          <div className="card-role">{pitchingTeamName} Pitching</div>
-          <Card
-            card={currentPitcher}
-            type="pitcher"
-            highlighted={playPhase === 'pitching' || playPhase === 'pitchRolling'}
-            highlightedRoll={lastAtBat?.swingRoll}
-            showHighlightedBand={playPhase === 'result' && lastAtBat?.advantageHolder === 'pitcher'}
-          />
-
-          {/* Inning Summary */}
-          <div className="inning-summary">
-            <div className="inning-runs">{inningState.runs}</div>
-            <div className="inning-label">Runs This Inning</div>
-            <div className="inning-stats">
-              <div>
-                <div className="stat-value">{inningState.hits}</div>
-                <div className="stat-label">Hits</div>
-              </div>
-            </div>
+    <ul className="recap-list">
+      {plays.map(p => (
+        <li key={p.id}>
+          <span className="recap-inn">{halfLabel(p.inning, p.isTopHalf)}</span>
+          <div>
+            <strong>{playText(p)}</strong>
+            <span className="recap-sub">Roll {p.swingRoll} off {p.advantageHolder === 'pitcher' ? lastName(p.pitcherName) + "'s" : lastName(p.batterName) + "'s"} chart</span>
           </div>
-        </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-        {/* Center: Diamond + Dice + Controls */}
-        <div className="exhibition-center">
-          {/* Outs indicator */}
-          <div className="outs-indicator">
-            <div className={`out-dot ${inningState.outs >= 1 ? 'active' : ''}`} />
-            <div className={`out-dot ${inningState.outs >= 2 ? 'active' : ''}`} />
-            <div className={`out-dot ${inningState.outs >= 3 ? 'active' : ''}`} />
-          </div>
-          <div className="outs-label">{inningState.outs} Out{inningState.outs !== 1 ? 's' : ''}</div>
-
-          {/* Diamond with runners */}
-          <div className="diamond">
-            <div className="diamond-paths" />
-            <div className={`base first ${inningState.bases.first ? 'occupied' : ''}`} />
-            <div className={`base second ${inningState.bases.second ? 'occupied' : ''}`} />
-            <div className={`base third ${inningState.bases.third ? 'occupied' : ''}`} />
-            <div className="base home" />
-          </div>
-
-          {/* Dice Area */}
-          <div className="dice-area">
-            {/* Pitch dice */}
-            {(playPhase === 'pitchRolling' || partialAtBat || lastAtBat) && (
-              <div className="dice-row">
-                <div className="dice-result">
-                  <span className="dice-label">Pitch</span>
-                  <div className={`dice ${playPhase === 'pitchRolling' ? 'rolling' : ''}`}>
-                    {playPhase === 'pitchRolling'
-                      ? animatingDice
-                      : (partialAtBat?.pitchRoll || lastAtBat?.pitchRoll)}
-                  </div>
-                  {(partialAtBat || lastAtBat) && (
-                    <span className="dice-total">
-                      +{currentPitcher.control} = {partialAtBat?.pitchTotal || lastAtBat?.pitchTotal}
-                    </span>
-                  )}
-                </div>
-
-                {/* Swing dice - only show after pitch is resolved */}
-                {(playPhase === 'swingRolling' || lastAtBat) && (
-                  <div className="dice-result">
-                    <span className="dice-label">Swing</span>
-                    <div className={`dice ${playPhase === 'swingRolling' ? 'rolling' : ''}`}>
-                      {playPhase === 'swingRolling' ? animatingDice : lastAtBat?.swingRoll}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Advantage banner - show after pitch, during swing, or with result */}
-            {(partialAtBat || lastAtBat) && (
-              <div className={`advantage-banner ${partialAtBat?.advantageHolder || lastAtBat?.advantageHolder}`}>
-                {(partialAtBat?.advantageHolder || lastAtBat?.advantageHolder)?.toUpperCase()} ADVANTAGE
-              </div>
-            )}
-
-            {/* Outcome banner - only show on result */}
-            {playPhase === 'result' && lastAtBat && (
-              <div
-                className="outcome-banner"
-                style={{ background: getOutcomeColor(lastAtBat.outcome) }}
-              >
-                {lastAtBat.description}
-              </div>
-            )}
-          </div>
-
-          {/* Action buttons */}
-          <div className="controls">
-            {playPhase === 'pitching' && (
-              <button className="btn btn-primary btn-large" onClick={performPitch}>
-                PITCH
-              </button>
-            )}
-
-            {playPhase === 'pitchRolling' && (
-              <div className="rolling-indicator">Rolling...</div>
-            )}
-
-            {playPhase === 'pitched' && (
-              <button className="btn btn-primary btn-large" onClick={performSwing}>
-                SWING
-              </button>
-            )}
-
-            {playPhase === 'swingRolling' && (
-              <div className="rolling-indicator">Rolling...</div>
-            )}
-
-            {playPhase === 'result' && (
-              <button className="btn btn-primary btn-large" onClick={advanceGame}>
-                {inningState.outs >= 3 ? 'Next Inning' : 'Next Batter'}
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Right: Hitter Card + Lineup */}
-        <div className="exhibition-hitter-area">
-          <div className="card-role">{battingTeamName} Batting</div>
-          <Card
-            card={currentBatter}
-            type="hitter"
-            highlighted={playPhase === 'pitched' || playPhase === 'swingRolling'}
-            highlightedRoll={lastAtBat?.swingRoll}
-            showHighlightedBand={playPhase === 'result' && lastAtBat?.advantageHolder === 'hitter'}
-          />
-
-          {/* Lineup */}
-          <div className="lineup-area">
-            <div className="lineup-title">Lineup</div>
-            {battingRoster.lineup.map((hitter, i) => (
-              <div
-                key={hitter.id}
-                className={`lineup-item ${i === displayBatterIndex && inningState.outs < 3 ? 'current' : ''}`}
-              >
-                <span>{i + 1}. {hitter.name.split(' ').pop()}</span>
-                <span style={{ fontFamily: 'Oswald' }}>{hitter.onBase}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+function BreakHero({ kicker, title, awayName, homeName, away, home }: { kicker: string; title: string; awayName: string; homeName: string; away: number; home: number }) {
+  return (
+    <header className="break-hero">
+      <div className="break-kicker">{kicker}</div>
+      <div className="break-score">
+        <span className={`bh-team ${away > home ? 'is-lead' : ''}`}><span className="bh-name">{awayName}</span><span className="bh-runs">{away}</span></span>
+        <span className="bh-dash" aria-hidden="true" />
+        <span className={`bh-team ${home > away ? 'is-lead' : ''}`}><span className="bh-runs">{home}</span><span className="bh-name">{homeName}</span></span>
       </div>
-    </div>
+      <h1 className="break-title">{title}</h1>
+    </header>
   );
 }

@@ -16,6 +16,21 @@ type GamePhase = 'setup' | 'playing' | 'gameOver';
 type SetupStep = 'awayRoster' | 'homeRoster' | 'ready';
 type PlayPhase = 'pitching' | 'pitchRolling' | 'pitched' | 'swingRolling' | 'result' | 'halfInningEnd';
 
+export interface PlayLogEntry {
+  id: number;
+  inning: number;
+  isTopHalf: boolean;
+  outsBefore: number;
+  batterName: string;
+  pitcherName: string;
+  team: 'away' | 'home';
+  outcome: AtBatResult['outcome'];
+  runsScored: number;
+  swingRoll: number;
+  advantageHolder: 'pitcher' | 'hitter';
+  description: string;
+}
+
 interface PartialAtBat {
   pitchRoll: number;
   pitchTotal: number;
@@ -44,8 +59,13 @@ interface ExhibitionState {
   partialAtBat: PartialAtBat | null;
   lastAtBat: AtBatResult | null;
   animatingDice: number | null; // Current animating dice value
+  rollTarget: number | null; // Final face of the die currently rolling (drives the 3D tumble)
 
   winner: 'home' | 'away' | null;
+
+  // Play-by-play + box score
+  playLog: PlayLogEntry[];
+  teamHits: { away: number; home: number };
 
   // RNG
   rng: (() => number) | null;
@@ -58,6 +78,7 @@ interface ExhibitionState {
   performPitch: () => void;
   performSwing: () => void;
   advanceGame: () => void;
+  startNextHalf: () => void;
   resetGame: () => void;
   goToSetup: () => void;
 }
@@ -68,22 +89,22 @@ function animateDice(
   onFrame: (value: number) => void,
   onComplete: () => void
 ) {
-  const totalFrames = 15; // More frames for longer anticipation
+  // Tumble: fast flicker that decelerates (ease-out), then a held beat on the landed face
+  const delays = [40, 40, 45, 45, 50, 55, 60, 65, 75, 85, 100, 120, 145, 175, 210, 190];
   let frame = 0;
+  let last = 0;
 
   const animate = () => {
-    if (frame < totalFrames) {
-      // Show random numbers during animation
-      const randomValue = Math.floor(Math.random() * 20) + 1;
-      onFrame(randomValue);
+    if (frame < delays.length) {
+      let v = Math.floor(Math.random() * 20) + 1;
+      if (v === last) v = (v % 20) + 1;
+      last = v;
+      onFrame(v);
+      setTimeout(animate, delays[frame]);
       frame++;
-      // Slow down towards the end for dramatic effect
-      const delay = frame < 10 ? 50 : (frame < 13 ? 100 : 150);
-      setTimeout(animate, delay);
     } else {
-      // Show final value
       onFrame(finalValue);
-      setTimeout(onComplete, 400); // Longer pause to see the result
+      setTimeout(onComplete, 750);
     }
   };
 
@@ -110,7 +131,10 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
   partialAtBat: null,
   lastAtBat: null,
   animatingDice: null,
+  rollTarget: null,
   winner: null,
+  playLog: [],
+  teamHits: { away: 0, home: 0 },
 
   // RNG
   rng: null,
@@ -152,6 +176,8 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       lastAtBat: null,
       animatingDice: null,
       winner: null,
+      playLog: [],
+      teamHits: { away: 0, home: 0 },
       rng,
       seed
     });
@@ -167,7 +193,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       homeBatterIndex
     } = get();
 
-    if (!rng || !awayRoster || !homeRoster) return;
+    if (!rng || !awayRoster || !homeRoster || get().playPhase !== 'pitching') return;
 
     // Get current matchup
     const battingRoster = isTopHalf ? awayRoster : homeRoster;
@@ -182,7 +208,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
     const advantageHolder = determineAdvantage(pitchRoll, pitcher.control, batter.onBase);
 
     // Start animation
-    set({ playPhase: 'pitchRolling', animatingDice: 1 });
+    set({ playPhase: 'pitchRolling', animatingDice: 1, rollTarget: pitchRoll });
 
     // Animate the dice
     animateDice(
@@ -218,7 +244,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       partialAtBat
     } = get();
 
-    if (!rng || !awayRoster || !homeRoster || !partialAtBat) return;
+    if (!rng || !awayRoster || !homeRoster || !partialAtBat || get().playPhase !== 'pitched') return;
 
     // Get current matchup
     const battingRoster = isTopHalf ? awayRoster : homeRoster;
@@ -231,7 +257,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
     const swingRoll = rollD20(rng);
 
     // Start animation
-    set({ playPhase: 'swingRolling', animatingDice: 1 });
+    set({ playPhase: 'swingRolling', animatingDice: 1, rollTarget: swingRoll });
 
     // Animate the dice
     animateDice(
@@ -273,7 +299,27 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
           }
         }
 
+        const team: 'away' | 'home' = isTopHalf ? 'away' : 'home';
+        const isHit = ['1B', '1B+', '2B', '3B', 'HR'].includes(outcome);
+        const { playLog, teamHits } = get();
+        const entry: PlayLogEntry = {
+          id: playLog.length + 1,
+          inning,
+          isTopHalf,
+          outsBefore: inningState.outs,
+          batterName: batter.name,
+          pitcherName: pitcher.name,
+          team,
+          outcome,
+          runsScored,
+          swingRoll,
+          advantageHolder: partialAtBat.advantageHolder,
+          description: result.description
+        };
+
         set({
+          playLog: [...playLog, entry],
+          teamHits: isHit ? { ...teamHits, [team]: teamHits[team] + 1 } : teamHits,
           inningState: {
             outs: newInningState.outs,
             bases: newInningState.bases,
@@ -377,17 +423,16 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
         partialAtBat: null
       });
 
-      // Brief pause then continue to pitching phase
-      setTimeout(() => {
-        const current = get();
-        if (current.playPhase === 'halfInningEnd') {
-          set({ playPhase: 'pitching' });
-        }
-      }, 2000);
-
+      // Inning break waits for the player (scoreboard reset screen)
     } else {
       // Continue at-bat, back to pitching phase
       set({ playPhase: 'pitching', partialAtBat: null, lastAtBat: null });
+    }
+  },
+
+  startNextHalf: () => {
+    if (get().playPhase === 'halfInningEnd') {
+      set({ playPhase: 'pitching' });
     }
   },
 
@@ -412,6 +457,8 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
         lastAtBat: null,
         animatingDice: null,
         winner: null,
+        playLog: [],
+        teamHits: { away: 0, home: 0 },
         rng,
         seed
       });
@@ -437,6 +484,8 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       lastAtBat: null,
       animatingDice: null,
       winner: null,
+      playLog: [],
+      teamHits: { away: 0, home: 0 },
       rng: null,
       seed: 0
     });

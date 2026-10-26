@@ -8,7 +8,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useMultiplayerStore } from '../multiplayer/gameState';
 import { getTotalScore } from '../multiplayer/protocol';
 import { Card } from './Card';
-import { Scoreboard } from './Scoreboard';
+import { ScoreStrip, FieldDiamond, LineScoreBoard } from './TableParts';
+import { DiceTray } from './DiceTray';
+import { resultTone } from '../exhibition/ExhibitionGame';
 import type { OutcomeType } from '../data/types';
 
 // Local dice animation - cycles through random numbers before showing final value
@@ -193,24 +195,17 @@ export function MultiplayerGame() {
   // Half-inning transition
   if (phase === 'halfInningEnd') {
     return (
-      <div className="game-screen half-inning-transition">
-        <div className="transition-content">
-          <h2>End of {isTopHalf ? 'Top' : 'Bottom'} {inning}</h2>
-          <div className="transition-score">
-            <div className="score-team">
-              <span className="score-name">{awayName}</span>
-              <span className="score-value">{scores.away}</span>
-            </div>
-            <div className="score-divider">-</div>
-            <div className="score-team">
-              <span className="score-name">{homeName}</span>
-              <span className="score-value">{scores.home}</span>
-            </div>
-          </div>
-          <p className="transition-hint">
-            {!isTopHalf ? `Top of ${inning + 1} coming up...` : `${homeName} coming to bat...`}
-          </p>
-        </div>
+      <div className="break-screen">
+        <LineScoreBoard
+          awayName={awayName}
+          homeName={homeName}
+          away={lineScore.away}
+          home={lineScore.home}
+          status={`End of ${isTopHalf ? 'Top' : 'Bottom'} ${inning}`}
+        />
+        <p className="break-hint">
+          {!isTopHalf ? `Top of ${inning + 1} coming up…` : `${homeName} coming to bat…`}
+        </p>
       </div>
     );
   }
@@ -225,7 +220,7 @@ export function MultiplayerGame() {
       )}
 
       {/* Scoreboard */}
-      <Scoreboard
+      <ScoreStrip
         awayName={awayName}
         homeName={homeName}
         awayScore={scores.away}
@@ -234,8 +229,6 @@ export function MultiplayerGame() {
         isTopHalf={isTopHalf}
         outs={inningState.outs}
         bases={inningState.bases}
-        awayLineScore={lineScore.away}
-        homeLineScore={lineScore.home}
       />
 
       {/* Matchup */}
@@ -245,64 +238,27 @@ export function MultiplayerGame() {
           <Card
             card={currentPitcher}
             type="pitcher"
-            highlighted={phase === 'pitching'}
+            active={(partialAtBat?.advantageHolder ?? lastAtBat?.advantageHolder) === 'pitcher' && phase !== 'pitchRolling'}
+            scanRoll={phase === 'swingRolling' && isAnimating && partialAtBat?.advantageHolder === 'pitcher' ? localDiceValue : null}
             highlightedRoll={lastAtBat?.swingRoll}
             showHighlightedBand={phase === 'result' && lastAtBat?.advantageHolder === 'pitcher'}
           />
         </div>
 
         <div className="matchup-vs">
-          <div className="vs-text">VS</div>
-
-          {/* Dice and result display area */}
-          <div className="dice-area">
-            {/* Show dice during rolling or after rolled */}
-            {(phase === 'pitchRolling' || phase === 'swingRolling' || partialAtBat || lastAtBat) && (
-              <div className="dice-row">
-                {/* Pitch dice */}
-                <div className="dice-result">
-                  <span className="dice-label">Pitch</span>
-                  <div className={`dice ${phase === 'pitchRolling' && isAnimating ? 'rolling' : ''}`}>
-                    {phase === 'pitchRolling'
-                      ? localDiceValue
-                      : (partialAtBat?.pitchRoll || lastAtBat?.pitchRoll)}
-                  </div>
-                  {(partialAtBat || lastAtBat) && (
-                    <span className="dice-total">
-                      +{currentPitcher.control} = {partialAtBat?.pitchTotal || lastAtBat?.pitchTotal}
-                    </span>
-                  )}
-                </div>
-
-                {/* Show swing dice during swing rolling or after swing */}
-                {(phase === 'swingRolling' || lastAtBat) && (
-                  <div className="dice-result">
-                    <span className="dice-label">Swing</span>
-                    <div className={`dice ${phase === 'swingRolling' && isAnimating ? 'rolling' : ''}`}>
-                      {phase === 'swingRolling' ? localDiceValue : lastAtBat?.swingRoll}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Advantage banner - show after pitch (not during rolling) */}
-            {(partialAtBat || lastAtBat) && phase !== 'pitchRolling' && (
-              <div className={`advantage-banner ${partialAtBat?.advantageHolder || lastAtBat?.advantageHolder}`}>
-                {(partialAtBat?.advantageHolder || lastAtBat?.advantageHolder) === 'pitcher' ? 'PITCHER' : 'HITTER'} ADVANTAGE
-              </div>
-            )}
-
-            {/* Outcome banner - only show on result */}
-            {phase === 'result' && lastAtBat && (
-              <div
-                className="outcome-banner"
-                style={{ background: getOutcomeColor(lastAtBat.outcome) }}
-              >
-                {lastAtBat.description}
-              </div>
-            )}
-          </div>
+          <DiceTray
+            pitchValue={phase === 'pitchRolling' && isAnimating ? localDiceValue : (partialAtBat?.pitchRoll ?? lastAtBat?.pitchRoll ?? null)}
+            pitchRolling={phase === 'pitchRolling' && isAnimating}
+            swingValue={phase === 'swingRolling' && isAnimating ? localDiceValue : (lastAtBat?.swingRoll ?? null)}
+            swingRolling={phase === 'swingRolling' && isAnimating}
+            control={currentPitcher.control}
+            onBase={currentBatter.onBase}
+            pitchTotal={partialAtBat?.pitchTotal ?? lastAtBat?.pitchTotal}
+            advantage={phase === 'pitchRolling' ? null : (partialAtBat?.advantageHolder ?? lastAtBat?.advantageHolder ?? null)}
+            resultLabel={phase === 'result' && lastAtBat ? `${currentBatter.name.split(' ').pop()}: ${lastAtBat.description}` : null}
+            resultTone={phase === 'result' && lastAtBat ? resultTone(lastAtBat.outcome) : null}
+          />
+          <FieldDiamond bases={inningState.bases} outs={inningState.outs} />
         </div>
 
         <div className="matchup-card">
@@ -310,7 +266,8 @@ export function MultiplayerGame() {
           <Card
             card={currentBatter}
             type="hitter"
-            highlighted={phase === 'pitched' && partialAtBat?.advantageHolder === 'hitter'}
+            active={(partialAtBat?.advantageHolder ?? lastAtBat?.advantageHolder) === 'hitter' && phase !== 'pitchRolling'}
+            scanRoll={phase === 'swingRolling' && isAnimating && partialAtBat?.advantageHolder === 'hitter' ? localDiceValue : null}
             highlightedRoll={lastAtBat?.swingRoll}
             showHighlightedBand={phase === 'result' && lastAtBat?.advantageHolder === 'hitter'}
           />
