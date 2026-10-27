@@ -20,7 +20,7 @@ export function AtBatStage() {
   const {
     awayRoster, homeRoster, awayTeamName, homeTeamName, inning, isTopHalf, inningState, lineScore,
     homeBatterIndex, awayBatterIndex, playPhase, partialAtBat, lastAtBat, animatingDice, rollTarget,
-    playLog, performPitch, performSwing, advanceGame
+    playLog, runners, performPitch, performSwing, advanceGame
   } = s;
 
   // Result sounds
@@ -205,7 +205,7 @@ export function AtBatStage() {
 
       <div className="arena-foot">
         <div className="foot-field">
-          <FieldDiamond bases={inningState.bases} outs={inningState.outs} />
+          <FieldDiamond bases={inningState.bases} outs={inningState.outs} runners={runners} />
           <div className="due-up">
             <span className="due-up-label">On deck</span>
             {[1, 2].map(k => {

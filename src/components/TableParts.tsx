@@ -2,7 +2,8 @@
  * Shared table-top pieces: slim score strip, field diamond, line score board, game log.
  */
 
-import type { BaseState, OutcomeType } from '../data/types';
+import { useState, useEffect } from 'react';
+import type { BaseState, OutcomeType, RunnersOnBase } from '../data/types';
 
 /* ---------- Slim score strip (in-play) ---------- */
 
@@ -54,7 +55,36 @@ function MiniBases({ bases }: { bases: BaseState }) {
 
 /* ---------- Field diamond ---------- */
 
-export function FieldDiamond({ bases, outs }: { bases: BaseState; outs: number }) {
+interface FieldDiamondProps {
+  bases: BaseState;
+  outs: number;
+  runners?: RunnersOnBase;
+}
+
+// Runner dot positions (x, y) on the basepath
+const RUNNER_POSITIONS = {
+  first: { x: 145, y: 105 },
+  second: { x: 100, y: 55 },
+  third: { x: 55, y: 105 }
+};
+
+const lastName = (name: string) => name.split(' ').slice(-1)[0];
+
+export function FieldDiamond({ bases, outs, runners }: FieldDiamondProps) {
+  const [activeTooltip, setActiveTooltip] = useState<'first' | 'second' | 'third' | null>(null);
+
+  // Auto-hide tooltip after 2 seconds
+  useEffect(() => {
+    if (activeTooltip) {
+      const timer = setTimeout(() => setActiveTooltip(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [activeTooltip]);
+
+  const handleRunnerClick = (base: 'first' | 'second' | 'third') => {
+    setActiveTooltip(activeTooltip === base ? null : base);
+  };
+
   return (
     <div className="field">
       <svg viewBox="0 0 200 170" className="field-svg" aria-label={`Runners: ${[bases.first && 'first', bases.second && 'second', bases.third && 'third'].filter(Boolean).join(', ') || 'bases empty'}`}>
@@ -65,7 +95,35 @@ export function FieldDiamond({ bases, outs }: { bases: BaseState; outs: number }
         <g className={`field-base ${bases.first ? 'on' : ''}`}><rect x="148" y="88" width="14" height="14" transform="rotate(45 155 95)" /></g>
         <g className={`field-base ${bases.third ? 'on' : ''}`}><rect x="38" y="88" width="14" height="14" transform="rotate(45 45 95)" /></g>
         <path d="M94 146 L106 146 L106 152 L100 158 L94 152 Z" className="field-plate" />
+
+        {/* Runner dots */}
+        {bases.first && (
+          <g className="field-runner" onClick={() => handleRunnerClick('first')}>
+            <circle cx={RUNNER_POSITIONS.first.x} cy={RUNNER_POSITIONS.first.y} r="10" />
+          </g>
+        )}
+        {bases.second && (
+          <g className="field-runner" onClick={() => handleRunnerClick('second')}>
+            <circle cx={RUNNER_POSITIONS.second.x} cy={RUNNER_POSITIONS.second.y} r="10" />
+          </g>
+        )}
+        {bases.third && (
+          <g className="field-runner" onClick={() => handleRunnerClick('third')}>
+            <circle cx={RUNNER_POSITIONS.third.x} cy={RUNNER_POSITIONS.third.y} r="10" />
+          </g>
+        )}
       </svg>
+
+      {/* Runner name tooltips */}
+      {activeTooltip && runners?.[activeTooltip] && (
+        <div
+          className={`field-tooltip field-tooltip-${activeTooltip}`}
+          onClick={() => setActiveTooltip(null)}
+        >
+          {lastName(runners[activeTooltip]!)}
+        </div>
+      )}
+
       <div className="field-outs">{Math.min(outs, 3)} out{outs === 1 ? '' : 's'}</div>
     </div>
   );

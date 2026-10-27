@@ -5,12 +5,13 @@
  */
 
 import { create } from 'zustand';
-import type { AtBatResult } from '../data/types';
+import type { AtBatResult, RunnersOnBase } from '../data/types';
+import { emptyRunners } from '../data/types';
 import type { Roster, LineScore, InningHalfState } from '../multiplayer/protocol';
 import { createInningHalfState, getTotalScore } from '../multiplayer/protocol';
 import { createRNG, createRandomSeed, rollD20 } from '../engine/rng';
 import { determineAdvantage, lookupChart, getOutcomeDescription, applyAtBatResult } from '../engine/engine';
-import { advanceRunners } from '../engine/baserunning';
+import { advanceRunners, advanceRunnerNames } from '../engine/baserunning';
 
 type GamePhase = 'setup' | 'playing' | 'gameOver';
 type SetupStep = 'awayRoster' | 'homeRoster' | 'ready';
@@ -62,6 +63,9 @@ interface ExhibitionState {
   rollTarget: number | null; // Final face of the die currently rolling (drives the 3D tumble)
 
   winner: 'home' | 'away' | null;
+
+  // Runner tracking (names on each base)
+  runners: RunnersOnBase;
 
   // Play-by-play + box score
   playLog: PlayLogEntry[];
@@ -133,6 +137,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
   animatingDice: null,
   rollTarget: null,
   winner: null,
+  runners: emptyRunners(),
   playLog: [],
   teamHits: { away: 0, home: 0 },
 
@@ -176,6 +181,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       lastAtBat: null,
       animatingDice: null,
       winner: null,
+      runners: emptyRunners(),
       playLog: [],
       teamHits: { away: 0, home: 0 },
       rng,
@@ -241,7 +247,8 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       awayBatterIndex,
       lineScore,
       inning,
-      partialAtBat
+      partialAtBat,
+      runners
     } = get();
 
     if (!rng || !awayRoster || !homeRoster || !partialAtBat || get().playPhase !== 'pitched') return;
@@ -268,6 +275,9 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
         const chart = partialAtBat.advantageHolder === 'pitcher' ? pitcher.chart : batter.chart;
         const outcome = lookupChart(chart, swingRoll);
         const { runsScored } = advanceRunners(inningState.bases, inningState.outs, outcome);
+
+        // Advance runner names
+        const { newRunners } = advanceRunnerNames(runners, batter.name, inningState.outs, outcome);
 
         const result: AtBatResult = {
           pitchRoll: partialAtBat.pitchRoll,
@@ -327,6 +337,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
             hits: newInningState.hits,
             batterIndex: newBatterIndex
           },
+          runners: newInningState.outs >= 3 ? emptyRunners() : newRunners,
           lastAtBat: result,
           partialAtBat: null,
           playPhase: 'result',
@@ -418,6 +429,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
         inning: nextInning,
         isTopHalf: nextIsTop,
         inningState: createInningHalfState(nextBatterIndex),
+        runners: emptyRunners(),
         playPhase: 'halfInningEnd',
         lastAtBat: null,
         partialAtBat: null
@@ -457,6 +469,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
         lastAtBat: null,
         animatingDice: null,
         winner: null,
+        runners: emptyRunners(),
         playLog: [],
         teamHits: { away: 0, home: 0 },
         rng,
@@ -484,6 +497,7 @@ export const useExhibitionStore = create<ExhibitionState>((set, get) => ({
       lastAtBat: null,
       animatingDice: null,
       winner: null,
+      runners: emptyRunners(),
       playLog: [],
       teamHits: { away: 0, home: 0 },
       rng: null,

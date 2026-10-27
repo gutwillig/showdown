@@ -439,6 +439,91 @@ kbd {
 .field-base rect { transition: fill .35s, transform .35s var(--ease-back); transform-box: fill-box; transform-origin: center; }
 .field-base { fill: rgba(239,230,208,0.85); stroke: #8A7351; }
 .field-base.on { fill: var(--brass); stroke: #8E6B22; }
+
+/* Runner dots */
+.field-runner { cursor: pointer; }
+.field-runner circle {
+  fill: var(--clay);
+  stroke: #fff;
+  stroke-width: 2;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  transition: transform 0.2s var(--ease-back), fill 0.2s;
+}
+.field-runner:hover circle {
+  transform: scale(1.15);
+  fill: #D05A3E;
+}
+.field-runner:active circle {
+  transform: scale(0.95);
+}
+
+/* Runner name tooltips */
+.field { position: relative; }
+.field-tooltip {
+  position: absolute;
+  background: rgba(0,0,0,0.85);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+.field-tooltip::after {
+  content: '';
+  position: absolute;
+  border: 5px solid transparent;
+}
+.field-tooltip-first {
+  right: 15%;
+  top: 45%;
+}
+.field-tooltip-first::after {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: rgba(0,0,0,0.85);
+}
+.field-tooltip-second {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+}
+.field-tooltip-second::after {
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border-top-color: rgba(0,0,0,0.85);
+}
+.field-tooltip-third {
+  left: 15%;
+  top: 45%;
+}
+.field-tooltip-third::after {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: rgba(0,0,0,0.85);
+}
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateX(-50%) scale(0.9); }
+  to { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+.field-tooltip-first, .field-tooltip-third {
+  animation: tooltipFadeInSide 0.2s ease-out;
+}
+@keyframes tooltipFadeInSide {
+  from { opacity: 0; scale: 0.9; }
+  to { opacity: 1; scale: 1; }
+}
+
 .field-outs { font-family: var(--font-display); color: var(--cream); font-size: 1rem; letter-spacing: 0.04em; }
 .due-up { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; align-items: baseline; font-size: 0.85rem; color: var(--text-secondary); }
 .due-up-label { font-family: var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; }

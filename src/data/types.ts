@@ -69,6 +69,17 @@ export interface BaseState {
   third: boolean;
 }
 
+// Runner tracking - stores the name of the runner on each base (null if empty)
+export interface RunnersOnBase {
+  first: string | null;
+  second: string | null;
+  third: string | null;
+}
+
+export function emptyRunners(): RunnersOnBase {
+  return { first: null, second: null, third: null };
+}
+
 export interface HalfInningState {
   outs: number;
   bases: BaseState;

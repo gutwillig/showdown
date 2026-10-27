@@ -3,11 +3,16 @@
  * Isolated for phase 2 additions (speed-based, steals, double plays)
  */
 
-import type { BaseState, HalfInningState, OutcomeType } from '../data/types';
+import type { BaseState, HalfInningState, OutcomeType, RunnersOnBase } from '../data/types';
 
 export interface BaserunningResult {
   newBases: BaseState;
   runsScored: number;
+}
+
+export interface RunnerAdvanceResult {
+  newRunners: RunnersOnBase;
+  scoredRunners: string[];  // names of runners who scored
 }
 
 /**
@@ -170,4 +175,103 @@ export function isOut(outcome: OutcomeType): boolean {
  */
 export function isHit(outcome: OutcomeType): boolean {
   return outcome === '1B' || outcome === '1B+' || outcome === '2B' || outcome === '3B' || outcome === 'HR';
+}
+
+/**
+ * Advance runner names based on outcome (mirrors advanceRunners logic)
+ * @param runners Current runner names on bases
+ * @param batterName Name of the batter
+ * @param outs Current outs before the play
+ * @param outcome The outcome of the at-bat
+ */
+export function advanceRunnerNames(
+  runners: RunnersOnBase,
+  batterName: string,
+  outs: number,
+  outcome: OutcomeType
+): RunnerAdvanceResult {
+  const scored: string[] = [];
+
+  switch (outcome) {
+    case 'PU':
+    case 'SO':
+    case 'GB':
+      // Batter out, runners hold
+      return { newRunners: { ...runners }, scoredRunners: [] };
+
+    case 'FB':
+      // Sac fly: runner on 3rd scores if < 2 outs
+      if (runners.third && outs < 2) {
+        scored.push(runners.third);
+        return {
+          newRunners: { first: runners.first, second: runners.second, third: null },
+          scoredRunners: scored
+        };
+      }
+      return { newRunners: { ...runners }, scoredRunners: [] };
+
+    case 'BB':
+      // Walk: batter to 1st, runners advance only if forced
+      if (runners.first && runners.second && runners.third) {
+        scored.push(runners.third);
+      }
+      return {
+        newRunners: {
+          first: batterName,
+          second: runners.first,
+          third: (runners.first && runners.second) ? runners.second : runners.third
+        },
+        scoredRunners: scored
+      };
+
+    case '1B':
+      // Single: everyone advances 1
+      if (runners.third) scored.push(runners.third);
+      return {
+        newRunners: {
+          first: batterName,
+          second: runners.first,
+          third: runners.second
+        },
+        scoredRunners: scored
+      };
+
+    case '1B+':
+    case '2B':
+      // Double/1B+: everyone advances 2
+      if (runners.third) scored.push(runners.third);
+      if (runners.second) scored.push(runners.second);
+      return {
+        newRunners: {
+          first: null,
+          second: batterName,
+          third: runners.first
+        },
+        scoredRunners: scored
+      };
+
+    case '3B':
+      // Triple: all runners score, batter to 3rd
+      if (runners.first) scored.push(runners.first);
+      if (runners.second) scored.push(runners.second);
+      if (runners.third) scored.push(runners.third);
+      return {
+        newRunners: { first: null, second: null, third: batterName },
+        scoredRunners: scored
+      };
+
+    case 'HR':
+      // HR: everyone scores including batter
+      if (runners.first) scored.push(runners.first);
+      if (runners.second) scored.push(runners.second);
+      if (runners.third) scored.push(runners.third);
+      scored.push(batterName);
+      return {
+        newRunners: { first: null, second: null, third: null },
+        scoredRunners: scored
+      };
+
+    default:
+      return { newRunners: { ...runners }, scoredRunners: [] };
+  }
 }
