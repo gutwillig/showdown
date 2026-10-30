@@ -437,7 +437,7 @@ kbd {
 .field-mound { fill: #8A7351; }
 .field-plate { fill: var(--cream); }
 .field-base rect { transition: fill .35s, transform .35s var(--ease-back); transform-box: fill-box; transform-origin: center; }
-.field-base { fill: rgba(239,230,208,0.85); stroke: #8A7351; }
+.field-base { fill: transparent; stroke: transparent; }
 .field-base.on { fill: var(--brass); stroke: #8E6B22; }
 
 /* Runner dots */
